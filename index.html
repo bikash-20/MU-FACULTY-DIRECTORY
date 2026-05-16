@@ -1310,4 +1310,86 @@ if (FACULTY.length === 0) {
 <script>
 if("serviceWorker"in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js").then(r=>console.log("[PWA] SW registered:",r.scope)).catch(e=>console.log("[PWA] SW failed:",e))})}</script>
 </body>
+</body>
 </html>
+
+<!-- ══ PWA INSTALL BANNER ══════════════════════════════════════ -->
+<style>
+.pwa-install-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #1a5c38 0%, #2d7a45 100%);
+  color: #fff;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0,0,0,.3);
+  transform: translateY(100%);
+  transition: transform .4s cubic-bezier(0.25, 1, 0.5, 1);
+  font-family: 'DM Sans', sans-serif;
+}
+.pwa-install-banner.show { transform: translateY(0); }
+.pwa-install-banner .banner-content { display: flex; align-items: center; gap: 12px; flex: 1; }
+.pwa-install-banner .banner-icon { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+.pwa-install-banner .banner-text h4 { font-size: .95rem; font-weight: 600; margin: 0 0 2px 0; }
+.pwa-install-banner .banner-text p { font-size: .78rem; margin: 0; opacity: .85; }
+.pwa-install-banner .banner-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.pwa-install-banner .btn-install { background: #c9a84c; color: #0f1c14; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: .82rem; cursor: pointer; transition: all .2s; }
+.pwa-install-banner .btn-install:hover { background: #e8c970; transform: scale(1.02); }
+.pwa-install-banner .btn-dismiss { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.3); padding: 10px 14px; border-radius: 8px; font-size: .82rem; cursor: pointer; transition: all .2s; }
+.pwa-install-banner .btn-dismiss:hover { background: rgba(255,255,255,.25); }
+@media (max-width: 480px) { .pwa-install-banner { flex-direction: column; text-align: center; } .pwa-install-banner .banner-content { flex-direction: column; } .pwa-install-banner .banner-actions { width: 100%; justify-content: center; } }
+</style>
+
+<div id="pwa-install-banner" class="pwa-install-banner">
+  <div class="banner-content">
+    <img src="icons/icon-192.png" alt="MU ClassCraft" class="banner-icon">
+    <div class="banner-text">
+      <h4>📱 Install MU ClassCraft</h4>
+      <p>Add to home screen for quick access & offline use</p>
+    </div>
+  </div>
+  <div class="banner-actions">
+    <button class="btn-install" id="pwa-install-btn"><i class="bi bi-download"></i> Install</button>
+    <button class="btn-dismiss" id="pwa-dismiss-btn"><i class="bi bi-x"></i></button>
+  </div>
+</div>
+
+<script>
+(function() {
+  let deferredPrompt;
+  const banner = document.getElementById('pwa-install-banner');
+  const installBtn = document.getElementById('pwa-install-btn');
+  const dismissBtn = document.getElementById('pwa-dismiss-btn');
+
+  if (localStorage.getItem('pwaBannerDismissed')) return;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    setTimeout(() => banner.classList.add('show'), 1500);
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if (!deferredPrompt) {
+      alert('📱 To install:\n\n1. Tap the Share button (□↑)\n2. Scroll down\n3. Tap "Add to Home Screen"\n4. Tap "Add"');
+      return;
+    }
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') banner.classList.remove('show');
+    deferredPrompt = null;
+  });
+
+  dismissBtn.addEventListener('click', () => {
+    banner.classList.remove('show');
+    localStorage.setItem('pwaBannerDismissed', 'true');
+  });
+})();
+</script>
+</body></html>
