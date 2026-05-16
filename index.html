@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MU Faculty Directory | Metropolitan University</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --mu-green:   #1a5c38;
+      --mu-gold:    #c9a84c;
+      --mu-dark:    #0f1c14;
+      --mu-light:   #f5f7f5;
+      --mu-border:  #d4e4da;
+      --mu-card-bg: #ffffff;
+      --mu-muted:   #6b7c72;
+      --radius:     12px;
+      --shadow:     0 4px 24px rgba(26,92,56,.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--mu-light);
+      color: var(--mu-dark);
+      min-height: 100vh;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar-mu {
+      background: var(--mu-dark);
+      border-bottom: 3px solid var(--mu-gold);
+      padding: 0.6rem 0;
+    }
+    .navbar-mu .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: #fff !important;
+      letter-spacing: .02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-badge {
+      width: 40px; height: 40px;
+      background: var(--mu-gold);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--mu-dark);
+      flex-shrink: 0;
+    }
+    .navbar-mu .nav-link {
+      color: rgba(255,255,255,.75) !important;
+      font-size: .88rem;
+      font-weight: 500;
+      padding: .5rem .9rem !important;
+      border-radius: 6px;
+      transition: all .2s;
+    }
+    .navbar-mu .nav-link:hover,
+    .navbar-mu .nav-link.active {
+      color: #fff !important;
+      background: rgba(201,168,76,.15);
+    }
+    .navbar-toggler { border-color: rgba(255,255,255,.3); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--mu-dark) 0%, #1e4d2b 60%, #2d7a45 100%);
+      padding: 56px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+    }
+    .hero-title span { color: var(--mu-gold); }
+    .hero-sub {
+      color: rgba(255,255,255,.65);
+      font-size: .95rem;
+      font-weight: 300;
+      max-width: 500px;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 14px 28px;
+      color: #fff;
+      text-align: center;
+    }
+    .hero-stat .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--mu-gold);
+      display: block;
+    }
+    .hero-stat .lbl { font-size: .78rem; opacity: .65; }
+
+    /* ── STICKY SEARCH BAR ── */
+    .search-wrap {
+      background: #fff;
+      border-bottom: 1px solid var(--mu-border);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .search-input-group {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+    .search-input-group .bi-search {
+      position: absolute;
+      left: 16px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--mu-muted);
+      font-size: 1rem;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .search-input-group input {
+      padding-left: 44px;
+      height: 46px;
+      border: 2px solid var(--mu-border);
+      border-radius: var(--radius);
+      font-size: .93rem;
+      width: 100%;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      background: var(--mu-light);
+      color: var(--mu-dark);
+    }
+    .search-input-group input:focus {
+      border-color: var(--mu-green);
+      box-shadow: 0 0 0 4px rgba(26,92,56,.08);
+      background: #fff;
+    }
+    .filter-select {
+      height: 46px;
+      border: 2px solid var(--mu-border);
+      border-radius: var(--radius);
+      padding: 0 12px;
+      font-size: .86rem;
+      background: var(--mu-light);
+      color: var(--mu-dark);
+      cursor: pointer;
+      outline: none;
+      transition: border-color .2s;
+      min-width: 150px;
+    }
+    .filter-select:focus { border-color: var(--mu-green); }
+    #result-count {
+      font-size: .82rem;
+      color: var(--mu-muted);
+      white-space: nowrap;
+    }
+
+    /* ── GRID SECTION ── */
+    #teachers-grid { padding: 36px 0 64px; }
+
+    .grid-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--mu-dark);
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--mu-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .grid-heading .count-pill {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--mu-muted);
+      background: #eef5f0;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── TEACHER CARD ── */
+    .teacher-card {
+      background: var(--mu-card-bg);
+      border: 1px solid var(--mu-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform .22s, box-shadow .22s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .teacher-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(26,92,56,.15);
+    }
+
+    /* Card green header */
+    .card-top {
+      background: linear-gradient(135deg, var(--mu-green) 0%, #2d7a45 100%);
+      padding: 20px 18px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .avatar {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      border: 3px solid rgba(255,255,255,.28);
+      display: grid;
+      place-items: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .card-header-info { flex: 1; min-width: 0; }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: .98rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 2px;
+      line-height: 1.25;
+    }
+    .card-designation {
+      font-size: .76rem;
+      color: rgba(255,255,255,.75);
+      margin: 0 0 7px;
+    }
+    /* Full department name row */
+    .dept-name-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      margin-bottom: 6px;
+    }
+    .dept-name-row .bi {
+      color: var(--mu-gold);
+      font-size: .78rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .dept-full-name {
+      font-size: .73rem;
+      color: rgba(255,255,255,.68);
+      line-height: 1.35;
+    }
+    /* Short department code badge */
+    .dept-badge {
+      display: inline-block;
+      background: rgba(201,168,76,.2);
+      border: 1px solid rgba(201,168,76,.45);
+      color: var(--mu-gold);
+      font-size: .67rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 20px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* Card body */
+    .card-body-mu {
+      padding: 16px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .info-block {}
+    .info-label {
+      font-size: .67rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--mu-muted);
+      margin-bottom: 4px;
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: .84rem;
+      color: var(--mu-dark);
+    }
+    .info-row .bi {
+      color: var(--mu-green);
+      font-size: .92rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .info-row a {
+      color: var(--mu-green);
+      text-decoration: none;
+      font-weight: 500;
+      word-break: break-all;
+    }
+    .info-row a:hover { text-decoration: underline; }
+    .qual-wrap { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+    .qual-tag {
+      background: #eef5f0;
+      color: var(--mu-green);
+      font-size: .7rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+    .card-divider {
+      border: none;
+      border-top: 1px solid var(--mu-border);
+      margin: 0;
+    }
+
+    /* Card footer action buttons */
+    .card-footer-mu {
+      border-top: 1px solid var(--mu-border);
+      padding: 12px 18px;
+      display: flex;
+      gap: 8px;
+    }
+    .btn-contact {
+      flex: 1;
+      font-size: .79rem;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-decoration: none;
+      transition: all .18s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-email {
+      background: var(--mu-green);
+      color: #fff;
+    }
+    .btn-email:hover { background: #144a2c; color: #fff; }
+    .btn-phone {
+      background: #eef5f0;
+      color: var(--mu-green);
+      border: 1px solid var(--mu-border) !important;
+    }
+    .btn-phone:hover {
+      background: var(--mu-gold);
+      color: var(--mu-dark);
+      border-color: var(--mu-gold) !important;
+    }
+
+    /* ── EMPTY STATE ── */
+    #no-result {
+      display: none;
+      text-align: center;
+      padding: 72px 20px;
+    }
+    #no-result .bi { font-size: 3rem; color: var(--mu-border); display: block; }
+    #no-result h5 {
+      font-family: 'Playfair Display', serif;
+      color: var(--mu-muted);
+      margin-top: 14px;
+    }
+
+    /* ── EMPTY DATA NOTICE ── */
+    #empty-data-notice {
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff;
+      border: 2px dashed var(--mu-border);
+      border-radius: var(--radius);
+    }
+    #empty-data-notice .bi { font-size: 2.5rem; color: var(--mu-gold); display: block; }
+    #empty-data-notice h5 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 12px;
+      color: var(--mu-dark);
+    }
+    #empty-data-notice p { font-size: .85rem; color: var(--mu-muted); margin: 0; }
+    #empty-data-notice code {
+      background: #eef5f0;
+      color: var(--mu-green);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: .82rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--mu-dark);
+      color: rgba(255,255,255,.5);
+      font-size: .8rem;
+      padding: 24px 0;
+      border-top: 3px solid var(--mu-gold);
+    }
+    footer a { color: var(--mu-gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 3px;
+    }
+    .section-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--mu-gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="navbar navbar-mu navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <span class="logo-badge">MU</span>
+      Metropolitan University
+    </a>
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item"><a class="nav-link active" href="#">Faculty Directory</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Departments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero">
+  <div class="container position-relative">
+    <div class="row align-items-center gy-4">
+
+      <div class="col-lg-7">
+        <span class="section-label">Metropolitan University, Sylhet</span>
+        <h1 class="hero-title">Faculty <span>Directory</span></h1>
+        <p class="hero-sub mt-2 mb-0">
+          Find your teacher's contact, department, designation,
+          and qualifications instantly.
+        </p>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="d-flex gap-3 justify-content-lg-end flex-wrap">
+          <div class="hero-stat">
+            <span class="num" id="total-count">0</span>
+            <span class="lbl">Faculty Members</span>
+          </div>
+          <div class="hero-stat">
+            <span class="num" id="dept-count">0</span>
+            <span class="lbl">Departments</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     STICKY SEARCH + FILTER BAR
+══════════════════════════════════════ -->
+<div class="search-wrap">
+  <div class="container">
+    <div class="d-flex gap-3 align-items-center flex-wrap">
+
+      <div class="search-input-group">
+        <i class="bi bi-search"></i>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search by name, department, designation…"
+          autocomplete="off"
+        />
+      </div>
+
+      <select class="filter-select" id="dept-filter">
+        <option value="">All Departments</option>
+      </select>
+
+      <select class="filter-select" id="desig-filter">
+        <option value="">All Designations</option>
+      </select>
+
+      <span id="result-count"></span>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     FACULTY CARDS GRID
+══════════════════════════════════════ -->
+<section id="teachers-grid">
+  <div class="container">
+
+    <div class="grid-heading">
+      All Faculty Members
+      <span class="count-pill" id="grid-count-label"></span>
+    </div>
+
+    <!-- Cards injected here by JS -->
+    <div class="row g-4" id="cards-container"></div>
+
+    <!-- Search returned nothing -->
+    <div id="no-result">
+      <i class="bi bi-person-x"></i>
+      <h5>No faculty member found</h5>
+      <p class="text-muted small mt-1">Try a different name, department, or designation.</p>
+    </div>
+
+    <!-- FACULTY array is empty -->
+    <div id="empty-data-notice">
+      <i class="bi bi-database-slash"></i>
+      <h5>No faculty data yet</h5>
+      <p>
+        Open <code>index.html</code> and add entries inside the
+        <code>FACULTY</code> array in the <code>&lt;script&gt;</code> section.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div>
+        <div class="footer-brand">Metropolitan University</div>
+        <div>Sylhet, Bangladesh &nbsp;·&nbsp; Faculty Directory System</div>
+      </div>
+      <div class="text-end">
+        <div>Developed by <a href="#">Bikash Talukder</a></div>
+        <div class="mt-1 opacity-50">v1.0 &nbsp;·&nbsp; &copy; <span id="yr"></span></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║                      FACULTY DATA                           ║
+   ║  Add your real entries below following this structure.       ║
+   ║  Each object field is explained with a comment.              ║
+   ╚══════════════════════════════════════════════════════════════╝
+
+   FIELD REFERENCE:
+   ─────────────────────────────────────────────────────────────
+   name           : Full name with title
+                    e.g. "Dr. John Doe" / "Md. Jane Smith"
+
+   designation    : Academic rank
+                    e.g. "Professor" | "Associate Professor"
+                       | "Assistant Professor" | "Senior Lecturer"
+                       | "Lecturer"
+
+   department     : Short code shown as badge
+                    e.g. "CSE" | "EEE" | "BBA" | "LAW" | "ENG"
+
+   departmentFull : Full official department name
+                    e.g. "Department of Computer Science & Engineering"
+
+   email          : Official university email
+                    e.g. "name@metrouni.edu.bd"
+
+   phone          : Contact number
+                    e.g. "+8801711-XXXXXX"
+
+   qualifications : Array of degree strings (highest first)
+                    e.g. ["PhD (CSE)", "M.Sc (CSE)", "B.Sc (CSE)"]
+
+   specialization : Research or teaching area  (use "" if none)
+                    e.g. "Machine Learning, Computer Vision"
+   ─────────────────────────────────────────────────────────────
+
+   HOW TO ADD A TEACHER — copy the template below, paste inside
+   the FACULTY array, and fill in the values:
+
+   {
+     name:           "Title. Full Name",
+     designation:    "Designation",
+     department:     "CODE",
+     departmentFull: "Department of ...",
+     email:          "email@metrouni.edu.bd",
+     phone:          "+880XXXXXXXXXX",
+     qualifications: ["Degree 1", "Degree 2", "Degree 3"],
+     specialization: "Area of specialization"
+   },
+*/
+
+const FACULTY = [
+
+  // ── Real CSE Department data from metrouni.edu.bd ──────────
+
+  {
+    name:           "Choudhury M. Mukammel Wahid",
+    designation:    "Professor",
+    department:     "CSE",
+    departmentFull: "Department of Computer Science & Engineering",
+    email:          "mukammel@metrouni.edu.bd",
+    phone:          "",
+    qualifications: [
+      "M.Sc in Physics, Dalhousie University, Nova Scotia, Canada",
+      "M.Phil in Physics, BUET",
+      "M.Sc in Physics, SUST Sylhet"
+    ],
+    specialization: "Physics, Engineering Sciences"
+  },
+
+  {
+    name:           "Md. Mahfujul Hasan",
+    designation:    "Associate Professor",
+    department:     "CSE",
+    departmentFull: "Department of Computer Science & Engineering",
+    email:          "mahfujul@metrouni.edu.bd",
+    phone:          "",
+    qualifications: [
+      "M.Sc in Communication Engineering, UIU Bangladesh",
+      "B.Sc in Computer Science & Engineering, IIUC"
+    ],
+    specialization: "Communication Engineering, Machine Learning"
+  },
+
+  {
+    name:           "Md. Mushtaq Shahriyar Rafee",
+    designation:    "Assistant Professor",
+    department:     "CSE",
+    departmentFull: "Department of Computer Science & Engineering",
+    email:          "rafee@metrouni.edu.bd",
+    phone:          "",
+    qualifications: [
+      "B.Sc in Computer Science & Engineering"
+    ],
+    specialization: "Computer Science & Engineering"
+  },
+
+  {
+    name:           "Salma Akther",
+    designation:    "Lecturer",
+    department:     "CSE",
+    departmentFull: "Department of Computer Science & Engineering",
+    email:          "salma@metrouni.edu.bd",
+    phone:          "",
+    qualifications: [
+      "M.Phil in Political Science, University of Dhaka",
+      "M.S.S in Political Studies, SUST Sylhet",
+      "B.S.S (Hons) in Political Studies & Public Administration, SUST"
+    ],
+    specialization: "Political Science, Public Administration"
+  },
+
+  {
+    name:           "Samia Rahman Rima",
+    designation:    "Lecturer",
+    department:     "CSE",
+    departmentFull: "Department of Computer Science & Engineering",
+    email:          "rima@metrouni.edu.bd",
+    phone:          "",
+    qualifications: [
+      "B.Sc in Computer Science & Engineering"
+    ],
+    specialization: "Computer Science & Engineering"
+  },
+
+  /* ── Add more entries below ───────────────────────────────── */
+
+];
+
+/* ══════════════════════════════════════════════════════════════
+   HELPER FUNCTIONS
+══════════════════════════════════════════════════════════════ */
+
+/** Generate 2-letter initials for the avatar circle */
+function getInitials(name) {
+  return name
+    .replace(/^(Dr\.|Md\.|Eng\.|Prof\.|Mr\.|Mrs\.|Ms\.)\s*/i, '')
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(w => w[0].toUpperCase())
+    .join('');
+}
+
+/** Build one card's HTML string */
+function buildCard(t) {
+  const quals = (t.qualifications || [])
+    .map(q => `<span class="qual-tag">${q}</span>`)
+    .join('');
+
+  return `
+  <div class="col-sm-6 col-xl-4">
+    <div class="teacher-card">
+
+      <!-- Green Header -->
+      <div class="card-top">
+        <div class="avatar">${getInitials(t.name)}</div>
+        <div class="card-header-info">
+          <p class="card-name">${t.name}</p>
+          <p class="card-designation">${t.designation}</p>
+          <div class="dept-name-row">
+            <i class="bi bi-building"></i>
+            <span class="dept-full-name">${t.departmentFull}</span>
+          </div>
+          <span class="dept-badge">${t.department}</span>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body-mu">
+
+        ${t.specialization ? `
+        <div class="info-block">
+          <div class="info-label">Specialization</div>
+          <div class="info-row">
+            <i class="bi bi-lightbulb"></i>
+            <span>${t.specialization}</span>
+          </div>
+        </div>
+        <hr class="card-divider"/>` : ''}
+
+        ${quals ? `
+        <div class="info-block">
+          <div class="info-label">Qualifications</div>
+          <div class="qual-wrap">${quals}</div>
+        </div>
+        <hr class="card-divider"/>` : ''}
+
+        <div class="info-block">
+          <div class="info-label">Email</div>
+          <div class="info-row">
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:${t.email}">${t.email}</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-label">Phone</div>
+          <div class="info-row">
+            <i class="bi bi-telephone-fill"></i>
+            <a href="tel:${t.phone}">${t.phone}</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="card-footer-mu">
+        <a href="mailto:${t.email}" class="btn-contact btn-email">
+          <i class="bi bi-envelope"></i> Email
+        </a>
+        <a href="tel:${t.phone}" class="btn-contact btn-phone">
+          <i class="bi bi-telephone"></i> Call
+        </a>
+      </div>
+
+    </div>
+  </div>`;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   INITIALISE
+══════════════════════════════════════════════════════════════ */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const container       = document.getElementById('cards-container');
+const noResult        = document.getElementById('no-result');
+const emptyNotice     = document.getElementById('empty-data-notice');
+const searchInput     = document.getElementById('search-input');
+const deptFilter      = document.getElementById('dept-filter');
+const desigFilter     = document.getElementById('desig-filter');
+const resultCount     = document.getElementById('result-count');
+const gridCountLabel  = document.getElementById('grid-count-label');
+const totalCountEl    = document.getElementById('total-count');
+const deptCountEl     = document.getElementById('dept-count');
+
+/* Show notice if no data added yet */
+if (FACULTY.length === 0) {
+  emptyNotice.style.display = 'block';
+  noResult.style.display    = 'none';
+} else {
+  emptyNotice.style.display = 'none';
+}
+
+/* Populate department dropdown from data */
+const depts = [...new Set(FACULTY.map(f => f.department))].sort();
+depts.forEach(d => {
+  const o = document.createElement('option');
+  o.value = d; o.textContent = d;
+  deptFilter.appendChild(o);
+});
+
+/* Populate designation dropdown from data */
+const desigOrder = [
+  'Professor', 'Associate Professor', 'Assistant Professor',
+  'Senior Lecturer', 'Lecturer'
+];
+const desigs = [...new Set(FACULTY.map(f => f.designation))]
+  .sort((a, b) => desigOrder.indexOf(a) - desigOrder.indexOf(b));
+desigs.forEach(d => {
+  const o = document.createElement('option');
+  o.value = d; o.textContent = d;
+  desigFilter.appendChild(o);
+});
+
+/* Hero stats */
+totalCountEl.textContent = FACULTY.length;
+deptCountEl.textContent  = depts.length;
+
+/* ── Main render / filter function ── */
+function render() {
+  const query = searchInput.value.trim().toLowerCase();
+  const dept  = deptFilter.value;
+  const desig = desigFilter.value;
+
+  const filtered = FACULTY.filter(t => {
+    const matchSearch = !query ||
+      t.name.toLowerCase().includes(query)             ||
+      t.department.toLowerCase().includes(query)       ||
+      t.departmentFull.toLowerCase().includes(query)   ||
+      t.designation.toLowerCase().includes(query)      ||
+      (t.specialization || '').toLowerCase().includes(query) ||
+      (t.email || '').toLowerCase().includes(query);
+
+    const matchDept  = !dept  || t.department  === dept;
+    const matchDesig = !desig || t.designation === desig;
+
+    return matchSearch && matchDept && matchDesig;
+  });
+
+  /* Inject cards */
+  container.innerHTML = filtered.map(buildCard).join('');
+
+  /* Update count labels */
+  const n = filtered.length;
+  resultCount.textContent   = FACULTY.length > 0
+    ? (n ? `${n} result${n !== 1 ? 's' : ''} found` : '')
+    : '';
+  gridCountLabel.textContent = `${n} shown`;
+
+  /* Toggle empty states */
+  noResult.style.display    = (n === 0 && FACULTY.length > 0) ? 'block' : 'none';
+  emptyNotice.style.display = FACULTY.length === 0 ? 'block' : 'none';
+}
+
+/* ── Bind events ── */
+searchInput.addEventListener('input',  render);
+deptFilter.addEventListener('change',  render);
+desigFilter.addEventListener('change', render);
+
+/* ── First render ── */
+render();
+</script>
+</body>
+</html>
