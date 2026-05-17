@@ -1890,24 +1890,58 @@ const FACULTY = [
   },
 
 ];
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
 // ══ RENDER FACULTY CARDS ═══════════════════════════════════════
 const container = document.getElementById('cards-container');
+const searchInput = document.getElementById('search-input');
+const searchClear = document.getElementById('search-clear');
+const deptFilter = document.getElementById('dept-filter');
+const desigFilter = document.getElementById('desig-filter');
+const suggestionsDropdown = document.getElementById('suggestions-dropdown');
 const statsTotal = document.getElementById('total-count');
 const statsDept = document.getElementById('dept-count');
 
-if (container && FACULTY) {
-  const uniqueDepts = [...new Set(FACULTY.map(f => f.department))];
-  const deptColors = {
-    "CSE":"dept-cse","EEE":"dept-eee","CE":"dept-ce","ME":"dept-me",
-    "ARCHI":"dept-archi","LA":"dept-la","PH":"dept-ph","MATH":"dept-math",
-    "CHEM":"dept-chem","ENG":"dept-eng","BNG":"dept-bng","DS":"dept-ds","BA":"dept-ba",
-    "LAW":"dept-law","FIT":"dept-fit","LJ":"dept-law"
-  };
-  const avatarColors = ["#1a5c38","#2d7a45","#c9a84c","#0f3d24","#38c26b","#e8c970"];
+const deptColors = {
+  "CSE":"dept-cse","EEE":"dept-eee","CE":"dept-ce","ME":"dept-me",
+  "ARCHI":"dept-archi","LA":"dept-la","PH":"dept-ph","MATH":"dept-math",
+  "CHEM":"dept-chem","ENG":"dept-eng","BNG":"dept-bng","DS":"dept-ds","BA":"dept-ba",
+  "LAW":"dept-law","FIT":"dept-fit","LJ":"dept-law"
+};
+const avatarColors = ["#1a5c38","#2d7a45","#c9a84c","#0f3d24","#38c26b","#e8c970"];
 
-  container.innerHTML = FACULTY.map((f,i) => {
+// Populate filters
+const depts = [...new Set(FACULTY.map(f => f.department))].sort();
+const desigs = [...new Set(FACULTY.map(f => f.designation))].sort();
+depts.forEach(d => {
+  const opt = document.createElement('option');
+  opt.value = d; opt.textContent = d;
+  deptFilter.appendChild(opt);
+});
+desigs.forEach(d => {
+  const opt = document.createElement('option');
+  opt.value = d; opt.textContent = d;
+  desigFilter.appendChild(opt);
+});
+
+// Filter & render
+function renderFaculty() {
+  const q = searchInput.value.toLowerCase();
+  const dept = deptFilter.value;
+  const desig = desigFilter.value;
+  
+  const filtered = FACULTY.filter(f => {
+    const matchQ = !q || f.name.toLowerCase().includes(q) || f.departmentFull?.toLowerCase().includes(q) || f.designation?.toLowerCase().includes(q) || f.specialization?.toLowerCase().includes(q);
+    const matchDept = !dept || f.department === dept;
+    const matchDesig = !desig || f.designation === desig;
+    return matchQ && matchDept && matchDesig;
+  });
+  
+  container.innerHTML = filtered.length ? filtered.map((f,i) => {
+    const idx = FACULTY.indexOf(f);
     const deptClass = deptColors[f.department] || '';
-    const avatarColor = avatarColors[i % avatarColors.length];
+    const avatarColor = avatarColors[idx % avatarColors.length];
     const initials = f.name.split(' ').map(w => w[0]).join('').substring(0,2);
     return `<div class="teacher-card ${deptClass} col-12 col-md-6 col-lg-4 mb-3">
       <div class="card-accent-strip"></div>
@@ -1923,16 +1957,48 @@ if (container && FACULTY) {
           <i class="bi bi-building"></i>
           <span class="dept-badge">${f.departmentFull || f.department}</span>
         </div>
-        ${f.email ? `<div class="info-row"><i class="bi bi-envelope"></i><a href="mailto:${f.email}">${f.email}</a></div>` : '<div class="info-row empty"></div>'}
-        ${f.phone ? `<div class="info-row"><i class="bi bi-telephone"></i><span>${f.phone}</span></div>` : '<div class="info-row empty"></div>'}
-        ${f.qualifications && f.qualifications.length ? `<div class="info-row"><i class="bi bi-mortarboard"></i><span>${f.qualifications.join(', ')}</span></div>` : '<div class="info-row empty"></div>'}
-        ${f.specialization ? `<div class="info-row"><i class="bi bi-tools"></i><span>${f.specialization}</span></div>` : '<div class="info-row empty"></div>'}
+        ${f.email ? `<div class="info-row"><i class="bi bi-envelope"></i><a href="mailto:${f.email}">${f.email}</a></div>` : ''}
+        ${f.phone ? `<div class="info-row"><i class="bi bi-telephone"></i><span>${f.phone}</span></div>` : ''}
+        ${f.qualifications && f.qualifications.length ? `<div class="info-row"><i class="bi bi-mortarboard"></i><span>${f.qualifications.join(', ')}</span></div>` : ''}
+        ${f.specialization ? `<div class="info-row"><i class="bi bi-tools"></i><span>${f.specialization}</span></div>` : ''}
       </div>
     </div>`;
-  }).join('');
-
+  }).join('') : '<div class="col-12 text-center text-muted py-5"><p>No faculty members found.</p></div>';
+  
   if (statsTotal) statsTotal.textContent = FACULTY.length;
-  if (statsDept) statsDept.textContent = uniqueDepts.length;
+  if (statsDept) statsDept.textContent = depts.length;
 }
 
+// Event listeners
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.toLowerCase();
+  if (q.length > 0) {
+    const matches = FACULTY.filter(f => f.name.toLowerCase().includes(q)).slice(0,5);
+    suggestionsDropdown.innerHTML = matches.map(m => `<div class="suggestion-item" data-name="${m.name}">${m.name}</div>`).join('');
+    suggestionsDropdown.style.display = matches.length ? 'block' : 'none';
+  } else {
+    suggestionsDropdown.style.display = 'none';
+  }
+  renderFaculty();
+});
+
+suggestionsDropdown.addEventListener('click', e => {
+  if (e.target.classList.contains('suggestion-item')) {
+    searchInput.value = e.target.dataset.name;
+    suggestionsDropdown.style.display = 'none';
+    renderFaculty();
+  }
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  suggestionsDropdown.style.display = 'none';
+  renderFaculty();
+});
+
+deptFilter.addEventListener('change', renderFaculty);
+desigFilter.addEventListener('change', renderFaculty);
+
+// Initial render
+renderFaculty();
 </script>
