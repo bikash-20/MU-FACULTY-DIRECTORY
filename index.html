@@ -406,7 +406,7 @@
       font-size: .82rem; color: var(--mu-muted); white-space: nowrap; font-weight: 500;
     }
 
-    /* ── Filter chips row ── */
+    /* -- Filter chips row -- */
     .chips-row {
       display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
       padding: 10px 0 12px;
@@ -491,31 +491,63 @@
     }
 
     /* Dept accent strip */
-    .card-accent-strip { height: 3px; width: 100%; flex-shrink: 0; }
-    .dept-cse .card-accent-strip  { background: linear-gradient(90deg, #1a5c38, #38c26b, #2d7a45); }
-    .dept-swe .card-accent-strip  { background: linear-gradient(90deg, #1a3d7c, #4d9ee0, #2d6dbf); }
-    .dept-other .card-accent-strip { background: linear-gradient(90deg, #6a2d7c, #b06dbf, #8a4da8); }
-    .dept-en  .card-accent-strip  { background: linear-gradient(90deg, #7c3a1a, #e07a4d, #bf5a2d); }
-    .dept-eee .card-accent-strip  { background: linear-gradient(90deg, #1a4a7c, #f0c040, #c9a84c); }
-    .dept-ds  .card-accent-strip  { background: linear-gradient(90deg, #1a1a7c, #8b4de0, #6a2dbf); }
-    .dept-ba  .card-accent-strip  { background: linear-gradient(90deg, #7c1a1a, #e05050, #bf2d2d); }
-    .dept-eco .card-accent-strip  { background: linear-gradient(90deg, #1a5a7c, #3ab0d0, #2d8abf); }
-    .dept-lj  .card-accent-strip  { background: linear-gradient(90deg, #4a3a1a, #c9a84c, #a08030); }
+    .card-accent-strip { height: 4px; width: 100%; flex-shrink: 0; }
+    .dept-cse  .card-accent-strip { background: linear-gradient(90deg, #0f6b3a, #34d26a, #1a9e50); }
+    .dept-swe  .card-accent-strip { background: linear-gradient(90deg, #1a3d7c, #4d9ee0, #2d6dbf); }
+    .dept-eee  .card-accent-strip { background: linear-gradient(90deg, #7c2d12, #f97316, #c2410c); }
+    .dept-ds   .card-accent-strip { background: linear-gradient(90deg, #4c1d95, #a78bfa, #7c3aed); }
+    .dept-en   .card-accent-strip { background: linear-gradient(90deg, #831843, #f472b6, #be185d); }
+    .dept-ba   .card-accent-strip { background: linear-gradient(90deg, #78350f, #f59e0b, #b45309); }
+    .dept-eco  .card-accent-strip { background: linear-gradient(90deg, #064e3b, #34d399, #059669); }
+    .dept-lj   .card-accent-strip { background: linear-gradient(90deg, #1e1b4b, #818cf8, #4338ca); }
+    .dept-other .card-accent-strip { background: linear-gradient(90deg, #374151, #9ca3af, #6b7280); }
 
     /* Card top */
     .card-top {
       padding: 18px 18px 16px;
       display: flex; align-items: flex-start; gap: 14px;
     }
-    .dept-cse  .card-top { background: linear-gradient(148deg, #0c1810 0%, #1a5c38 58%, #2d7a45 100%); }
-    .dept-swe  .card-top { background: linear-gradient(148deg, #0c1420 0%, #1a3d7c 58%, #2d6dbf 100%); }
-    .dept-other .card-top { background: linear-gradient(148deg, #180c20 0%, #5a1a7c 58%, #8b4abf 100%); }
-    .dept-en  .card-top { background: linear-gradient(148deg, #1c0c08 0%, #7c2a0e 58%, #a84020 100%); }
-    .dept-eee .card-top { background: linear-gradient(148deg, #08101c 0%, #1a3a6c 58%, #c9a84c 100%); }
-    .dept-ds  .card-top { background: linear-gradient(148deg, #0c0820 0%, #2a1a7c 58%, #6a3abf 100%); }
-    .dept-ba  .card-top { background: linear-gradient(148deg, #200808 0%, #7c1a1a 58%, #a83030 100%); }
-    .dept-eco .card-top { background: linear-gradient(148deg, #081820 0%, #1a4a6c 58%, #2d7a9a 100%); }
-    .dept-lj  .card-top { background: linear-gradient(148deg, #181008 0%, #4a3010 58%, #8a6020 100%); }
+    .dept-cse  .card-top { background: linear-gradient(148deg, #071a0e 0%, #0f4d2a 55%, #1a6e3c 100%); }
+    .dept-swe  .card-top { background: linear-gradient(148deg, #060e1f 0%, #122d5e 55%, #1e4a8a 100%); }
+    .dept-eee  .card-top { background: linear-gradient(148deg, #1c0a02 0%, #7c2d12 55%, #9a3412 100%); }
+    .dept-ds   .card-top { background: linear-gradient(148deg, #110822 0%, #3b1579 55%, #5b21b6 100%); }
+    .dept-en   .card-top { background: linear-gradient(148deg, #1f0512 0%, #7d1451 55%, #9d174d 100%); }
+    .dept-ba   .card-top { background: linear-gradient(148deg, #1c0a00 0%, #78350f 55%, #92400e 100%); }
+    .dept-eco  .card-top { background: linear-gradient(148deg, #011f14 0%, #064e3b 55%, #065f46 100%); }
+    .dept-lj   .card-top { background: linear-gradient(148deg, #0a0918 0%, #1e1b4b 55%, #312e81 100%); }
+    .dept-other .card-top { background: linear-gradient(148deg, #111827 0%, #1f2937 55%, #374151 100%); }
+
+    /* Dept badge per dept */
+    .dept-cse  .dept-badge { background: rgba(52,210,106,.15); border-color: rgba(52,210,106,.38); color: #34d26a; }
+    .dept-swe  .dept-badge { background: rgba(77,158,224,.15); border-color: rgba(77,158,224,.38); color: #4d9ee0; }
+    .dept-eee  .dept-badge { background: rgba(249,115,22,.15);  border-color: rgba(249,115,22,.38);  color: #fb923c; }
+    .dept-ds   .dept-badge { background: rgba(167,139,250,.15); border-color: rgba(167,139,250,.38); color: #a78bfa; }
+    .dept-en   .dept-badge { background: rgba(244,114,182,.15); border-color: rgba(244,114,182,.38); color: #f472b6; }
+    .dept-ba   .dept-badge { background: rgba(245,158,11,.15);  border-color: rgba(245,158,11,.38);  color: #f59e0b; }
+    .dept-eco  .dept-badge { background: rgba(52,211,153,.15);  border-color: rgba(52,211,153,.38);  color: #34d399; }
+    .dept-lj   .dept-badge { background: rgba(129,140,248,.15); border-color: rgba(129,140,248,.38); color: #818cf8; }
+
+    /* Info row icon tint per dept */
+    .dept-eee .info-row .bi { color: #c2410c; }
+    .dept-ds  .info-row .bi { color: #7c3aed; }
+    .dept-en  .info-row .bi { color: #be185d; }
+    .dept-ba  .info-row .bi { color: #b45309; }
+    .dept-eco .info-row .bi { color: #059669; }
+    .dept-lj  .info-row .bi { color: #4338ca; }
+    .dept-eee .info-row a   { color: #c2410c; }
+    .dept-ds  .info-row a   { color: #7c3aed; }
+    .dept-en  .info-row a   { color: #be185d; }
+    .dept-ba  .info-row a   { color: #b45309; }
+    .dept-eco .info-row a   { color: #059669; }
+    .dept-lj  .info-row a   { color: #4338ca; }
+
+    /* Dept name row icon tint */
+    .dept-eee .dept-name-row .bi { color: #fb923c; }
+    .dept-ds  .dept-name-row .bi { color: #a78bfa; }
+    .dept-en  .dept-name-row .bi { color: #f472b6; }
+    .dept-ba  .dept-name-row .bi { color: #f59e0b; }
+    .dept-eco .dept-name-row .bi { color: #34d399; }
+    .dept-lj  .dept-name-row .bi { color: #818cf8; }
 
     /* Avatar */
     .avatar {
@@ -670,6 +702,24 @@
     #empty-data-notice p { font-size: .85rem; color: var(--mu-muted); }
     #empty-data-notice code { background: rgba(26,92,56,.07); color: var(--mu-green); padding: 2px 6px; border-radius: 4px; font-size: .82rem; }
 
+    /* ══ DEPT LEGEND ════════════════════════════════════════════ */
+    .dept-legend {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin: -6px 0 28px;
+    }
+    .dept-legend-item {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .75rem; font-weight: 600; color: var(--mu-muted);
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--mu-border);
+      padding: 5px 12px 5px 8px;
+      border-radius: 20px;
+      letter-spacing: .03em;
+    }
+    .dept-legend-dot {
+      width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+    }
+
     /* ══ FOOTER ═════════════════════════════════════════════════ */
     footer {
       background: var(--mu-dark);
@@ -788,6 +838,18 @@
       <span class="count-pill" id="grid-count-label"></span>
     </div>
 
+    <!-- Dept colour legend -->
+    <div class="dept-legend">
+      <span class="dept-legend-item"><span class="dept-legend-dot" style="background:#1a9e50"></span>CSE</span>
+      <span class="dept-legend-item"><span class="dept-legend-dot" style="background:#4d9ee0"></span>SWE</span>
+      <span class="dept-legend-item"><span class="dept-legend-dot" style="background:#f97316"></span>EEE</span>
+      <span class="dept-legend-item"><span class="dept-legend-dot" style="background:#a78bfa"></span>Data Science</span>
+      <span class="dept-legend-item"><span class="dept-legend-dot" style="background:#f472b6"></span>English</span>
+      <span class="dept-legend-item"><span class="dept-legend-dot" style="background:#f59e0b"></span>Business Admin</span>
+      <span class="dept-legend-item"><span class="dept-legend-dot" style="background:#34d399"></span>Economics</span>
+      <span class="dept-legend-item"><span class="dept-legend-dot" style="background:#818cf8"></span>Law & Justice</span>
+    </div>
+
     <div class="row g-4" id="cards-container"></div>
 
     <div id="no-result">
@@ -823,14 +885,13 @@
 
 
 <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
 /* ══ FACULTY DATA ═══════════════════════════════════════════════ */
 const FACULTY = [
 
-  // ══════════════════════════════════════════════════════════
-  // CSE — Department of Computer Science & Engineering
-  // ══════════════════════════════════════════════════════════
+  // -- CSE Department ------------------------------------------
   {
     name:"Prof. Dr. Yousuf M Islam", designation:"Professor",
     department:"CSE", departmentFull:"Department of Computer Science & Engineering",
@@ -865,7 +926,8 @@ const FACULTY = [
       "M.Sc. in Communication Engineering, United International University (UIU) Bangladesh",
       "B.Sc. in Computer Science & Engineering, International Islamic University Chittagong (IIUC), Bangladesh"
     ],
-    specialization:"Communication Engineering, Machine Learning, NLP"
+    specialization:"Communication Engineering, Machine Learning, NLP",
+    note:"Head, Dept. of CSE"
   },
   {
     name:"Md. Jakir Hossain", designation:"Assistant Professor",
@@ -876,6 +938,13 @@ const FACULTY = [
       "B.Sc in Electronics & Communication Engineering, Southern University Bangladesh"
     ],
     specialization:"Communication Engineering, Computer Science"
+  },
+  {
+    name:"Md. Mushtaq Shahriyar Rafee", designation:"Assistant Professor",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"rafee@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc (Engg.) in Computer Science & Engineering, SUST Sylhet"],
+    specialization:"Speech Processing, Computational Linguistics, Machine Learning, NLP"
   },
   {
     name:"Md. Rashedul Islam", designation:"Assistant Professor",
@@ -906,21 +975,50 @@ const FACULTY = [
     specialization:"Computer Science & Engineering"
   },
   {
-    name:"Akhlak Uz Zaman Ashik", designation:"Assistant Professor (Study Leave)",
-    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
-    email:"akhlak@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.Sc in Information Technology, Jahangirnagar University",
-      "BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"
-    ],
-    specialization:"Software Development, Embedded Programming, IoT, Data Mining, Machine Learning"
-  },
-  {
     name:"Md. Shamihul Islam Khan Limon", designation:"Lecturer",
     department:"CSE", departmentFull:"Department of Computer Science & Engineering",
     email:"limon@metrouni.edu.bd", phone:"",
     qualifications:["BSc.(Hons.) in Computer Science and Engineering, Shahjalal University of Science & Technology, Sylhet"],
     specialization:"Machine Translation, NLP, Intent Detection, Slot filling"
+  },
+  {
+    name:"Md. Fahmidur Rahman Sakib", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"fahmidur@metrouni.edu.bd", phone:"",
+    qualifications:["BSc.(Hons.) in Computer Science and Engineering, BRAC University"],
+    specialization:"Computer Vision, Image Processing, Machine Learning, Data Science, Natural Language Processing, Deep Learning"
+  },
+  {
+    name:"Salma Akther", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"salma@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.Phil in Political Science, University of Dhaka",
+      "M.S.S in Political Studies, SUST Sylhet",
+      "B.S.S (Hons) in Political Studies & Public Administration, SUST"
+    ],
+    specialization:"Political Science, Public Administration"
+  },
+  {
+    name:"Labiba Jahan", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"labiba@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc in Computer Science & Engineering, SUST Sylhet"],
+    specialization:"Computer Science & Engineering"
+  },
+  {
+    name:"Mayami Das Purkayastha Purba", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"purba@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc in Computer Science & Engineering, SUST"],
+    specialization:"Machine Learning, Data Structures"
+  },
+  {
+    name:"Bushra Azmat Hussain", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"bushra@metrouni.edu.bd", phone:"",
+    qualifications:["BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"],
+    specialization:""
   },
   {
     name:"Abu Jafar Md Jakaria", designation:"Lecturer",
@@ -930,11 +1028,87 @@ const FACULTY = [
     specialization:"Hands-on research, innovative learning methods, programming, development"
   },
   {
-    name:"Wadia Iqbal Chowdhury", designation:"Lecturer",
+    name:"Aisha Hayder Chowdhury", designation:"Lecturer",
     department:"CSE", departmentFull:"Department of Computer Science & Engineering",
-    email:"wadia@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Computer Science & Engineering, Metropolitan University Sylhet"],
-    specialization:"Parallel Computing, Database Management System, Data Science"
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Plabon Talukder", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Abdullah Al Masud", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Golam Mostofa Naeem", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"mostofa@metrouni.edu.bd", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Abdul Wadud Shakib", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"shakib@metrouni.edu.bd", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Raisa Fairooz", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Farhana Akter", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Ms. Ishrar Nazah Chowdhury", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Nowshin Sharmin", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"nowshin@metrouni.edu.bd", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Ruhul Amin", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"ruhul@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.Sc. in Statistics, Pabna University of Science and Technology (PUST)",
+      "B.Sc. in Statistics, Pabna University of Science and Technology (PUST)"
+    ],
+    specialization:"Big data analysis, statistical learning algorithms, deep learning, health informatics"
+  },
+  {
+    name:"Moshiur Ahmed", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Nabila Jannat Rifa", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"rifa@metrouni.edu.bd", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Nasif Istiak Remon", designation:"Lecturer",
+    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
+    email:"nasif@metrouni.edu.bd", phone:"",
+    qualifications:["BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"],
+    specialization:"Hate Speech Detection, Machine Learning, Deep Learning"
   },
   {
     name:"Tajbin Jahan", designation:"Lecturer",
@@ -944,11 +1118,14 @@ const FACULTY = [
     specialization:"Natural Language Processing (NLP), Machine Learning, Deep Learning, Competitive Programming"
   },
   {
-    name:"Nasif Istiak Remon", designation:"Lecturer",
+    name:"Akhlak Uz Zaman Ashik", designation:"Assistant Professor (Study Leave)",
     department:"CSE", departmentFull:"Department of Computer Science & Engineering",
-    email:"nasif@metrouni.edu.bd", phone:"",
-    qualifications:["BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"],
-    specialization:"Hate Speech Detection, Machine Learning, Deep Learning"
+    email:"akhlak@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.Sc in Information Technology, Jahangirnagar University",
+      "BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"
+    ],
+    specialization:"Software Development, Embedded Programming, IoT, Data Mining, Machine Learning"
   },
   {
     name:"Shrabanti Chowdhury", designation:"Lecturer",
@@ -972,11 +1149,11 @@ const FACULTY = [
     specialization:""
   },
   {
-    name:"Md. Fahmidur Rahman Sakib", designation:"Lecturer",
+    name:"Sakhawat Hossain Saimon", designation:"Lecturer (Study Leave)",
     department:"CSE", departmentFull:"Department of Computer Science & Engineering",
-    email:"fahmidur@metrouni.edu.bd", phone:"",
-    qualifications:["BSc.(Hons.) in Computer Science and Engineering, BRAC University"],
-    specialization:"Computer Vision, Image Processing, Machine Learning, Data Science, Natural Language Processing, Deep Learning"
+    email:"sakhawat.saimon@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Computer Science & Engineering, Shahjalal University of Science & Technology, Sylhet"],
+    specialization:"Bioinformatics, Machine Learning, Data Science"
   },
   {
     name:"Khudeja Khanom Anwara", designation:"Lecturer",
@@ -985,35 +1162,8 @@ const FACULTY = [
     qualifications:["BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"],
     specialization:""
   },
-  {
-    name:"Sakhawat Hossain Saimon", designation:"Lecturer (Study Leave)",
-    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
-    email:"sakhawat.saimon@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Computer Science & Engineering, Shahjalal University of Science & Technology, Sylhet"],
-    specialization:"Bioinformatics, Machine Learning, Data Science"
-  },
-  {
-    name:"Salma Akther", designation:"Lecturer",
-    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
-    email:"salma@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.Phil in Political Science, University of Dhaka",
-      "M.S.S in Political Studies, SUST Sylhet",
-      "B.S.S (Hons) in Political Studies & Public Administration, SUST"
-    ],
-    specialization:"Political Science, Public Administration"
-  },
-  {
-    name:"Labiba Jahan", designation:"Lecturer",
-    department:"CSE", departmentFull:"Department of Computer Science & Engineering",
-    email:"labiba@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc in Computer Science & Engineering, SUST Sylhet"],
-    specialization:"Computer Science & Engineering"
-  },
 
-  // ══════════════════════════════════════════════════════════
-  // SWE — Department of Software Engineering
-  // ══════════════════════════════════════════════════════════
+  // -- SWE Department -----------------------------------------
   {
     name:"Prof. Dr. Md. Nazrul Haque Chowdhury", designation:"Professor",
     department:"SWE", departmentFull:"Department of Software Engineering",
@@ -1048,6 +1198,13 @@ const FACULTY = [
     email:"nazia@metrouni.edu.bd", phone:"",
     qualifications:["B.Sc. in Software Engineering, Shahjalal University of Science & Technology, Sylhet"],
     specialization:"Software Engineering, Automated Program Repair"
+  },
+  {
+    name:"Wadia Iqbal Chowdhury", designation:"Lecturer",
+    department:"SWE", departmentFull:"Department of Software Engineering",
+    email:"wadia@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Computer Science & Engineering, Metropolitan University Sylhet"],
+    specialization:"Parallel Computing, Database Management System, Data Science"
   },
   {
     name:"Rina Paul", designation:"Lecturer",
@@ -1104,350 +1261,9 @@ const FACULTY = [
     qualifications:[], specialization:""
   },
 
-  // ══════════════════════════════════════════════════════════
-  // EN — Department of English
-  // ══════════════════════════════════════════════════════════
+  // -- Business Administration Department ----------------------
   {
-    name:"Professor Suresh Ranjan Basak PhD", designation:"Professor",
-    department:"EN", departmentFull:"Department of English",
-    email:"sbasak@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "PhD from University of Chittagong",
-      "M.A. in English from University of Chittagong",
-      "B.A. (Hons.) in English from Chittagong Govt. College"
-    ],
-    specialization:"Postcolonial literatures, Postmodern Literature, Diaspora, Eco-critical Literature, Translation Studies, Rabindranath Tagore",
-    note:"Dean, School of Humanities and Social Sciences"
-  },
-  {
-    name:"Professor Mohammad Ishrat Ibne Ismail", designation:"Professor",
-    department:"EN", departmentFull:"Department of English",
-    email:"", phone:"",
-    qualifications:[], specialization:""
-  },
-  {
-    name:"Dr. Mohammad Mostak Ahmed", designation:"Associate Professor",
-    department:"EN", departmentFull:"Department of English",
-    email:"", phone:"",
-    qualifications:[], specialization:"",
-    note:"Dean, School of Humanities & Social Sciences"
-  },
-  {
-    name:"Anik Biswas", designation:"Associate Professor",
-    department:"EN", departmentFull:"Department of English",
-    email:"anik@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
-      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
-    ],
-    specialization:"Literature and films, Translation studies, Cultural studies, Theories in literature",
-    note:"Head of the Department"
-  },
-  {
-    name:"Sanjida Chowdhury", designation:"Assistant Professor",
-    department:"EN", departmentFull:"Department of English",
-    email:"sanjida@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
-      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
-    ],
-    specialization:"Postcolonial literature, Teaching Techniques, Teaching-learning Strategies"
-  },
-  {
-    name:"Syed Nakib Sadi", designation:"Assistant Professor",
-    department:"EN", departmentFull:"Department of English",
-    email:"nakib@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in Applied Linguistics and ELT from University of Dhaka",
-      "B.A. (Hons.) in English from University of Dhaka"
-    ],
-    specialization:"Language teaching, Material design, Curriculum development",
-    note:"Cambridge CELTA certified; Fulbright FLTA Fellow (Bengali) at University of Michigan-Ann Arbor"
-  },
-  {
-    name:"Snigdha Das", designation:"Assistant Professor (Study Leave)",
-    department:"EN", departmentFull:"Department of English",
-    email:"sdas@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
-      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
-    ],
-    specialization:"Absurd literature, Postmodern facets of human lives"
-  },
-  {
-    name:"Golam Rabbani", designation:"Assistant Professor (Study Leave)",
-    department:"EN", departmentFull:"Department of English",
-    email:"rabbani@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Metropolitan University, Sylhet",
-      "B.A. (Hons.) in English from Metropolitan University, Sylhet"
-    ],
-    specialization:"Postcolonial Literature, Contemporary writings"
-  },
-  {
-    name:"Abdullah Al Mashud", designation:"Lecturer",
-    department:"EN", departmentFull:"Department of English",
-    email:"mashud@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Metropolitan University, Sylhet",
-      "B.A. (Hons.) in English from Metropolitan University, Sylhet"
-    ],
-    specialization:"Contemporary (World) literature in English"
-  },
-  {
-    name:"Farhana Khanom Joly", designation:"Lecturer",
-    department:"EN", departmentFull:"Department of English",
-    email:"farhana@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Metropolitan University, Sylhet",
-      "B.A. in English from Metropolitan University, Sylhet"
-    ],
-    specialization:"American Literature, Postcolonial Literature, South Asian Literature, 20th Century Literature (Poetry), Metaphysical Poetry, Victorian Poetry, Romantic Poetry"
-  },
-  {
-    name:"Abu Yousuf Musa", designation:"Lecturer",
-    department:"EN", departmentFull:"Department of English",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-  {
-    name:"Noshin Tabassum", designation:"Lecturer",
-    department:"EN", departmentFull:"Department of English",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-  {
-    name:"S K Shahriar", designation:"Lecturer",
-    department:"EN", departmentFull:"Department of English",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-  {
-    name:"Nahida Sarker Nijhum", designation:"Teaching Assistant",
-    department:"EN", departmentFull:"Department of English",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-  {
-    name:"Tasnuva Tabassum", designation:"Lecturer (Study Leave)",
-    department:"EN", departmentFull:"Department of English",
-    email:"tasnuva@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
-      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
-    ],
-    specialization:"Poetry, Fiction, Comparative Literature"
-  },
-  {
-    name:"Muhammad Shamsul Islam", designation:"Lecturer (Study Leave)",
-    department:"EN", departmentFull:"Department of English",
-    email:"shamsul@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
-      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
-    ],
-    specialization:"American Literature, Postcolonial Literature, Poetry, Fiction"
-  },
-  {
-    name:"Md Mohi Uddin", designation:"Lecturer (Study Leave)",
-    department:"EN", departmentFull:"Department of English",
-    email:"mohi@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
-      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
-    ],
-    specialization:""
-  },
-  {
-    name:"Sanjida Kalam", designation:"Lecturer (Study Leave)",
-    department:"EN", departmentFull:"Department of English",
-    email:"sanjidakalam@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from University of Liberal Arts",
-      "B.A.(Hons.) in English from Bangladesh Army International University of Science and Technology, Cumilla"
-    ],
-    specialization:"Postcolonial studies, Feminism, Cultural studies, Media studies, Postcolonial African Politics, American Literature"
-  },
-  {
-    name:"Tanjim Nishat Farmi", designation:"Lecturer (Study Leave)",
-    department:"EN", departmentFull:"Department of English",
-    email:"tanjim@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
-      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
-    ],
-    specialization:""
-  },
-  {
-    name:"Mouni Battacharjee", designation:"Lecturer (Study Leave)",
-    department:"EN", departmentFull:"Department of English",
-    email:"mouni@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
-      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
-    ],
-    specialization:""
-  },
-
-  // ══════════════════════════════════════════════════════════
-  // EEE — Department of Electrical & Electronic Engineering
-  // ══════════════════════════════════════════════════════════
-  {
-    name:"Dr. Abdul Hoque", designation:"Professor",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-  {
-    name:"Dr. Mohammed Jahirul Islam, PEng", designation:"Professor (Guest Teacher)",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"mjislam@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "PhD in Electrical and Computer Engineering, University of Windsor, Canada",
-      "MASc in Electrical and Computer Engineering, Ryerson University, Canada",
-      "MSc in Electronics and Computer Science, Shahjalal University of Science and Technology (SUST)",
-      "BSc (Hons) in Electronics and Computer Science, Shahjalal University of Science and Technology (SUST)"
-    ],
-    specialization:"Image Processing, Computer Vision, Pattern Recognition, Document Image Analysis"
-  },
-  {
-    name:"Md. Rahmot Ullah", designation:"Assistant Professor",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"rahmot@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. (Hons.) in Electrical and Electronic Engineering, Khulna University of Engineering & Technology (KUET)"],
-    specialization:"Renewable Energy, Smart-Grid Technology, Geothermal Energy, Power System Protection"
-  },
-  {
-    name:"Safwan Uddin Ahmed", designation:"Assistant Professor & Head",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-  {
-    name:"Md. Anwarul Kawchar", designation:"Assistant Professor",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-  {
-    name:"Nawshad Ahmed Chowdhury", designation:"Associate Professor (Study Leave)",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"", phone:"",
-    qualifications:[
-      "MSc in EECE, Military Institute of Science and Technology (MIST)",
-      "B.Sc. in Electrical and Electronic Engineering, East West University, Dhaka"
-    ],
-    specialization:"Nanosensor, Nanoelectronics, Biosensors, Renewable Energy"
-  },
-  {
-    name:"Surajit Sinha", designation:"Assistant Professor (Study Leave)",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"s.sinha@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.Sc. in Applied Physics Electronics & Communication Engineering, University of Dhaka",
-      "B.Sc. in Applied Physics Electronics & Communication Engineering, University of Dhaka"
-    ],
-    specialization:"Renewable Energy, Wireless Networks, Antenna Design"
-  },
-  {
-    name:"Md. Hasanur Rahman Sohag", designation:"Lecturer",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"sohag@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Electrical and Electronic Engineering, Metropolitan University, Sylhet"],
-    specialization:"Hardware Engineering, PCB Design, IoT, Robotics, 3D Design"
-  },
-  {
-    name:"Sadman Sakib", designation:"Lecturer",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"sakib@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Electrical & Electronic Engineering, Islamic University of Technology (IUT)"],
-    specialization:"Power Electronics, Renewable Energy, Applied Machine Learning"
-  },
-  {
-    name:"Mahim Ahmed", designation:"Lecturer",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"mahim@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Electrical and Electronic Engineering, Shahjalal University of Science and Technology (SUST)"],
-    specialization:"Power Electronics, Control Systems, Microprocessors, Smart Grid, Electric Vehicles"
-  },
-  {
-    name:"Md. Fardin Ahasan Maraz", designation:"Lecturer",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"maraz@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Electrical and Electronic Engineering, Shahjalal University of Science and Technology (SUST)"],
-    specialization:"Photonics, Plasmonics, SPR Sensor, Bio-photonics"
-  },
-  {
-    name:"Md. Shadman Shakib", designation:"Lecturer (Senior Grade)",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"shadman@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.Sc. in Electrical and Electronic Engineering, Noakhali Science and Technology University",
-      "B.Sc. in Electrical and Electronic Engineering, Noakhali Science and Technology University"
-    ],
-    specialization:"Machine Learning, Deep Learning, Computer Vision, Optical Camera Communication, Smart Grid Systems"
-  },
-  {
-    name:"Ahmed Afif Rafsan", designation:"Lecturer",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"rafsan@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Electrical and Electronic Engineering, Ahsanullah University of Science and Technology (AUST)"],
-    specialization:"Photonics, Sensors, Optics, Biosensors, Metamaterials"
-  },
-  {
-    name:"Ahmed Istiakur Rahman", designation:"Lecturer",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"istiakur@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Electrical and Electronic Engineering, Islamic University of Technology (IUT)"],
-    specialization:"Hybrid Renewable Energy Systems, Mars Rover Technology"
-  },
-  {
-    name:"Md. Imam Mahdi", designation:"Lecturer",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"", phone:"",
-    qualifications:[
-      "M.Tech in Next Generation Communication and Networks, National Institute of Technology Durgapur, India",
-      "B.E. in Electronics and Communication Engineering, The University of Burdwan, India"
-    ],
-    specialization:"Satellite Communication, Wireless Communication, IoT, Digital Twin, Machine Learning, AI"
-  },
-  {
-    name:"Arpita Mazumder", designation:"Lecturer",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"mazumder@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. in Electrical and Electronic Engineering, Chittagong University of Engineering and Technology (CUET)"],
-    specialization:"Biomedical Electronics, Nuclear Energy, Renewable Sources"
-  },
-  {
-    name:"Nafisa Ahmed", designation:"Lecturer (Study Leave)",
-    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
-    email:"nafisa@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "M.Sc in Electrical and Electronic Engineering, Bangladesh University of Engineering and Technology (BUET)",
-      "B.Sc in Electrical Electronic and Communication Engineering, Military Institute of Science and Technology (MIST)"
-    ],
-    specialization:"VLSI, Semiconductor Devices, Photonics, Plasmonics, Photovoltaics"
-  },
-
-  // ══════════════════════════════════════════════════════════
-  // DS — Department of Data Science
-  // ══════════════════════════════════════════════════════════
-  {
-    name:"Md. Mushtaq Shahriyar Rafee", designation:"Assistant Professor and Head (In-charge)",
-    department:"DS", departmentFull:"Department of Data Science",
-    email:"rafee@metrouni.edu.bd", phone:"",
-    qualifications:["B.Sc. (Engg.) in Computer Science & Engineering, Shahjalal University of Science and Technology (SUST)"],
-    specialization:"Speech Processing, Computational Linguistics, Machine Learning, NLP"
-  },
-  {
-    name:"Archi Arani Basak", designation:"Lecturer",
-    department:"DS", departmentFull:"Department of Data Science",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-  {
-    name:"Muhammad Muzammil", designation:"Lecturer",
-    department:"DS", departmentFull:"Department of Data Science",
-    email:"", phone:"", qualifications:[], specialization:""
-  },
-
-  // ══════════════════════════════════════════════════════════
-  // BA — Department of Business Administration
-  // ══════════════════════════════════════════════════════════
-  {
-    name:"Professor Md. Taher Billal Khalifa Ph D", designation:"Professor",
+    name:"Professor Md. Taher Billal Khalifa PhD", designation:"Professor",
     department:"BA", departmentFull:"Department of Business Administration",
     email:"", phone:"",
     qualifications:[
@@ -1467,8 +1283,7 @@ const FACULTY = [
       "MBA in Management, Islamic University, Kushtia",
       "BBA (Hons.) in Management, Islamic University, Kushtia"
     ],
-    specialization:"Work-Family Conflict, Business Management, Human Resources Management, Organizational Behavior",
-    note:"Prime Minister Gold Medal & Chancellor Gold Medal recipient"
+    specialization:"Work-Family Conflict, Business Management, Human Resources Management, Organizational Behavior"
   },
   {
     name:"Md. Emran Uddin", designation:"Associate Professor",
@@ -1501,7 +1316,7 @@ const FACULTY = [
       "BBA in Marketing, Metropolitan University Sylhet"
     ],
     specialization:"Marketing, Consumer Psychology",
-    note:"Head of the Department; Chancellor\'s Gold Medal recipient"
+    note:"Head of the Department"
   },
   {
     name:"Mohammad Kamrul Ahsan", designation:"Associate Professor",
@@ -1573,8 +1388,7 @@ const FACULTY = [
       "MBA in Finance & Banking, Metropolitan University Sylhet",
       "BBA, Metropolitan University Sylhet"
     ],
-    specialization:"Economic growth and inequality, Digital finance, Corporate governance",
-    note:"Chancellor\'s Gold Medal & Summa Cum Laude recipient"
+    specialization:"Economic growth and inequality, Digital finance, Corporate governance"
   },
   {
     name:"Mohammad Asrafuzzaman Yazdani Razu", designation:"Assistant Professor (Study Leave)",
@@ -1607,48 +1421,55 @@ const FACULTY = [
     specialization:""
   },
   {
-    name:"Dr. Tofayel Ahmed", designation:"Faculty",
+    name:"Dr. Tofayel Ahmed", designation:"",
     department:"BA", departmentFull:"Department of Business Administration",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
-    name:"Dr. Md Rezaul Haque", designation:"Faculty",
+    name:"Dr. Md Rezaul Haque", designation:"",
     department:"BA", departmentFull:"Department of Business Administration",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
-    name:"Zarin Tasnim Ahmed Mahi", designation:"Faculty",
+    name:"Zarin Tasnim Ahmed Mahi", designation:"",
     department:"BA", departmentFull:"Department of Business Administration",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
-    name:"Fahim Shahriar", designation:"Faculty",
+    name:"Fahim Shahriar", designation:"",
     department:"BA", departmentFull:"Department of Business Administration",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
-    name:"Dr. Md. Monirul Islam", designation:"Faculty",
+    name:"Dr. Md. Monirul Islam", designation:"",
     department:"BA", departmentFull:"Department of Business Administration",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
-    name:"Dr. Mohammad Shahidul Hoque", designation:"Faculty",
+    name:"Dr. Mohammad Shahidul Hoque", designation:"",
     department:"BA", departmentFull:"Department of Business Administration",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
-    name:"Dr. Fazle Elahi Md. Faisal", designation:"Faculty",
+    name:"Dr. Fazle Elahi Md. Faisal", designation:"",
     department:"BA", departmentFull:"Department of Business Administration",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
-    name:"Dr. Mohammad Mizenur Rahman", designation:"Faculty",
+    name:"Dr. Mohammad Mizenur Rahman", designation:"",
     department:"BA", departmentFull:"Department of Business Administration",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
-  // ══════════════════════════════════════════════════════════
-  // ECO — Department of Economics
-  // ══════════════════════════════════════════════════════════
+
+  // -- Economics Department -------------------------------------
   {
     name:"Dr. Toufique Rahman Chowdhury", designation:"Professor (Honorary)",
     department:"ECO", departmentFull:"Department of Economics",
@@ -1677,19 +1498,7 @@ const FACULTY = [
       "MBA in Management, Islamic University, Kushtia",
       "BBA (Hons.) in Management, Islamic University, Kushtia"
     ],
-    specialization:"Work-Family Conflict, Business Management, HRM, Organizational Behavior",
-    note:"Prime Minister Gold Medal & Chancellor Gold Medal recipient"
-  },
-  {
-    name:"Dr. Muntaha Rakib", designation:"Professor (Guest Faculty)",
-    department:"ECO", departmentFull:"Department of Economics",
-    email:"muntaha_rakib@metrouni.edu.bd", phone:"",
-    qualifications:[
-      "Ph.D. in Agricultural Economics, University of Bonn (2015)",
-      "M.S.S. in Economics, Shahjalal University of Science and Technology, Sylhet (2004)",
-      "B.S.S. (Hons.) in Economics, Shahjalal University of Science and Technology, Sylhet (2005)"
-    ],
-    specialization:"Agricultural Economics, Climate Change and Adaptation, Gender, Poverty Analysis"
+    specialization:"Work-Family Conflict, Business Management, HRM, Organizational Behavior"
   },
   {
     name:"Dr. Umme Humayara Manni", designation:"Associate Professor and Head",
@@ -1745,7 +1554,8 @@ const FACULTY = [
   {
     name:"Md Imran Hossain Milon", designation:"Lecturer",
     department:"ECO", departmentFull:"Department of Economics",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
     name:"Muhtasim Fuad Ahmed", designation:"Lecturer",
@@ -1758,20 +1568,30 @@ const FACULTY = [
     specialization:"Sustainable Finance, ESG Integration, Corporate Finance, Macroeconomics"
   },
   {
-    name:"Sharmin Akter", designation:"Faculty",
+    name:"Sharmin Akter", designation:"",
     department:"ECO", departmentFull:"Department of Economics",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Dr. Muntaha Rakib", designation:"Professor (Guest Faculty)",
+    department:"ECO", departmentFull:"Department of Economics",
+    email:"muntaha_rakib@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "Ph.D. in Agricultural Economics, University of Bonn (2015)",
+      "M.S.S. in Economics, Shahjalal University of Science and Technology, Sylhet (2004)",
+      "B.S.S. (Hons.) in Economics, Shahjalal University of Science and Technology, Sylhet (2005)"
+    ],
+    specialization:"Agricultural Economics, Climate Change and Adaptation, Gender, Poverty Analysis"
   },
 
-  // ══════════════════════════════════════════════════════════
-  // LJ — Department of Law and Justice
-  // ══════════════════════════════════════════════════════════
+  // -- Law and Justice Department -------------------------------
   {
     name:"Barrister Md. Arash Ali", designation:"Professor",
     department:"LJ", departmentFull:"Department of Law and Justice",
     email:"", phone:"",
     qualifications:[
-      "Barrister-at-law, Honourable Society of Lincoln\'s Inn London",
+      "Barrister-at-law, Honourable Society of Lincoln's Inn London",
       "LL.B., University of Dhaka",
       "B.A. (Hons.), University of Dhaka"
     ],
@@ -1876,129 +1696,1001 @@ const FACULTY = [
   {
     name:"Ms. Mahmuda Sultana", designation:"Lecturer",
     department:"LJ", departmentFull:"Department of Law and Justice",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
     name:"Md. Sariful Islam", designation:"Lecturer",
     department:"LJ", departmentFull:"Department of Law and Justice",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
   {
-    name:"Md. Ohidur Rahman Choudhury", designation:"Faculty",
+    name:"Md. Ohidur Rahman Choudhury", designation:"",
     department:"LJ", departmentFull:"Department of Law and Justice",
-    email:"", phone:"", qualifications:[], specialization:""
+    email:"", phone:"",
+    qualifications:[], specialization:""
   },
 
+  // -- Data Science Department ------------------------------------------
+  {
+    name:"Md. Mushtaq Shahriyar Rafee", designation:"Assistant Professor and Head (In-charge)",
+    department:"DS", departmentFull:"Department of Data Science",
+    email:"rafee@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. (Engg.) in Computer Science & Engineering, Shahjalal University of Science and Technology (SUST)"],
+    specialization:"Speech Processing, Computational Linguistics, Machine Learning, NLP"
+  },
+  {
+    name:"Archi Arani Basak", designation:"Lecturer",
+    department:"DS", departmentFull:"Department of Data Science",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Muhammad Muzammil", designation:"Lecturer",
+    department:"DS", departmentFull:"Department of Data Science",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+
+  // -- EEE Department ------------------------------------------
+  {
+    name:"Dr. Abdul Hoque", designation:"Professor",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Safwan Uddin Ahmed", designation:"Assistant Professor & Head",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Md. Rahmot Ullah", designation:"Assistant Professor",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"rahmot@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. (Hons.) in Electrical and Electronic Engineering, Khulna University of Engineering & Technology (KUET)"],
+    specialization:"Renewable Energy, Smart-Grid Technology, Geothermal Energy, Power System Protection"
+  },
+  {
+    name:"Md. Anwarul Kawchar", designation:"Assistant Professor",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Nawshad Ahmed Chowdhury", designation:"Associate Professor (Study Leave)",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"", phone:"",
+    qualifications:[
+      "MSc in EECE, Military Institute of Science and Technology (MIST)",
+      "B.Sc. in Electrical and Electronic Engineering, East West University, Dhaka"
+    ],
+    specialization:"Nanosensor, Nanoelectronics, Biosensors, Renewable Energy"
+  },
+  {
+    name:"Surajit Sinha", designation:"Assistant Professor (Study Leave)",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"s.sinha@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.Sc. in Applied Physics Electronics & Communication Engineering, University of Dhaka",
+      "B.Sc. in Applied Physics Electronics & Communication Engineering, University of Dhaka"
+    ],
+    specialization:"Renewable Energy, Wireless Networks, Antenna Design"
+  },
+  {
+    name:"Nafisa Ahmed", designation:"Lecturer (Study Leave)",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"nafisa@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.Sc in Electrical and Electronic Engineering, Bangladesh University of Engineering and Technology (BUET)",
+      "B.Sc in Electrical Electronic and Communication Engineering, Military Institute of Science and Technology (MIST)"
+    ],
+    specialization:"VLSI, Semiconductor Devices, Photonics, Plasmonics, Photovoltaics"
+  },
+  {
+    name:"Arpita Mazumder", designation:"Lecturer",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"mazumder@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Electrical and Electronic Engineering, Chittagong University of Engineering and Technology (CUET)"],
+    specialization:"Biomedical Electronics, Nuclear Energy, Renewable Sources"
+  },
+  {
+    name:"Md. Hasanur Rahman Sohag", designation:"Lecturer",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"sohag@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Electrical and Electronic Engineering, Metropolitan University, Sylhet"],
+    specialization:"Hardware Engineering, PCB Design, IoT, Robotics, 3D Design"
+  },
+  {
+    name:"Sadman Sakib", designation:"Lecturer",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"sakib@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Electrical & Electronic Engineering, Islamic University of Technology (IUT)"],
+    specialization:"Power Electronics, Renewable Energy, Applied Machine Learning"
+  },
+  {
+    name:"Mahim Ahmed", designation:"Lecturer",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"mahim@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Electrical and Electronic Engineering, Shahjalal University of Science and Technology (SUST)"],
+    specialization:"Power Electronics, Control Systems, Microprocessors, Smart Grid, Electric Vehicles"
+  },
+  {
+    name:"Md. Fardin Ahasan Maraz", designation:"Lecturer",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"maraz@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Electrical and Electronic Engineering, Shahjalal University of Science and Technology (SUST)"],
+    specialization:"Photonics, Plasmonics, SPR Sensor, Bio-photonics"
+  },
+  {
+    name:"Md. Shadman Shakib", designation:"Lecturer (Senior Grade)",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"shadman@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.Sc. in Electrical and Electronic Engineering, Noakhali Science and Technology University",
+      "B.Sc. in Electrical and Electronic Engineering, Noakhali Science and Technology University"
+    ],
+    specialization:"Machine Learning, Deep Learning, Computer Vision, Optical Camera Communication, Smart Grid Systems"
+  },
+  {
+    name:"Ahmed Afif Rafsan", designation:"Lecturer",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"rafsan@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Electrical and Electronic Engineering, Ahsanullah University of Science and Technology (AUST)"],
+    specialization:"Photonics, Sensors, Optics, Biosensors, Metamaterials"
+  },
+  {
+    name:"Ahmed Istiakur Rahman", designation:"Lecturer",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"istiakur@metrouni.edu.bd", phone:"",
+    qualifications:["B.Sc. in Electrical and Electronic Engineering, Islamic University of Technology (IUT)"],
+    specialization:"Hybrid Renewable Energy Systems, Mars Rover Technology"
+  },
+  {
+    name:"Md. Imam Mahdi", designation:"Lecturer",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"", phone:"",
+    qualifications:[
+      "M.Tech in Next Generation Communication and Networks, National Institute of Technology Durgapur, India",
+      "B.E. in Electronics and Communication Engineering, The University of Burdwan, India"
+    ],
+    specialization:"Satellite Communication, Wireless Communication, IoT, Digital Twin, Machine Learning, AI"
+  },
+  {
+    name:"Dr. Mohammed Jahirul Islam, PEng", designation:"Professor (Guest Teacher)",
+    department:"EEE", departmentFull:"Department of Electrical & Electronic Engineering",
+    email:"mjislam@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "PhD in Electrical and Computer Engineering, University of Windsor, Canada",
+      "MASc in Electrical and Computer Engineering, Ryerson University, Canada",
+      "MSc in Electronics and Computer Science, Shahjalal University of Science and Technology (SUST)",
+      "BSc (Hons) in Electronics and Computer Science, Shahjalal University of Science and Technology (SUST)"
+    ],
+    specialization:"Image Processing, Computer Vision, Pattern Recognition, Document Image Analysis"
+  },
+
+  // -- English Department ---------------------------------------
+  {
+    name:"Professor Suresh Ranjan Basak PhD", designation:"Professor",
+    department:"EN", departmentFull:"Department of English",
+    email:"sbasak@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "PhD from University of Chittagong",
+      "M.A. in English from University of Chittagong",
+      "B.A. (Hons.) in English from Chittagong Govt. College"
+    ],
+    specialization:"Postcolonial literatures, Postmodern Literature, Diaspora, Eco-critical Literature, Translation Studies, Rabindranath Tagore",
+    note:"Dean, School of Humanities and Social Sciences"
+  },
+  {
+    name:"Professor Mohammad Ishrat Ibne Ismail", designation:"Professor",
+    department:"EN", departmentFull:"Department of English",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Dr. Mohammad Mostak Ahmed", designation:"Associate Professor",
+    department:"EN", departmentFull:"Department of English",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Anik Biswas", designation:"Associate Professor",
+    department:"EN", departmentFull:"Department of English",
+    email:"anik@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    specialization:"Literature and films, Translation studies, Cultural studies, Theories in literature",
+    note:"Head of the Department"
+  },
+  {
+    name:"Sanjida Chowdhury", designation:"Assistant Professor",
+    department:"EN", departmentFull:"Department of English",
+    email:"sanjida@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    specialization:"Postcolonial literature, Teaching Techniques, Teaching-learning Strategies"
+  },
+  {
+    name:"Syed Nakib Sadi", designation:"Assistant Professor",
+    department:"EN", departmentFull:"Department of English",
+    email:"nakib@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in Applied Linguistics and ELT from University of Dhaka",
+      "B.A. (Hons.) in English from University of Dhaka"
+    ],
+    specialization:"Language teaching, Material design, Curriculum development"
+  },
+  {
+    name:"Snigdha Das", designation:"Assistant Professor (Study Leave)",
+    department:"EN", departmentFull:"Department of English",
+    email:"sdas@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    specialization:"Absurd literature, Postmodern facets of human lives"
+  },
+  {
+    name:"Golam Rabbani", designation:"Assistant Professor (Study Leave)",
+    department:"EN", departmentFull:"Department of English",
+    email:"rabbani@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Metropolitan University, Sylhet",
+      "B.A. (Hons.) in English from Metropolitan University, Sylhet"
+    ],
+    specialization:"Postcolonial Literature, Contemporary writings"
+  },
+  {
+    name:"Abdullah Al Mashud", designation:"Lecturer",
+    department:"EN", departmentFull:"Department of English",
+    email:"mashud@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Metropolitan University, Sylhet",
+      "B.A. (Hons.) in English from Metropolitan University, Sylhet"
+    ],
+    specialization:"Contemporary (World) literature in English"
+  },
+  {
+    name:"Farhana Khanom Joly", designation:"Lecturer",
+    department:"EN", departmentFull:"Department of English",
+    email:"farhana@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Metropolitan University, Sylhet",
+      "B.A. in English from Metropolitan University, Sylhet"
+    ],
+    specialization:"American Literature, Postcolonial Literature, South Asian Literature, 20th Century Literature (Poetry), Metaphysical Poetry, Victorian Poetry, Romantic Poetry"
+  },
+  {
+    name:"Abu Yousuf Musa", designation:"Lecturer",
+    department:"EN", departmentFull:"Department of English",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Noshin Tabassum", designation:"Lecturer",
+    department:"EN", departmentFull:"Department of English",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"S K Shahriar", designation:"Lecturer",
+    department:"EN", departmentFull:"Department of English",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
+  {
+    name:"Tasnuva Tabassum", designation:"Lecturer (Study Leave)",
+    department:"EN", departmentFull:"Department of English",
+    email:"tasnuva@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
+    ],
+    specialization:"Poetry, Fiction, Comparative Literature"
+  },
+  {
+    name:"Muhammad Shamsul Islam", designation:"Lecturer (Study Leave)",
+    department:"EN", departmentFull:"Department of English",
+    email:"shamsul@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
+    ],
+    specialization:"American Literature, Postcolonial Literature, Poetry, Fiction"
+  },
+  {
+    name:"Md Mohi Uddin", designation:"Lecturer (Study Leave)",
+    department:"EN", departmentFull:"Department of English",
+    email:"mohi@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
+    ],
+    specialization:""
+  },
+  {
+    name:"Sanjida Kalam", designation:"Lecturer (Study Leave)",
+    department:"EN", departmentFull:"Department of English",
+    email:"sanjidakalam@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from University of Liberal Arts",
+      "B.A.(Hons.) in English from Bangladesh Army International University of Science and Technology, Cumilla"
+    ],
+    specialization:"Postcolonial studies, Feminism, Cultural studies, Media studies, Postcolonial African Politics, American Literature"
+  },
+  {
+    name:"Tanjim Nishat Farmi", designation:"Lecturer (Study Leave)",
+    department:"EN", departmentFull:"Department of English",
+    email:"tanjim@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    specialization:""
+  },
+  {
+    name:"Mouni Battacharjee", designation:"Lecturer (Study Leave)",
+    department:"EN", departmentFull:"Department of English",
+    email:"mouni@metrouni.edu.bd", phone:"",
+    qualifications:[
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    specialization:""
+  },
+  {
+    name:"Nahida Sarker Nijhum", designation:"Teaching Assistant",
+    department:"EN", departmentFull:"Department of English",
+    email:"", phone:"",
+    qualifications:[], specialization:""
+  },
 ];
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-// ══ RENDER FACULTY CARDS ═══════════════════════════════════════
-const container = document.getElementById('cards-container');
-const searchInput = document.getElementById('search-input');
-const searchClear = document.getElementById('search-clear');
-const deptFilter = document.getElementById('dept-filter');
-const desigFilter = document.getElementById('desig-filter');
-const suggestionsDropdown = document.getElementById('suggestions-dropdown');
-const statsTotal = document.getElementById('total-count');
-const statsDept = document.getElementById('dept-count');
 
-const deptColors = {
-  "CSE":"dept-cse","EEE":"dept-eee","CE":"dept-ce","ME":"dept-me",
-  "ARCHI":"dept-archi","LA":"dept-la","PH":"dept-ph","MATH":"dept-math",
-  "CHEM":"dept-chem","ENG":"dept-eng","BNG":"dept-bng","DS":"dept-ds","BA":"dept-ba",
-  "LAW":"dept-law","FIT":"dept-fit","LJ":"dept-law"
-};
-const avatarColors = ["#1a5c38","#2d7a45","#c9a84c","#0f3d24","#38c26b","#e8c970"];
-
-// Populate filters
-const depts = [...new Set(FACULTY.map(f => f.department))].sort();
-const desigs = [...new Set(FACULTY.map(f => f.designation))].sort();
-depts.forEach(d => {
-  const opt = document.createElement('option');
-  opt.value = d; opt.textContent = d;
-  deptFilter.appendChild(opt);
-});
-desigs.forEach(d => {
-  const opt = document.createElement('option');
-  opt.value = d; opt.textContent = d;
-  desigFilter.appendChild(opt);
-});
-
-// Filter & render
-function renderFaculty() {
-  const q = searchInput.value.toLowerCase();
-  const dept = deptFilter.value;
-  const desig = desigFilter.value;
-  
-  const filtered = FACULTY.filter(f => {
-    const matchQ = !q || f.name.toLowerCase().includes(q) || f.departmentFull?.toLowerCase().includes(q) || f.designation?.toLowerCase().includes(q) || f.specialization?.toLowerCase().includes(q);
-    const matchDept = !dept || f.department === dept;
-    const matchDesig = !desig || f.designation === desig;
-    return matchQ && matchDept && matchDesig;
-  });
-  
-  container.innerHTML = filtered.length ? filtered.map((f,i) => {
-    const idx = FACULTY.indexOf(f);
-    const deptClass = deptColors[f.department] || '';
-    const avatarColor = avatarColors[idx % avatarColors.length];
-    const initials = f.name.split(' ').map(w => w[0]).join('').substring(0,2);
-    return `<div class="teacher-card ${deptClass} col-12 col-md-6 col-lg-4 mb-3">
-      <div class="card-accent-strip"></div>
-      <div class="card-body-custom">
-        <div class="teacher-header">
-          <div class="avatar" style="background:${avatarColor}">${initials}</div>
-          <div class="teacher-name-row">
-            <span class="teacher-name">${f.name}</span>
-            <span class="designation">${f.designation}</span>
-          </div>
-        </div>
-        <div class="dept-name-row">
-          <i class="bi bi-building"></i>
-          <span class="dept-badge">${f.departmentFull || f.department}</span>
-        </div>
-        ${f.email ? `<div class="info-row"><i class="bi bi-envelope"></i><a href="mailto:${f.email}">${f.email}</a></div>` : ''}
-        ${f.phone ? `<div class="info-row"><i class="bi bi-telephone"></i><span>${f.phone}</span></div>` : ''}
-        ${f.qualifications && f.qualifications.length ? `<div class="info-row"><i class="bi bi-mortarboard"></i><span>${f.qualifications.join(', ')}</span></div>` : ''}
-        ${f.specialization ? `<div class="info-row"><i class="bi bi-tools"></i><span>${f.specialization}</span></div>` : ''}
-      </div>
-    </div>`;
-  }).join('') : '<div class="col-12 text-center text-muted py-5"><p>No faculty members found.</p></div>';
-  
-  if (statsTotal) statsTotal.textContent = FACULTY.length;
-  if (statsDept) statsDept.textContent = depts.length;
+/* ══ HELPERS ════════════════════════════════════════════════════ */
+function getInitials(name) {
+  return name
+    .replace(/^(Dr\.|Md\.|Eng\.|Prof\.|Mr\.|Mrs\.|Ms\.)\s*/i, '')
+    .split(' ').filter(Boolean).slice(0, 2)
+    .map(w => w[0].toUpperCase()).join('');
 }
 
-// Event listeners
+function getDeptClass(dept) {
+  const map = { CSE:'dept-cse', SWE:'dept-swe', EEE:'dept-eee', DS:'dept-ds', EN:'dept-en', BA:'dept-ba', ECO:'dept-eco', LJ:'dept-lj' };
+  return map[dept] || 'dept-other';
+}
+
+function buildCard(t, i) {
+  const initials = getInitials(t.name);
+  const deptCls  = getDeptClass(t.department);
+  const quals    = (t.qualifications || [])
+    .map(q => `<span class="qual-tag">${q}</span>`).join('');
+  const delay    = i * 80;
+
+  return `
+  <div class="col-sm-6 col-xl-4 card-col" style="animation-delay:${delay}ms">
+    <div class="teacher-card ${deptCls}">
+
+      <div class="card-accent-strip"></div>
+
+      <div class="card-top">
+        <div class="avatar">${initials}</div>
+        <div class="card-header-info">
+          <p class="card-name">${t.name}</p>
+          <p class="card-designation">${t.designation}</p>
+          ${t.note ? `<span class="card-note"><i class="bi bi-star-fill" style="font-size:.6rem;margin-right:3px"></i>${t.note}</span>` : ''}
+          <div class="dept-name-row">
+            <i class="bi bi-building"></i>
+            <span class="dept-full-name">${t.departmentFull}</span>
+          </div>
+          <span class="dept-badge">${t.department}</span>
+        </div>
+      </div>
+
+      <div class="card-body-mu">
+
+        ${t.specialization ? `
+        <div class="info-block">
+          <div class="info-label">Specialization</div>
+          <div class="info-row">
+            <i class="bi bi-lightbulb"></i>
+            <span>${t.specialization}</span>
+          </div>
+        </div>
+        <hr class="card-divider"/>` : ''}
+
+        ${quals ? `
+        <div class="info-block">
+          <div class="info-label">Qualifications</div>
+          <div class="qual-wrap">${quals}</div>
+        </div>
+        <hr class="card-divider"/>` : ''}
+
+        ${t.email ? `
+        <div class="info-block">
+          <div class="info-label">Email</div>
+          <div class="info-row">
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:${t.email}">${t.email}</a>
+          </div>
+        </div>` : ''}
+
+        ${t.phone ? `
+        <div class="info-block">
+          <div class="info-label">Phone</div>
+          <div class="info-row">
+            <i class="bi bi-telephone-fill"></i>
+            <a href="tel:${t.phone}">${t.phone}</a>
+          </div>
+        </div>` : ''}
+
+      </div>
+
+      <div class="card-footer-mu">
+        <div class="card-actions">
+          <a href="#" class="btn-action btn-profile" onclick="return false;">
+            <i class="bi bi-person-badge"></i> Profile
+          </a>
+          ${t.email ? `<a href="mailto:${t.email}" class="btn-action btn-email-action">
+            <i class="bi bi-envelope"></i> Email
+          </a>` : ''}
+          <a href="${t.phone ? `tel:${t.phone}` : '#'}" class="btn-action btn-phone-action" ${!t.phone ? 'onclick="return false;"' : ''}>
+            <i class="bi bi-telephone"></i> Call
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>`;
+}
+
+function buildSkeletons(n) {
+  return Array.from({length: n}, () => `
+    <div class="col-sm-6 col-xl-4">
+      <div class="skeleton-card">
+        <div class="skel-header"></div>
+        <div class="skel-body">
+          <div class="skel-line skel-lg"></div>
+          <div class="skel-line skel-sm"></div>
+          <div class="skel-line"></div>
+          <div class="skel-line skel-xs"></div>
+          <div class="skel-line skel-lg"></div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+/* ══ COUNTER ANIMATION ══════════════════════════════════════════ */
+function animateCounter(el, target, duration) {
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(ease * target);
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(tick);
+}
+
+/* ══ INIT ELEMENTS ══════════════════════════════════════════════ */
+const container      = document.getElementById('cards-container');
+const noResult       = document.getElementById('no-result');
+const emptyNotice    = document.getElementById('empty-data-notice');
+const searchInput    = document.getElementById('search-input');
+const clearBtn       = document.getElementById('search-clear');
+const suggestionsEl  = document.getElementById('suggestions-dropdown');
+const deptFilter     = document.getElementById('dept-filter');
+const desigFilter    = document.getElementById('desig-filter');
+const resultCount    = document.getElementById('result-count');
+const gridCountLabel = document.getElementById('grid-count-label');
+const totalCountEl   = document.getElementById('total-count');
+const deptCountEl    = document.getElementById('dept-count');
+const chipsRow       = document.getElementById('chips-row');
+
+/* Populate dropdowns */
+const depts = [...new Set(FACULTY.map(f => f.department))].sort();
+depts.forEach(d => {
+  const o = document.createElement('option');
+  o.value = d; o.textContent = d;
+  deptFilter.appendChild(o);
+});
+const desigOrder = ['Professor','Associate Professor','Assistant Professor','Senior Lecturer','Lecturer'];
+const desigs = [...new Set(FACULTY.map(f => f.designation))]
+  .sort((a,b) => desigOrder.indexOf(a) - desigOrder.indexOf(b));
+desigs.forEach(d => {
+  const o = document.createElement('option');
+  o.value = d; o.textContent = d;
+  desigFilter.appendChild(o);
+});
+
+/* Hero stats — animate on load */
+if (FACULTY.length > 0) {
+  animateCounter(totalCountEl, FACULTY.length, 1200);
+  animateCounter(deptCountEl,  depts.length,   1000);
+}
+
+/* ══ SUGGESTIONS ════════════════════════════════════════════════ */
+function renderSuggestions(query) {
+  if (!query || query.length < 2) {
+    suggestionsEl.classList.remove('open');
+    return;
+  }
+  const q = query.toLowerCase();
+  const matches = FACULTY
+    .filter(f => f.name.toLowerCase().includes(q))
+    .slice(0, 7);
+
+  if (!matches.length) { suggestionsEl.classList.remove('open'); return; }
+
+  suggestionsEl.innerHTML = matches.map(f => {
+    const av = getDeptClass(f.department).includes('swe') ? 'swe' : '';
+    return `
+    <div class="sug-item" data-name="${f.name}">
+      <div class="sug-av ${av}">${getInitials(f.name)}</div>
+      <span class="sug-name">${f.name}</span>
+      <span class="sug-badge ${av}">${f.department}</span>
+    </div>`;
+  }).join('');
+
+  suggestionsEl.querySelectorAll('.sug-item').forEach(item => {
+    item.addEventListener('mousedown', e => {
+      e.preventDefault();
+      searchInput.value = item.dataset.name;
+      suggestionsEl.classList.remove('open');
+      clearBtn.classList.add('show');
+      render();
+    });
+  });
+
+  suggestionsEl.classList.add('open');
+}
+
 searchInput.addEventListener('input', () => {
-  const q = searchInput.value.toLowerCase();
-  if (q.length > 0) {
-    const matches = FACULTY.filter(f => f.name.toLowerCase().includes(q)).slice(0,5);
-    suggestionsDropdown.innerHTML = matches.map(m => `<div class="suggestion-item" data-name="${m.name}">${m.name}</div>`).join('');
-    suggestionsDropdown.style.display = matches.length ? 'block' : 'none';
-  } else {
-    suggestionsDropdown.style.display = 'none';
-  }
-  renderFaculty();
+  const val = searchInput.value;
+  clearBtn.classList.toggle('show', val.length > 0);
+  renderSuggestions(val);
+  scheduleRender();
 });
-
-suggestionsDropdown.addEventListener('click', e => {
-  if (e.target.classList.contains('suggestion-item')) {
-    searchInput.value = e.target.dataset.name;
-    suggestionsDropdown.style.display = 'none';
-    renderFaculty();
-  }
+searchInput.addEventListener('blur', () => {
+  setTimeout(() => suggestionsEl.classList.remove('open'), 160);
 });
-
-searchClear.addEventListener('click', () => {
+clearBtn.addEventListener('click', () => {
   searchInput.value = '';
-  suggestionsDropdown.style.display = 'none';
-  renderFaculty();
+  clearBtn.classList.remove('show');
+  suggestionsEl.classList.remove('open');
+  render();
+  searchInput.focus();
 });
 
-deptFilter.addEventListener('change', renderFaculty);
-desigFilter.addEventListener('change', renderFaculty);
+/* ══ FILTER CHIPS ═══════════════════════════════════════════════ */
+function updateChips() {
+  const dept  = deptFilter.value;
+  const desig = desigFilter.value;
+  const chips = [];
 
-// Initial render
-renderFaculty();
+  if (dept) chips.push({
+    label: dept, key:'dept',
+    html:`<span class="filter-chip" data-key="dept">
+      <i class="bi bi-building" style="font-size:.72rem"></i>${dept}
+      <span class="chip-x"><i class="bi bi-x"></i></span>
+    </span>`
+  });
+  if (desig) chips.push({
+    label: desig, key:'desig',
+    html:`<span class="filter-chip" data-key="desig">
+      <i class="bi bi-person-check" style="font-size:.72rem"></i>${desig}
+      <span class="chip-x"><i class="bi bi-x"></i></span>
+    </span>`
+  });
+
+  if (!chips.length) {
+    chipsRow.innerHTML = '';
+    chipsRow.classList.add('hidden');
+    return;
+  }
+
+  chipsRow.innerHTML = chips.map(c => c.html).join('') +
+    `<span class="clear-all-chip">Clear all</span>`;
+  chipsRow.classList.remove('hidden');
+
+  chipsRow.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const key = chip.dataset.key;
+      if (key === 'dept')  deptFilter.value  = '';
+      if (key === 'desig') desigFilter.value = '';
+      updateChips(); render();
+    });
+  });
+  chipsRow.querySelector('.clear-all-chip').addEventListener('click', () => {
+    deptFilter.value = ''; desigFilter.value = '';
+    updateChips(); render();
+  });
+}
+
+/* ══ RENDER ═════════════════════════════════════════════════════ */
+let renderTimer = null;
+let isFirstRender = true;
+
+function scheduleRender() {
+  if (isFirstRender) { render(); return; }
+  if (renderTimer) clearTimeout(renderTimer);
+  // Show skeleton briefly, then real cards
+  const n = Math.min(
+    FACULTY.filter(t => {
+      const q = searchInput.value.toLowerCase();
+      const d = deptFilter.value, des = desigFilter.value;
+      return (!q || t.name.toLowerCase().includes(q) || t.department.toLowerCase().includes(q) || (t.specialization||'').toLowerCase().includes(q))
+          && (!d   || t.department === d)
+          && (!des || t.designation === des);
+    }).length,
+    6
+  );
+  container.innerHTML = buildSkeletons(Math.max(n, 3));
+  noResult.style.display = 'none';
+  renderTimer = setTimeout(render, 480);
+}
+
+function render() {
+  isFirstRender = false;
+  const query = searchInput.value.trim().toLowerCase();
+  const dept  = deptFilter.value;
+  const desig = desigFilter.value;
+
+  const filtered = FACULTY.filter(t => {
+    const matchSearch = !query ||
+      t.name.toLowerCase().includes(query)           ||
+      t.department.toLowerCase().includes(query)     ||
+      t.departmentFull.toLowerCase().includes(query) ||
+      t.designation.toLowerCase().includes(query)    ||
+      (t.specialization || '').toLowerCase().includes(query) ||
+      (t.email || '').toLowerCase().includes(query);
+    const matchDept  = !dept  || t.department  === dept;
+    const matchDesig = !desig || t.designation === desig;
+    return matchSearch && matchDept && matchDesig;
+  });
+
+  container.innerHTML = filtered.map((t, i) => buildCard(t, i)).join('');
+
+  const n = filtered.length;
+  resultCount.textContent   = FACULTY.length > 0
+    ? (n ? `${n} result${n !== 1 ? 's' : ''} found` : '') : '';
+  gridCountLabel.textContent = `${n} shown`;
+
+  noResult.style.display    = (n === 0 && FACULTY.length > 0) ? 'block' : 'none';
+  emptyNotice.style.display = FACULTY.length === 0 ? 'block' : 'none';
+}
+
+/* ══ EVENTS ═════════════════════════════════════════════════════ */
+deptFilter.addEventListener('change',  () => { updateChips(); scheduleRender(); });
+desigFilter.addEventListener('change', () => { updateChips(); scheduleRender(); });
+
+/* ══ FIRST RENDER ═══════════════════════════════════════════════ */
+if (FACULTY.length === 0) {
+  emptyNotice.style.display = 'block';
+  noResult.style.display = 'none';
+} else {
+  emptyNotice.style.display = 'none';
+  render();
+}
 </script>
+<!-- ══════════════════════════════════════════════════════════════
+     PWA UI: Install Banner + Update Toast
+     ════════════════════════════════════════════════════════════ -->
+<style>
+/* -- Install Banner (bottom slide-up) ---------------------------- */
+.pwa-install-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(135deg, #1a5c38 0%, #2d7a45 100%);
+  color: #fff;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 9999;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.35);
+  transform: translateY(110%);
+  transition: transform .42s cubic-bezier(0.25, 1, 0.5, 1);
+  font-family: 'DM Sans', sans-serif;
+  /* Safe area for notched phones */
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+.pwa-install-banner.show { transform: translateY(0); }
+.pwa-install-banner .banner-content  { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+.pwa-install-banner .banner-icon     { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+.pwa-install-banner .banner-text h4  { font-size: .95rem; font-weight: 700; margin: 0 0 3px 0; }
+.pwa-install-banner .banner-text p   { font-size: .78rem; margin: 0; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pwa-install-banner .banner-actions  { display: flex; gap: 8px; flex-shrink: 0; }
+.pwa-banner-btn-install {
+  background: #c9a84c; color: #0f1c14; border: none;
+  padding: 10px 18px; border-radius: 9px;
+  font-weight: 700; font-size: .83rem; cursor: pointer;
+  transition: background .2s, transform .15s;
+  white-space: nowrap;
+}
+.pwa-banner-btn-install:hover { background: #e8c970; transform: scale(1.03); }
+.pwa-banner-btn-dismiss {
+  background: rgba(255,255,255,.14); color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 10px 13px; border-radius: 9px;
+  font-size: .83rem; cursor: pointer;
+  transition: background .2s;
+}
+.pwa-banner-btn-dismiss:hover { background: rgba(255,255,255,.26); }
+@media (max-width: 500px) {
+  .pwa-install-banner       { flex-direction: column; text-align: center; }
+  .pwa-install-banner .banner-content { flex-direction: column; }
+  .pwa-install-banner .banner-actions { width: 100%; justify-content: center; }
+  .pwa-banner-btn-install   { flex: 1; }
+}
+
+/* -- Update Toast (top-right) ---------------------------------- */
+.pwa-update-toast {
+  position: fixed;
+  top: 72px; right: 16px;
+  background: #0f1c14;
+  color: #fff;
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10000;
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  max-width: 340px;
+  transform: translateX(calc(100% + 32px));
+  transition: transform .4s cubic-bezier(0.25, 1, 0.5, 1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  border: 1px solid rgba(201,168,76,.25);
+}
+.pwa-update-toast.show { transform: translateX(0); }
+.pwa-update-toast .toast-icon { font-size: 1.5rem; flex-shrink: 0; }
+.pwa-update-toast .toast-body { flex: 1; }
+.pwa-update-toast .toast-body strong { display: block; font-size: .9rem; margin-bottom: 2px; }
+.pwa-update-toast .toast-body span   { opacity: .75; font-size: .78rem; }
+.pwa-update-toast .toast-actions { display: flex; gap: 7px; flex-shrink: 0; }
+.pwa-toast-btn-refresh {
+  background: #c9a84c; color: #0f1c14; border: none;
+  padding: 8px 13px; border-radius: 7px;
+  font-weight: 700; font-size: .78rem; cursor: pointer;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.pwa-toast-btn-refresh:hover { background: #e8c970; }
+.pwa-toast-btn-later {
+  background: rgba(255,255,255,.1); color: #fff; border: none;
+  padding: 8px 10px; border-radius: 7px;
+  font-size: .78rem; cursor: pointer;
+}
+.pwa-toast-btn-later:hover { background: rgba(255,255,255,.2); }
+@media (max-width: 500px) {
+  .pwa-update-toast { top: auto; bottom: 90px; right: 8px; left: 8px; max-width: unset; transform: translateY(120%); }
+  .pwa-update-toast.show { transform: translateY(0); }
+}
+</style>
+
+<!-- -- Install Banner HTML ---------------------------------------- -->
+<div id="pwa-install-banner" class="pwa-install-banner" role="dialog" aria-label="Install App">
+  <div class="banner-content">
+    <img src="icons/icon-192.png" alt="" class="banner-icon">
+    <div class="banner-text">
+      <h4>📱 Install MU ClassCraft</h4>
+      <p>Add to home screen • works offline</p>
+    </div>
+  </div>
+  <div class="banner-actions">
+    <button class="pwa-banner-btn-install" id="pwa-install-btn" aria-label="Install app">
+      <i class="bi bi-download"></i> Install
+    </button>
+    <button class="pwa-banner-btn-dismiss" id="pwa-dismiss-btn" aria-label="Dismiss">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+</div>
+
+<!-- -- Update Toast HTML ------------------------------------------ -->
+<div id="pwa-update-toast" class="pwa-update-toast" role="alert" aria-live="polite">
+  <div class="toast-icon">🔄</div>
+  <div class="toast-body">
+    <strong>New version ready!</strong>
+    <span>Refresh to get the latest update</span>
+  </div>
+  <div class="toast-actions">
+    <button class="pwa-toast-btn-refresh" id="pwa-refresh-btn">Refresh</button>
+    <button class="pwa-toast-btn-later"   id="pwa-later-btn"><i class="bi bi-x"></i></button>
+  </div>
+</div>
+
+<!-- ══ PWA MASTER SCRIPT ════════════════════════════════════════════
+     - Registers service worker
+     - Shows install banner (with iOS fallback instructions)
+     - Shows update toast when a new SW is waiting
+     - Handles SKIP_WAITING + page reload for instant update
+     ════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* -- Elements ----------------------------------------------- */
+  const installBanner = document.getElementById('pwa-install-banner');
+  const installBtn    = document.getElementById('pwa-install-btn');
+  const dismissBtn    = document.getElementById('pwa-dismiss-btn');
+  const updateToast   = document.getElementById('pwa-update-toast');
+  const refreshBtn    = document.getElementById('pwa-refresh-btn');
+  const laterBtn      = document.getElementById('pwa-later-btn');
+
+  let deferredPrompt  = null;
+  let waitingSW       = null;
+
+  /* -- Install Banner Logic ----------------------------------- */
+  const DISMISS_KEY = 'mu-pwa-banner-dismissed-v1';
+
+  // Detect iOS (Safari) — beforeinstallprompt not supported there
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+  const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches
+                          || window.navigator.standalone === true;
+
+  if (!isInStandaloneMode && !localStorage.getItem(DISMISS_KEY)) {
+    if (isIOS) {
+      // Show banner after 2s with iOS install instructions
+      setTimeout(() => installBanner.classList.add('show'), 2000);
+    } else {
+      // Chrome/Edge/Android — wait for browser prompt event
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        setTimeout(() => installBanner.classList.add('show'), 1500);
+      });
+    }
+  }
+
+  installBtn.addEventListener('click', async () => {
+    if (isIOS) {
+      // Show a polished iOS instruction modal
+      showIOSInstructions();
+      return;
+    }
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log('[PWA] Install prompt outcome:', outcome);
+    if (outcome === 'accepted') {
+      installBanner.classList.remove('show');
+      localStorage.setItem(DISMISS_KEY, 'true');
+    }
+    deferredPrompt = null;
+  });
+
+  dismissBtn.addEventListener('click', () => {
+    installBanner.classList.remove('show');
+    localStorage.setItem(DISMISS_KEY, 'true');
+  });
+
+  // Clean up banner once installed
+  window.addEventListener('appinstalled', () => {
+    installBanner.classList.remove('show');
+    deferredPrompt = null;
+    console.log('[PWA] App installed successfully');
+  });
+
+  /* -- iOS Install Instructions ------------------------------- */
+  function showIOSInstructions() {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+      position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99999;
+      display:flex;align-items:flex-end;padding:0;font-family:'DM Sans',sans-serif;
+    `;
+    modal.innerHTML = `
+      <div style="background:#0f1c14;color:#fff;padding:28px 24px 40px;border-radius:22px 22px 0 0;
+                  width:100%;box-shadow:0 -8px 40px rgba(0,0,0,.5);max-width:480px;margin:0 auto;">
+        <h3 style="font-size:1.1rem;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:8px;">
+          <img src="icons/icon-96.png" style="width:32px;height:32px;border-radius:8px;"> Add to Home Screen
+        </h3>
+        <ol style="padding-left:20px;line-height:2rem;font-size:.92rem;opacity:.9;margin:0 0 20px;">
+          <li>Tap the <strong>Share</strong> button <span style="font-size:1.1rem;">⬆</span> at the bottom of Safari</li>
+          <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+          <li>Tap <strong>"Add"</strong> in the top right</li>
+        </ol>
+        <button onclick="this.closest('div[style]').remove()" style="
+          width:100%;padding:14px;background:#c9a84c;color:#0f1c14;border:none;
+          border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;">
+          Got it!
+        </button>
+      </div>
+    `;
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+    document.body.appendChild(modal);
+  }
+
+  /* -- Service Worker Registration + Update Detection -------- */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      try {
+        const registration = await navigator.serviceWorker.register('/sw.js', {
+          updateViaCache: 'none'   // Always check network for new SW
+        });
+        console.log('[PWA] SW registered, scope:', registration.scope);
+
+        // Check for update immediately and then every 60s
+        registration.update();
+        setInterval(() => registration.update(), 60_000);
+
+        // New SW is waiting to activate (update downloaded)
+        function handleWaiting(sw) {
+          waitingSW = sw;
+          showUpdateToast();
+        }
+
+        if (registration.waiting) {
+          handleWaiting(registration.waiting);
+        }
+
+        registration.addEventListener('updatefound', () => {
+          const newSW = registration.installing;
+          newSW.addEventListener('statechange', () => {
+            if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+              handleWaiting(newSW);
+            }
+          });
+        });
+
+        // Listen for SW_UPDATED message from new SW after it activates
+        navigator.serviceWorker.addEventListener('message', (event) => {
+          if (event.data?.type === 'SW_UPDATED') {
+            console.log('[PWA] SW updated to:', event.data.version);
+            // Only reload if user hasn't been asked (avoids double toast)
+          }
+          if (event.data?.type === 'RELOAD') {
+            window.location.reload();
+          }
+        });
+
+        // If controller changes (new SW took over), reload for fresh content
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!refreshing) {
+            refreshing = true;
+            console.log('[PWA] Controller changed — reloading page');
+            window.location.reload();
+          }
+        });
+
+      } catch (err) {
+        console.warn('[PWA] SW registration failed:', err);
+      }
+    });
+  }
+
+  /* -- Update Toast Logic ------------------------------------- */
+  function showUpdateToast() {
+    setTimeout(() => updateToast.classList.add('show'), 800);
+  }
+
+  refreshBtn.addEventListener('click', () => {
+    updateToast.classList.remove('show');
+    if (waitingSW) {
+      waitingSW.postMessage({ type: 'SKIP_WAITING' });
+      // controllerchange event will trigger reload
+    } else {
+      window.location.reload();
+    }
+  });
+
+  laterBtn.addEventListener('click', () => {
+    updateToast.classList.remove('show');
+  });
+
+})();
+</script>
+</body>
+</html>
