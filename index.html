@@ -2,12 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="theme-color" content="#1a5c38"/>
-  <link rel="manifest" href="manifest.json"/>
-  <link rel="apple-touch-icon" href="icons/icon-192.png"/>
-  <title>MU Faculty Directory | Metropolitan University</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 
+  <!-- ══ PWA / SEO META ══════════════════════════════════════════ -->
+  <title>MU Faculty Directory | Metropolitan University</title>
+  <meta name="description" content="Browse and search Metropolitan University faculty by department and designation — works offline."/>
+  <meta name="application-name" content="MU ClassCraft"/>
+  <meta name="author" content="Metropolitan University"/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- ══ THEME COLOR (light/dark) ════════════════════════════════ -->
+  <meta name="theme-color" content="#1a5c38" media="(prefers-color-scheme: light)"/>
+  <meta name="theme-color" content="#0f3d24" media="(prefers-color-scheme: dark)"/>
+
+  <!-- ══ PWA MANIFEST ════════════════════════════════════════════ -->
+  <link rel="manifest" href="manifest.json"/>
+
+  <!-- ══ APPLE / iOS ═════════════════════════════════════════════ -->
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="MU ClassCraft"/>
+  <!-- Apple touch icons (iOS uses these, not manifest icons) -->
+  <link rel="apple-touch-icon"                     href="icons/icon-152.png"/>
+  <link rel="apple-touch-icon" sizes="152x152"     href="icons/icon-152.png"/>
+  <link rel="apple-touch-icon" sizes="144x144"     href="icons/icon-144.png"/>
+  <link rel="apple-touch-icon" sizes="128x128"     href="icons/icon-128.png"/>
+  <link rel="apple-touch-icon" sizes="192x192"     href="icons/icon-192.png"/>
+  <link rel="apple-touch-icon" sizes="512x512"     href="icons/icon-512.png"/>
+  <!-- Apple splash screens (optional — add per device if needed) -->
+
+  <!-- ══ MICROSOFT / WINDOWS ═════════════════════════════════════ -->
+  <meta name="msapplication-TileImage"  content="icons/icon-144.png"/>
+  <meta name="msapplication-TileColor" content="#1a5c38"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+
+  <!-- ══ OPEN GRAPH (social sharing) ════════════════════════════ -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:title"       content="MU Faculty Directory | Metropolitan University"/>
+  <meta property="og:description" content="Browse faculty by department & designation. Works offline."/>
+  <meta property="og:image"       content="icons/icon-512.png"/>
+
+  <!-- ══ FAVICON ═════════════════════════════════════════════════ -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"/>
+  <link rel="icon" type="image/png" sizes="96x96"   href="icons/icon-96.png"/>
+  <link rel="icon" type="image/png" sizes="32x32"   href="icons/icon-96.png"/>
+  <link rel="shortcut icon"                          href="icons/icon-96.png"/>
+
+  <!-- ══ EXTERNAL STYLESHEETS ════════════════════════════════════ -->
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <!-- Bootstrap Icons -->
@@ -1306,20 +1347,14 @@ if (FACULTY.length === 0) {
   render();
 }
 </script>
-<!-- PWA Service Worker -->
-<script>
-if("serviceWorker"in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js").then(r=>console.log("[PWA] SW registered:",r.scope)).catch(e=>console.log("[PWA] SW failed:",e))})}</script>
-</body>
-</body>
-</html>
-
-<!-- ══ PWA INSTALL BANNER ══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════════════════
+     PWA UI: Install Banner + Update Toast
+     ════════════════════════════════════════════════════════════ -->
 <style>
+/* ── Install Banner (bottom slide-up) ──────────────────────────── */
 .pwa-install-banner {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   background: linear-gradient(135deg, #1a5c38 0%, #2d7a45 100%);
   color: #fff;
   padding: 16px 20px;
@@ -1328,68 +1363,301 @@ if("serviceWorker"in navigator){window.addEventListener("load",()=>{navigator.se
   justify-content: space-between;
   gap: 12px;
   z-index: 9999;
-  box-shadow: 0 -4px 20px rgba(0,0,0,.3);
-  transform: translateY(100%);
-  transition: transform .4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 -4px 24px rgba(0,0,0,.35);
+  transform: translateY(110%);
+  transition: transform .42s cubic-bezier(0.25, 1, 0.5, 1);
   font-family: 'DM Sans', sans-serif;
+  /* Safe area for notched phones */
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
 }
 .pwa-install-banner.show { transform: translateY(0); }
-.pwa-install-banner .banner-content { display: flex; align-items: center; gap: 12px; flex: 1; }
-.pwa-install-banner .banner-icon { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
-.pwa-install-banner .banner-text h4 { font-size: .95rem; font-weight: 600; margin: 0 0 2px 0; }
-.pwa-install-banner .banner-text p { font-size: .78rem; margin: 0; opacity: .85; }
-.pwa-install-banner .banner-actions { display: flex; gap: 8px; flex-shrink: 0; }
-.pwa-install-banner .btn-install { background: #c9a84c; color: #0f1c14; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: .82rem; cursor: pointer; transition: all .2s; }
-.pwa-install-banner .btn-install:hover { background: #e8c970; transform: scale(1.02); }
-.pwa-install-banner .btn-dismiss { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.3); padding: 10px 14px; border-radius: 8px; font-size: .82rem; cursor: pointer; transition: all .2s; }
-.pwa-install-banner .btn-dismiss:hover { background: rgba(255,255,255,.25); }
-@media (max-width: 480px) { .pwa-install-banner { flex-direction: column; text-align: center; } .pwa-install-banner .banner-content { flex-direction: column; } .pwa-install-banner .banner-actions { width: 100%; justify-content: center; } }
+.pwa-install-banner .banner-content  { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+.pwa-install-banner .banner-icon     { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+.pwa-install-banner .banner-text h4  { font-size: .95rem; font-weight: 700; margin: 0 0 3px 0; }
+.pwa-install-banner .banner-text p   { font-size: .78rem; margin: 0; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pwa-install-banner .banner-actions  { display: flex; gap: 8px; flex-shrink: 0; }
+.pwa-banner-btn-install {
+  background: #c9a84c; color: #0f1c14; border: none;
+  padding: 10px 18px; border-radius: 9px;
+  font-weight: 700; font-size: .83rem; cursor: pointer;
+  transition: background .2s, transform .15s;
+  white-space: nowrap;
+}
+.pwa-banner-btn-install:hover { background: #e8c970; transform: scale(1.03); }
+.pwa-banner-btn-dismiss {
+  background: rgba(255,255,255,.14); color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 10px 13px; border-radius: 9px;
+  font-size: .83rem; cursor: pointer;
+  transition: background .2s;
+}
+.pwa-banner-btn-dismiss:hover { background: rgba(255,255,255,.26); }
+@media (max-width: 500px) {
+  .pwa-install-banner       { flex-direction: column; text-align: center; }
+  .pwa-install-banner .banner-content { flex-direction: column; }
+  .pwa-install-banner .banner-actions { width: 100%; justify-content: center; }
+  .pwa-banner-btn-install   { flex: 1; }
+}
+
+/* ── Update Toast (top-right) ────────────────────────────────── */
+.pwa-update-toast {
+  position: fixed;
+  top: 72px; right: 16px;
+  background: #0f1c14;
+  color: #fff;
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10000;
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  max-width: 340px;
+  transform: translateX(calc(100% + 32px));
+  transition: transform .4s cubic-bezier(0.25, 1, 0.5, 1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  border: 1px solid rgba(201,168,76,.25);
+}
+.pwa-update-toast.show { transform: translateX(0); }
+.pwa-update-toast .toast-icon { font-size: 1.5rem; flex-shrink: 0; }
+.pwa-update-toast .toast-body { flex: 1; }
+.pwa-update-toast .toast-body strong { display: block; font-size: .9rem; margin-bottom: 2px; }
+.pwa-update-toast .toast-body span   { opacity: .75; font-size: .78rem; }
+.pwa-update-toast .toast-actions { display: flex; gap: 7px; flex-shrink: 0; }
+.pwa-toast-btn-refresh {
+  background: #c9a84c; color: #0f1c14; border: none;
+  padding: 8px 13px; border-radius: 7px;
+  font-weight: 700; font-size: .78rem; cursor: pointer;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.pwa-toast-btn-refresh:hover { background: #e8c970; }
+.pwa-toast-btn-later {
+  background: rgba(255,255,255,.1); color: #fff; border: none;
+  padding: 8px 10px; border-radius: 7px;
+  font-size: .78rem; cursor: pointer;
+}
+.pwa-toast-btn-later:hover { background: rgba(255,255,255,.2); }
+@media (max-width: 500px) {
+  .pwa-update-toast { top: auto; bottom: 90px; right: 8px; left: 8px; max-width: unset; transform: translateY(120%); }
+  .pwa-update-toast.show { transform: translateY(0); }
+}
 </style>
 
-<div id="pwa-install-banner" class="pwa-install-banner">
+<!-- ── Install Banner HTML ──────────────────────────────────────── -->
+<div id="pwa-install-banner" class="pwa-install-banner" role="dialog" aria-label="Install App">
   <div class="banner-content">
-    <img src="icons/icon-192.png" alt="MU ClassCraft" class="banner-icon">
+    <img src="icons/icon-192.png" alt="" class="banner-icon">
     <div class="banner-text">
       <h4>📱 Install MU ClassCraft</h4>
-      <p>Add to home screen for quick access & offline use</p>
+      <p>Add to home screen • works offline</p>
     </div>
   </div>
   <div class="banner-actions">
-    <button class="btn-install" id="pwa-install-btn"><i class="bi bi-download"></i> Install</button>
-    <button class="btn-dismiss" id="pwa-dismiss-btn"><i class="bi bi-x"></i></button>
+    <button class="pwa-banner-btn-install" id="pwa-install-btn" aria-label="Install app">
+      <i class="bi bi-download"></i> Install
+    </button>
+    <button class="pwa-banner-btn-dismiss" id="pwa-dismiss-btn" aria-label="Dismiss">
+      <i class="bi bi-x-lg"></i>
+    </button>
   </div>
 </div>
 
+<!-- ── Update Toast HTML ────────────────────────────────────────── -->
+<div id="pwa-update-toast" class="pwa-update-toast" role="alert" aria-live="polite">
+  <div class="toast-icon">🔄</div>
+  <div class="toast-body">
+    <strong>New version ready!</strong>
+    <span>Refresh to get the latest update</span>
+  </div>
+  <div class="toast-actions">
+    <button class="pwa-toast-btn-refresh" id="pwa-refresh-btn">Refresh</button>
+    <button class="pwa-toast-btn-later"   id="pwa-later-btn"><i class="bi bi-x"></i></button>
+  </div>
+</div>
+
+<!-- ══ PWA MASTER SCRIPT ════════════════════════════════════════════
+     - Registers service worker
+     - Shows install banner (with iOS fallback instructions)
+     - Shows update toast when a new SW is waiting
+     - Handles SKIP_WAITING + page reload for instant update
+     ════════════════════════════════════════════════════════════ -->
 <script>
-(function() {
-  let deferredPrompt;
-  const banner = document.getElementById('pwa-install-banner');
-  const installBtn = document.getElementById('pwa-install-btn');
-  const dismissBtn = document.getElementById('pwa-dismiss-btn');
+(function () {
+  'use strict';
 
-  if (localStorage.getItem('pwaBannerDismissed')) return;
+  /* ── Elements ─────────────────────────────────────────────── */
+  const installBanner = document.getElementById('pwa-install-banner');
+  const installBtn    = document.getElementById('pwa-install-btn');
+  const dismissBtn    = document.getElementById('pwa-dismiss-btn');
+  const updateToast   = document.getElementById('pwa-update-toast');
+  const refreshBtn    = document.getElementById('pwa-refresh-btn');
+  const laterBtn      = document.getElementById('pwa-later-btn');
 
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    setTimeout(() => banner.classList.add('show'), 1500);
-  });
+  let deferredPrompt  = null;
+  let waitingSW       = null;
+
+  /* ── Install Banner Logic ─────────────────────────────────── */
+  const DISMISS_KEY = 'mu-pwa-banner-dismissed-v1';
+
+  // Detect iOS (Safari) — beforeinstallprompt not supported there
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+  const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches
+                          || window.navigator.standalone === true;
+
+  if (!isInStandaloneMode && !localStorage.getItem(DISMISS_KEY)) {
+    if (isIOS) {
+      // Show banner after 2s with iOS install instructions
+      setTimeout(() => installBanner.classList.add('show'), 2000);
+    } else {
+      // Chrome/Edge/Android — wait for browser prompt event
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        setTimeout(() => installBanner.classList.add('show'), 1500);
+      });
+    }
+  }
 
   installBtn.addEventListener('click', async () => {
-    if (!deferredPrompt) {
-      alert('📱 To install:\n\n1. Tap the Share button (□↑)\n2. Scroll down\n3. Tap "Add to Home Screen"\n4. Tap "Add"');
+    if (isIOS) {
+      // Show a polished iOS instruction modal
+      showIOSInstructions();
       return;
     }
+    if (!deferredPrompt) return;
+
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') banner.classList.remove('show');
+    console.log('[PWA] Install prompt outcome:', outcome);
+    if (outcome === 'accepted') {
+      installBanner.classList.remove('show');
+      localStorage.setItem(DISMISS_KEY, 'true');
+    }
     deferredPrompt = null;
   });
 
   dismissBtn.addEventListener('click', () => {
-    banner.classList.remove('show');
-    localStorage.setItem('pwaBannerDismissed', 'true');
+    installBanner.classList.remove('show');
+    localStorage.setItem(DISMISS_KEY, 'true');
   });
+
+  // Clean up banner once installed
+  window.addEventListener('appinstalled', () => {
+    installBanner.classList.remove('show');
+    deferredPrompt = null;
+    console.log('[PWA] App installed successfully');
+  });
+
+  /* ── iOS Install Instructions ─────────────────────────────── */
+  function showIOSInstructions() {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+      position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99999;
+      display:flex;align-items:flex-end;padding:0;font-family:'DM Sans',sans-serif;
+    `;
+    modal.innerHTML = `
+      <div style="background:#0f1c14;color:#fff;padding:28px 24px 40px;border-radius:22px 22px 0 0;
+                  width:100%;box-shadow:0 -8px 40px rgba(0,0,0,.5);max-width:480px;margin:0 auto;">
+        <h3 style="font-size:1.1rem;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:8px;">
+          <img src="icons/icon-96.png" style="width:32px;height:32px;border-radius:8px;"> Add to Home Screen
+        </h3>
+        <ol style="padding-left:20px;line-height:2rem;font-size:.92rem;opacity:.9;margin:0 0 20px;">
+          <li>Tap the <strong>Share</strong> button <span style="font-size:1.1rem;">⬆</span> at the bottom of Safari</li>
+          <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+          <li>Tap <strong>"Add"</strong> in the top right</li>
+        </ol>
+        <button onclick="this.closest('div[style]').remove()" style="
+          width:100%;padding:14px;background:#c9a84c;color:#0f1c14;border:none;
+          border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;">
+          Got it!
+        </button>
+      </div>
+    `;
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+    document.body.appendChild(modal);
+  }
+
+  /* ── Service Worker Registration + Update Detection ──────── */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      try {
+        const registration = await navigator.serviceWorker.register('/sw.js', {
+          updateViaCache: 'none'   // Always check network for new SW
+        });
+        console.log('[PWA] SW registered, scope:', registration.scope);
+
+        // Check for update immediately and then every 60s
+        registration.update();
+        setInterval(() => registration.update(), 60_000);
+
+        // New SW is waiting to activate (update downloaded)
+        function handleWaiting(sw) {
+          waitingSW = sw;
+          showUpdateToast();
+        }
+
+        if (registration.waiting) {
+          handleWaiting(registration.waiting);
+        }
+
+        registration.addEventListener('updatefound', () => {
+          const newSW = registration.installing;
+          newSW.addEventListener('statechange', () => {
+            if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+              handleWaiting(newSW);
+            }
+          });
+        });
+
+        // Listen for SW_UPDATED message from new SW after it activates
+        navigator.serviceWorker.addEventListener('message', (event) => {
+          if (event.data?.type === 'SW_UPDATED') {
+            console.log('[PWA] SW updated to:', event.data.version);
+            // Only reload if user hasn't been asked (avoids double toast)
+          }
+          if (event.data?.type === 'RELOAD') {
+            window.location.reload();
+          }
+        });
+
+        // If controller changes (new SW took over), reload for fresh content
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!refreshing) {
+            refreshing = true;
+            console.log('[PWA] Controller changed — reloading page');
+            window.location.reload();
+          }
+        });
+
+      } catch (err) {
+        console.warn('[PWA] SW registration failed:', err);
+      }
+    });
+  }
+
+  /* ── Update Toast Logic ───────────────────────────────────── */
+  function showUpdateToast() {
+    setTimeout(() => updateToast.classList.add('show'), 800);
+  }
+
+  refreshBtn.addEventListener('click', () => {
+    updateToast.classList.remove('show');
+    if (waitingSW) {
+      waitingSW.postMessage({ type: 'SKIP_WAITING' });
+      // controllerchange event will trigger reload
+    } else {
+      window.location.reload();
+    }
+  });
+
+  laterBtn.addEventListener('click', () => {
+    updateToast.classList.remove('show');
+  });
+
 })();
 </script>
-</body></html>
+</body>
+</html>
