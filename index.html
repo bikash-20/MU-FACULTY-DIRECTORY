@@ -1891,3 +1891,31 @@ const FACULTY = [
   },
 
 ];
+
+// ══ RENDER FACULTY CARDS ═══════════════════════════════════════
+const container = document.getElementById('cards-container');
+const statsTotal = document.getElementById('total-count');
+const statsDept = document.getElementById('dept-count');
+
+if (container && FACULTY) {
+  const uniqueDepts = [...new Set(FACULTY.map(f => f.department))];
+  
+  container.innerHTML = FACULTY.map(f => `
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card faculty-card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">${f.name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${f.designation}</h6>
+          <p class="mb-1"><small><strong>Dept:</strong> ${f.departmentFull || f.department}</small></p>
+          ${f.email ? `<p class="mb-1"><small><strong>Email:</strong> ${f.email}</small></p>` : ''}
+          ${f.qualifications && f.qualifications.length ? `<p class="mb-0"><small><strong>Qualifications:</strong> ${f.qualifications.join(', ')}</small></p>` : ''}
+          ${f.specialization ? `<p class="mb-0 text-muted"><small>${f.specialization}</small></p>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+  
+  if (statsTotal) statsTotal.textContent = FACULTY.length;
+  if (statsDept) statsDept.textContent = uniqueDepts.length;
+}
+</script>
