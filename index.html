@@ -720,6 +720,87 @@
       width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
     }
 
+    /* ══ STUDENT TOOLS SECTION ══════════════════════════════════ */
+    .tools-section {
+      padding: 40px 0 10px;
+      background: transparent;
+    }
+    .tools-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.18rem; font-weight: 700;
+      color: var(--mu-dark);
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tools-heading .bi {
+      color: var(--mu-green); font-size: 1.1rem;
+    }
+    .tools-badge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .62rem; font-weight: 700;
+      background: var(--mu-green); color: #fff;
+      padding: 2px 8px; border-radius: 20px;
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .tool-card {
+      display: flex; align-items: center; gap: 16px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--mu-border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      text-decoration: none; color: var(--mu-dark);
+      box-shadow: var(--shadow);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
+      position: relative; overflow: hidden;
+    }
+    .tool-card:not(.tool-card--soon):hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(26,92,56,.25);
+    }
+    .tool-card--soon {
+      opacity: .72; cursor: default;
+    }
+    .tool-icon-wrap {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,.18);
+    }
+    .tool-icon-wrap .bi {
+      font-size: 1.3rem; color: #fff;
+    }
+    .tool-info { flex: 1; min-width: 0; }
+    .tool-title {
+      font-weight: 700; font-size: .9rem;
+      margin: 0 0 3px; color: var(--mu-dark);
+    }
+    .tool-desc {
+      font-size: .74rem; color: var(--mu-muted);
+      margin: 0; line-height: 1.4;
+    }
+    .tool-arrow {
+      color: var(--mu-green); font-size: 1rem;
+      transition: transform .22s var(--ease);
+    }
+    .tool-card:not(.tool-card--soon):hover .tool-arrow {
+      transform: translateX(4px);
+    }
+    .tool-soon-badge {
+      position: absolute; top: 10px; right: 12px;
+      font-size: .6rem; font-weight: 700;
+      background: rgba(107,124,114,.12);
+      color: var(--mu-muted);
+      border: 1px solid rgba(107,124,114,.2);
+      padding: 2px 7px; border-radius: 10px;
+      letter-spacing: .05em; text-transform: uppercase;
+    }
+
     /* ══ FOOTER ═════════════════════════════════════════════════ */
     footer {
       background: var(--mu-dark);
@@ -749,6 +830,7 @@
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav ms-auto gap-1">
         <li class="nav-item"><a class="nav-link active" href="#">Faculty Directory</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tools-section">Tools</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Departments</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
@@ -786,6 +868,58 @@
             <span class="lbl">Departments</span>
           </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STUDENT TOOLS ════════════════════════════════════════════ -->
+<section id="tools-section" class="tools-section">
+  <div class="container">
+
+    <div class="tools-heading">
+      <i class="bi bi-grid-3x3-gap-fill"></i>
+      Student Tools
+      <span class="tools-badge">New</span>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- Cover Page Generator -->
+      <a href="#" id="cover-page-link" class="tool-card" target="_blank" rel="noopener">
+        <div class="tool-icon-wrap" style="background:linear-gradient(135deg,#1a5c38,#2d9e5f)">
+          <i class="bi bi-file-earmark-text-fill"></i>
+        </div>
+        <div class="tool-info">
+          <p class="tool-title">Cover Page Generator</p>
+          <p class="tool-desc">Generate lab report, assignment & project cover pages instantly</p>
+        </div>
+        <div class="tool-arrow"><i class="bi bi-arrow-right"></i></div>
+      </a>
+
+      <!-- Placeholder — more tools coming -->
+      <div class="tool-card tool-card--soon">
+        <div class="tool-icon-wrap" style="background:linear-gradient(135deg,#1a3d7c,#2d6dbf)">
+          <i class="bi bi-calendar3"></i>
+        </div>
+        <div class="tool-info">
+          <p class="tool-title">Class Routine</p>
+          <p class="tool-desc">View your department's weekly schedule</p>
+        </div>
+        <span class="tool-soon-badge">Coming Soon</span>
+      </div>
+
+      <div class="tool-card tool-card--soon">
+        <div class="tool-icon-wrap" style="background:linear-gradient(135deg,#7c2d12,#c2410c)">
+          <i class="bi bi-megaphone-fill"></i>
+        </div>
+        <div class="tool-info">
+          <p class="tool-title">Notice Board</p>
+          <p class="tool-desc">Latest announcements from all departments</p>
+        </div>
+        <span class="tool-soon-badge">Coming Soon</span>
       </div>
 
     </div>
