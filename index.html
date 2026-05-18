@@ -1140,34 +1140,51 @@ document.addEventListener('faculty-ready', function () {
     const qualHtml = (f.qualifications||[]).map(q =>
       `<span class="qual-tag">${q}</span>`).join('');
     const emailHtml = f.email
-      ? `<div class="info-row"><i class="bi bi-envelope-fill"></i><a href="mailto:${f.email}">${f.email}</a></div>` : '';
+      ? `<div class="info-block">
+          <div class="info-label">Email</div>
+          <div class="info-row"><i class="bi bi-envelope-fill"></i><a href="mailto:${f.email}">${f.email}</a></div>
+         </div>` : '';
     const specHtml = f.specialization
-      ? `<div class="detail-block"><div class="detail-label">Specialization</div><div class="info-row"><i class="bi bi-lightbulb"></i><span>${f.specialization}</span></div></div>` : '';
+      ? `<div class="info-block">
+          <div class="info-label">Specialization</div>
+          <div class="info-row"><i class="bi bi-lightbulb"></i><span>${f.specialization}</span></div>
+         </div>` : '';
     const qualBlock = qualHtml
-      ? `<div class="detail-block"><div class="detail-label">Qualifications</div><div class="qual-tags">${qualHtml}</div></div>` : '';
+      ? `<div class="info-block">
+          <div class="info-label">Qualifications</div>
+          <div class="qual-wrap">${qualHtml}</div>
+         </div>` : '';
+    const noteHtml = f.note
+      ? `<span class="card-note">${f.note}</span>` : '';
 
     const col = document.createElement('div');
     col.className = 'col-12 col-md-6 col-lg-4';
     col.innerHTML = `
-      <div class="faculty-card ${dc}">
+      <div class="teacher-card ${dc}">
         <div class="card-accent-strip"></div>
         <div class="card-top">
-          <div class="avatar-circle"><span class="avatar-initials">${ini}</span></div>
-          <div class="card-meta">
-            <div class="dept-name-row"><i class="bi bi-building"></i><span class="dept-small">${f.departmentFull||f.department}</span></div>
+          <div class="avatar">${ini}</div>
+          <div class="card-header-info">
+            ${noteHtml}
+            <p class="card-name">${f.name}</p>
+            <p class="card-designation">${f.designation||''}</p>
+            <div class="dept-name-row">
+              <i class="bi bi-building"></i>
+              <span class="dept-full-name">${f.departmentFull||f.department}</span>
+            </div>
             <span class="dept-badge">${f.department}</span>
           </div>
         </div>
         <div class="card-body-mu">
-          <h3 class="faculty-name">${f.name}</h3>
-          <p class="faculty-desig">${f.designation||''}</p>
           ${specHtml}
           ${qualBlock}
-          ${emailHtml ? `<div class="detail-block">${emailHtml}</div>` : ''}
+          ${emailHtml}
+        </div>
+        <div class="card-footer-mu">
           <div class="card-actions">
             <button class="btn-action btn-profile"><i class="bi bi-person-badge"></i> Profile</button>
-            ${f.email ? `<a class="btn-action btn-email" href="mailto:${f.email}"><i class="bi bi-envelope"></i> Email</a>` : ''}
-            ${f.phone ? `<a class="btn-action btn-call" href="tel:${f.phone}"><i class="bi bi-telephone"></i> Call</a>` : ''}
+            ${f.email ? `<a class="btn-action btn-email-action" href="mailto:${f.email}"><i class="bi bi-envelope"></i> Email</a>` : ''}
+            ${f.phone ? `<a class="btn-action btn-call-action" href="tel:${f.phone}"><i class="bi bi-telephone"></i> Call</a>` : ''}
           </div>
         </div>
       </div>`;
