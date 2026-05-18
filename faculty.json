@@ -1,0 +1,1673 @@
+[
+  {
+    "name": "Prof. Dr. Yousuf M Islam",
+    "designation": "Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "yousuf@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "PhD",
+      "M.Sc",
+      "B.Sc"
+    ],
+    "specialization": "Computer Science & Engineering"
+  },
+  {
+    "name": "Prof. Dr. Md. Nazrul Haque Chowdhury",
+    "designation": "Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "nazrul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "PhD",
+      "M.Sc",
+      "B.Sc"
+    ],
+    "specialization": "Computer Science & Engineering",
+    "note": "Dean, School of Science & Technology"
+  },
+  {
+    "name": "Choudhury M. Mukammel Wahid",
+    "designation": "Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "mukammel@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc in Physics, Dalhousie University, Nova Scotia, Canada",
+      "M.Phil in Physics, BUET",
+      "M.Sc in Physics, SUST Sylhet"
+    ],
+    "specialization": "Physics, Engineering Sciences"
+  },
+  {
+    "name": "Md. Mahfujul Hasan",
+    "designation": "Associate Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "mahfujul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc. in Communication Engineering, United International University (UIU) Bangladesh",
+      "B.Sc. in Computer Science & Engineering, International Islamic University Chittagong (IIUC), Bangladesh"
+    ],
+    "specialization": "Communication Engineering, Machine Learning, NLP",
+    "note": "Head, Dept. of CSE"
+  },
+  {
+    "name": "Md. Jakir Hossain",
+    "designation": "Assistant Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "jakir@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc in CSIT (Communication), Southern University Bangladesh",
+      "B.Sc in Electronics & Communication Engineering, Southern University Bangladesh"
+    ],
+    "specialization": "Communication Engineering, Computer Science"
+  },
+  {
+    "name": "Md. Mushtaq Shahriyar Rafee",
+    "designation": "Assistant Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "rafee@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc (Engg.) in Computer Science & Engineering, SUST Sylhet"
+    ],
+    "specialization": "Speech Processing, Computational Linguistics, Machine Learning, NLP"
+  },
+  {
+    "name": "Md. Rashedul Islam",
+    "designation": "Assistant Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "rashedul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc in Computer Science & Engineering"
+    ],
+    "specialization": "Computer Science & Engineering"
+  },
+  {
+    "name": "Md. Raju Ahmed",
+    "designation": "Assistant Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "raju@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc in Computer Science & Engineering"
+    ],
+    "specialization": "Computer Science & Engineering"
+  },
+  {
+    "name": "Md. Ashikul Islam",
+    "designation": "Assistant Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "ashikul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc in Computer Science & Engineering"
+    ],
+    "specialization": "Computer Science & Engineering"
+  },
+  {
+    "name": "Md. Nurul Afsar Mahmud Bhuiyan",
+    "designation": "Assistant Professor",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "afsar@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc in Computer Science & Engineering"
+    ],
+    "specialization": "Computer Science & Engineering"
+  },
+  {
+    "name": "Md. Shamihul Islam Khan Limon",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "limon@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "BSc.(Hons.) in Computer Science and Engineering, Shahjalal University of Science & Technology, Sylhet"
+    ],
+    "specialization": "Machine Translation, NLP, Intent Detection, Slot filling"
+  },
+  {
+    "name": "Md. Fahmidur Rahman Sakib",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "fahmidur@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "BSc.(Hons.) in Computer Science and Engineering, BRAC University"
+    ],
+    "specialization": "Computer Vision, Image Processing, Machine Learning, Data Science, Natural Language Processing, Deep Learning"
+  },
+  {
+    "name": "Salma Akther",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "salma@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Phil in Political Science, University of Dhaka",
+      "M.S.S in Political Studies, SUST Sylhet",
+      "B.S.S (Hons) in Political Studies & Public Administration, SUST"
+    ],
+    "specialization": "Political Science, Public Administration"
+  },
+  {
+    "name": "Labiba Jahan",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "labiba@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc in Computer Science & Engineering, SUST Sylhet"
+    ],
+    "specialization": "Computer Science & Engineering"
+  },
+  {
+    "name": "Mayami Das Purkayastha Purba",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "purba@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc in Computer Science & Engineering, SUST"
+    ],
+    "specialization": "Machine Learning, Data Structures"
+  },
+  {
+    "name": "Bushra Azmat Hussain",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "bushra@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Abu Jafar Md Jakaria",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "jafar@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Computer Science & Engineering, Metropolitan University Sylhet"
+    ],
+    "specialization": "Hands-on research, innovative learning methods, programming, development"
+  },
+  {
+    "name": "Aisha Hayder Chowdhury",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Plabon Talukder",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Abdullah Al Masud",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Golam Mostofa Naeem",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "mostofa@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Abdul Wadud Shakib",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "shakib@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Raisa Fairooz",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Farhana Akter",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Ms. Ishrar Nazah Chowdhury",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Nowshin Sharmin",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "nowshin@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Ruhul Amin",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "ruhul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc. in Statistics, Pabna University of Science and Technology (PUST)",
+      "B.Sc. in Statistics, Pabna University of Science and Technology (PUST)"
+    ],
+    "specialization": "Big data analysis, statistical learning algorithms, deep learning, health informatics"
+  },
+  {
+    "name": "Moshiur Ahmed",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Nabila Jannat Rifa",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "rifa@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Nasif Istiak Remon",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "nasif@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"
+    ],
+    "specialization": "Hate Speech Detection, Machine Learning, Deep Learning"
+  },
+  {
+    "name": "Tajbin Jahan",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "tajbin@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"
+    ],
+    "specialization": "Natural Language Processing (NLP), Machine Learning, Deep Learning, Competitive Programming"
+  },
+  {
+    "name": "Akhlak Uz Zaman Ashik",
+    "designation": "Assistant Professor (Study Leave)",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "akhlak@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc in Information Technology, Jahangirnagar University",
+      "BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"
+    ],
+    "specialization": "Software Development, Embedded Programming, IoT, Data Mining, Machine Learning"
+  },
+  {
+    "name": "Shrabanti Chowdhury",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "shrabanti@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Tech in Computer Science & Engineering, National Institute Of Technology, Silchar"
+    ],
+    "specialization": "Web Development, Programming"
+  },
+  {
+    "name": "Rishad Amin Pulok",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "pulok@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "BSc. in Computer Science and Engineering, Daffodil International University"
+    ],
+    "specialization": "Machine Learning, Computer Vision, Image Processing, Deep Learning, Data Science, Data Mining, IoT, Natural Language Processing, Mobile Application Development"
+  },
+  {
+    "name": "Samia Rahman Rima",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "rima@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Computer Science & Engineering, Metropolitan University Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Sakhawat Hossain Saimon",
+    "designation": "Lecturer (Study Leave)",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "sakhawat.saimon@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Computer Science & Engineering, Shahjalal University of Science & Technology, Sylhet"
+    ],
+    "specialization": "Bioinformatics, Machine Learning, Data Science"
+  },
+  {
+    "name": "Khudeja Khanom Anwara",
+    "designation": "Lecturer",
+    "department": "CSE",
+    "departmentFull": "Department of Computer Science & Engineering",
+    "email": "anwara@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "BSc.(Hons.) in Computer Science and Engineering, Metropolitan University Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Prof. Dr. Md. Nazrul Haque Chowdhury",
+    "designation": "Professor",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "nhchy@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Ph.D. in Mathematics, University of Chittagong",
+      "M.Phil. in Mathematics, University of Chittagong",
+      "M.Sc. in Mathematics, University of Chittagong",
+      "B.Sc. (Hons.) in Mathematics, University of Chittagong"
+    ],
+    "specialization": "Chaos in Dissipative Dynamical Systems"
+  },
+  {
+    "name": "Dr. Abdul Rob",
+    "designation": "Professor",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Fuad Ahmed",
+    "designation": "Professor",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "fahmed@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc. in Computer Science, Oxford Brookes University, Oxford, UK",
+      "B.Sc. (Hons.) in Computing & Information System, London Metropolitan University, UK"
+    ],
+    "specialization": "Software Analysis and Design, Machine Learning, Database Management System, Data Science"
+  },
+  {
+    "name": "Nazia Sultana Chowdhury",
+    "designation": "Assistant Professor",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "nazia@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Software Engineering, Shahjalal University of Science & Technology, Sylhet"
+    ],
+    "specialization": "Software Engineering, Automated Program Repair"
+  },
+  {
+    "name": "Wadia Iqbal Chowdhury",
+    "designation": "Lecturer",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "wadia@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Computer Science & Engineering, Metropolitan University Sylhet"
+    ],
+    "specialization": "Parallel Computing, Database Management System, Data Science"
+  },
+  {
+    "name": "Rina Paul",
+    "designation": "Lecturer",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "rina@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "MSc. in Mathematics (With Distinction), Shahjalal University of Science & Technology, Sylhet",
+      "Bachelor of Mathematics (With Distinction), Shahjalal University of Science & Technology, Sylhet",
+      "Second Major in Computer Science and Engineering, SUST Sylhet"
+    ],
+    "specialization": "Finite Element Method, Data Science, Mathematical Economics, Population Dynamics"
+  },
+  {
+    "name": "Al Akram Chowdhury",
+    "designation": "Lecturer",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": "Software Engineering"
+  },
+  {
+    "name": "Iffat Ahmed Chowdhury Nahid",
+    "designation": "Lecturer",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "iffat@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [],
+    "specialization": "Software Engineering"
+  },
+  {
+    "name": "Nasrin Akter Tanya",
+    "designation": "Lecturer",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": "Software Engineering"
+  },
+  {
+    "name": "Nazia Hassan",
+    "designation": "Lecturer",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": "Software Engineering"
+  },
+  {
+    "name": "Mridul Kanti Bhattacharjee",
+    "designation": "Adjunct Faculty",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "BSc in Computer Science & Engineering, Metropolitan University, Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Lukman Hussain Nakib",
+    "designation": "Adjunct Faculty",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dhiman Dash",
+    "designation": "Adjunct Faculty",
+    "department": "SWE",
+    "departmentFull": "Department of Software Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Professor Md. Taher Billal Khalifa PhD",
+    "designation": "Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "Ph D in Accounting, University of Chittagong",
+      "M.Com. in Accounting, University of Chittagong",
+      "B.Com (Hons.) in Accounting, University of Chittagong"
+    ],
+    "specialization": "Cost Accounting, Management Accounting, Business Education",
+    "note": "Dean, School of Business & Economics"
+  },
+  {
+    "name": "Professor Dr. Mohammad Jamal Uddin",
+    "designation": "Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "muddin@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Doctor of Philosophy (Ph.D.) in HRM, Islamic University, Kushtia",
+      "MBA in Management, Islamic University, Kushtia",
+      "BBA (Hons.) in Management, Islamic University, Kushtia"
+    ],
+    "specialization": "Work-Family Conflict, Business Management, Human Resources Management, Organizational Behavior"
+  },
+  {
+    "name": "Md. Emran Uddin",
+    "designation": "Associate Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "emran@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "MBA in Marketing, University of Dhaka",
+      "BBA in Marketing, University of Dhaka"
+    ],
+    "specialization": "Marketing, Entrepreneurship"
+  },
+  {
+    "name": "Dr. Md. Masud Rana",
+    "designation": "Associate Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "PhD Fellow (ongoing), Shahjalal University of Science and Technology, Sylhet",
+      "MBA in Accounting & Information Systems, University of Dhaka",
+      "BBA in Accounting & Information Systems, University of Dhaka"
+    ],
+    "specialization": "Finance, Accounts, Tax"
+  },
+  {
+    "name": "Debashish Roy",
+    "designation": "Associate Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "M.Phil. (ongoing), Shahjalal University of Science & Technology, Sylhet",
+      "MBA in Marketing, Metropolitan University Sylhet",
+      "BBA in Marketing, Metropolitan University Sylhet"
+    ],
+    "specialization": "Marketing, Consumer Psychology",
+    "note": "Head of the Department"
+  },
+  {
+    "name": "Mohammad Kamrul Ahsan",
+    "designation": "Associate Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "kamrul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "MBA in Finance & Banking, University of Rajshahi",
+      "BBA in Finance & Banking, University of Rajshahi"
+    ],
+    "specialization": "Human Saving Behavior, Financial Statement Analysis, Green Financing"
+  },
+  {
+    "name": "Md. Ziaur Rahman",
+    "designation": "Associate Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "PhD (ongoing)",
+      "MBA, Metropolitan University Sylhet",
+      "B.Sc. Engineering in Industrial & Production Engineering, Shahjalal University of Science & Technology, Sylhet"
+    ],
+    "specialization": "Operations Management, Supply Chain Management, Total Quality Management"
+  },
+  {
+    "name": "Md. Gulam Mokta Dhir",
+    "designation": "Associate Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "MBA in International Management, University of Chittagong",
+      "BBA in Management Studies, University of Chittagong"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Md. Alaul Haque",
+    "designation": "Associate Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "alaul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Master of Philosophy (MPhil), Shahjalal University of Science & Technology, Sylhet",
+      "MBA in AIS, University of Rajshahi",
+      "BBA in AIS, University of Rajshahi"
+    ],
+    "specialization": "Accounting, Corporate Governance, Finance, Banking"
+  },
+  {
+    "name": "Nishath Anjum",
+    "designation": "Assistant Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "nishath@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "MBA in HRM, Metropolitan University Sylhet",
+      "BBA in Management, Metropolitan University Sylhet"
+    ],
+    "specialization": "Job attitudes, Work stress, Compensation & benefits, Employee performance"
+  },
+  {
+    "name": "Md. Afsarul Islam",
+    "designation": "Assistant Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "afsarul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "MBA in Marketing, University of Rajshahi",
+      "BBA in Marketing, University of Rajshahi"
+    ],
+    "specialization": "Diffusion of Innovation (DOI), Theory of Planned Behavior (TPB), Consumer Behavior"
+  },
+  {
+    "name": "Jace Saha",
+    "designation": "Assistant Professor",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "jace@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "MBA in Finance & Banking, Metropolitan University Sylhet",
+      "BBA, Metropolitan University Sylhet"
+    ],
+    "specialization": "Economic growth and inequality, Digital finance, Corporate governance"
+  },
+  {
+    "name": "Mohammad Asrafuzzaman Yazdani Razu",
+    "designation": "Assistant Professor (Study Leave)",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "razu@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "MBA in Marketing, Metropolitan University Sylhet",
+      "BBA in Marketing, Metropolitan University Sylhet"
+    ],
+    "specialization": "Contemporary Marketing Issues, Branding, Entrepreneurship"
+  },
+  {
+    "name": "Chowdhury Mujaddid Ahmed",
+    "designation": "Lecturer (Study Leave)",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "mujaddid@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "MBA, University of Dhaka",
+      "BBA, University of Dhaka"
+    ],
+    "specialization": "Business negotiation, Corporate innovation, Marketing strategy"
+  },
+  {
+    "name": "Ashikur Rahman",
+    "designation": "Lecturer",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "MBA in Finance & Banking, Metropolitan University Sylhet",
+      "BBA in Finance & Banking, Metropolitan University Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Tofayel Ahmed",
+    "designation": "",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Md Rezaul Haque",
+    "designation": "",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Zarin Tasnim Ahmed Mahi",
+    "designation": "",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Fahim Shahriar",
+    "designation": "",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Md. Monirul Islam",
+    "designation": "",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Mohammad Shahidul Hoque",
+    "designation": "",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Fazle Elahi Md. Faisal",
+    "designation": "",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Mohammad Mizenur Rahman",
+    "designation": "",
+    "department": "BA",
+    "departmentFull": "Department of Business Administration",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Toufique Rahman Chowdhury",
+    "designation": "Professor (Honorary)",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "Ph.D. in Economics, University of Dhaka"
+    ],
+    "specialization": "",
+    "note": "Chairman, Board of Trustees"
+  },
+  {
+    "name": "Md. Abdul Aziz",
+    "designation": "Professor Emeritus",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "M.A. in Development Economics, Laster University, UK",
+      "M.A. in Economics, University of Dhaka",
+      "B.A. (Hons.), University of Dhaka"
+    ],
+    "specialization": "Development Economics, Education Planning"
+  },
+  {
+    "name": "Dr. Mohammad Jamal Uddin",
+    "designation": "Professor",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "Ph.D. in HRM, Islamic University, Kushtia",
+      "MBA in Management, Islamic University, Kushtia",
+      "BBA (Hons.) in Management, Islamic University, Kushtia"
+    ],
+    "specialization": "Work-Family Conflict, Business Management, HRM, Organizational Behavior"
+  },
+  {
+    "name": "Dr. Umme Humayara Manni",
+    "designation": "Associate Professor and Head",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "manni@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Ph.D. in Planning and Development Economics, University Malaysia Sabah, Malaysia (2024)",
+      "M.A. in Economics, University Brunei Darussalam, Brunei (2012)",
+      "BSS (Hons.) in Economics, Khulna University, Bangladesh (2007)"
+    ],
+    "specialization": "Economic Development, International Trade, Resource Economics"
+  },
+  {
+    "name": "Shah Mohammad Hamza Anwar",
+    "designation": "Assistant Professor",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "M.Sc. in Economics, London Metropolitan University, UK",
+      "BSS (Hons.) in Economics, Shahjalal University of Science and Technology, Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Md Amzad Hossain",
+    "designation": "Assistant Professor",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "amzad@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Master of Social Science (MSS) in Economics, Comilla University",
+      "Bachelor of Social Science (BSS) in Economics, Comilla University"
+    ],
+    "specialization": "Education, Health, Social Inequalities, Rural Development, Climate Change"
+  },
+  {
+    "name": "Beauty Nahida Sultana",
+    "designation": "Assistant Professor (Study Leave)",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "nahida@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.S.S. in Economics, University of Comilla",
+      "B.S.S. (Hons.) in Economics, University of Comilla"
+    ],
+    "specialization": "Econometrics, Development Economics"
+  },
+  {
+    "name": "Nourush Jahan",
+    "designation": "Lecturer",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "jahan@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.S.S. in Economics, Shahjalal University of Science and Technology, Sylhet",
+      "B.S.S. in Economics, Shahjalal University of Science and Technology, Sylhet"
+    ],
+    "specialization": "Macroeconomics, Energy Economics, Development Economics"
+  },
+  {
+    "name": "Md Imran Hossain Milon",
+    "designation": "Lecturer",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Muhtasim Fuad Ahmed",
+    "designation": "Lecturer",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "MBA in Finance and Banking, Shahjalal University of Science and Technology",
+      "BBA in Finance and Banking, Shahjalal University of Science and Technology"
+    ],
+    "specialization": "Sustainable Finance, ESG Integration, Corporate Finance, Macroeconomics"
+  },
+  {
+    "name": "Sharmin Akter",
+    "designation": "",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Muntaha Rakib",
+    "designation": "Professor (Guest Faculty)",
+    "department": "ECO",
+    "departmentFull": "Department of Economics",
+    "email": "muntaha_rakib@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Ph.D. in Agricultural Economics, University of Bonn (2015)",
+      "M.S.S. in Economics, Shahjalal University of Science and Technology, Sylhet (2004)",
+      "B.S.S. (Hons.) in Economics, Shahjalal University of Science and Technology, Sylhet (2005)"
+    ],
+    "specialization": "Agricultural Economics, Climate Change and Adaptation, Gender, Poverty Analysis"
+  },
+  {
+    "name": "Barrister Md. Arash Ali",
+    "designation": "Professor",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "Barrister-at-law, Honourable Society of Lincoln's Inn London",
+      "LL.B., University of Dhaka",
+      "B.A. (Hons.), University of Dhaka"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Professor Sheikh Ashrafur Rahaman",
+    "designation": "Associate Professor",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "srahaman@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Phil in Law, University of Rajshahi (in course)",
+      "LL.M., University of Rajshahi",
+      "LL.B. (Hons.), University of Rajshahi"
+    ],
+    "specialization": "Personal Law (Specially Muslim Law, Law of Muslim Succession), Penal Laws & Laws relating to Crimes, Income Tax Law",
+    "note": "Dean, School of Law"
+  },
+  {
+    "name": "Dr. M. Z. Ashraful",
+    "designation": "Associate Professor and Head",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "ashraf@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Ph.D. (Legal Studies), South Asian (SAARC) University, New Delhi",
+      "LL.M., South Asian University New Delhi",
+      "LL.M., Metropolitan University Sylhet",
+      "LL.B. (Hons), Metropolitan University Sylhet"
+    ],
+    "specialization": "International Law with special focus on Conflict of Laws and International Commercial Law"
+  },
+  {
+    "name": "Gazi Saiful Hasan",
+    "designation": "Associate Professor (Study Leave)",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "ghasan@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Phil in Law, University of Rajshahi (in course)",
+      "LL.M., University of Rajshahi",
+      "LL.B. (Hons.), University of Rajshahi"
+    ],
+    "specialization": "Environmental Law, Local Government, Intellectual Property Laws, and Clinical Legal Education"
+  },
+  {
+    "name": "Md. Sher-E-Alam",
+    "designation": "Assistant Professor",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "s.alam@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "LL.M., Islamic University Kushtia",
+      "LL.B. (Hons), Islamic University Kushtia"
+    ],
+    "specialization": "Contemporary Human Rights Issues, Laws of Inheritance, Access to Justice and Good Governance, International Migration and Refugee Law, Comparative Law, Law of Evidence"
+  },
+  {
+    "name": "Fatema Imrose",
+    "designation": "Assistant Professor",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "shamanta_fi@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "LL.M., Metropolitan University Sylhet",
+      "LL.B. (Hons.), Metropolitan University Sylhet"
+    ],
+    "specialization": "Hindu Law, Jurisprudence, Public International Law"
+  },
+  {
+    "name": "Mitu Akther",
+    "designation": "Assistant Professor",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "mitu@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "LL.M., Northern University Bangladesh",
+      "LL.B. (Hons.), Northern University Bangladesh"
+    ],
+    "specialization": "Constitutional Law, Procedural Law"
+  },
+  {
+    "name": "Taspiea Mostofa",
+    "designation": "Lecturer",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "taspiea@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Masters in Criminology and Criminal Justice, University of Dhaka",
+      "LL.M., East West University, Dhaka",
+      "LL.B. (Hons.), Leading University, Sylhet"
+    ],
+    "specialization": "Cyber crime, intellectual property (IP) law, and comparative constitutional law"
+  },
+  {
+    "name": "Syeda Nazmur Siha Muna",
+    "designation": "Lecturer",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "muna@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "Master of Laws, Bangladesh University of Professionals",
+      "Bachelor of Laws, University of London"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Md. Sojibur Rahman",
+    "designation": "Lecturer",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "sojibur@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "LL.M., Bangabandhu Sheikh Mujibur Rahman Science and Technology University, Gopalganj",
+      "LL.B. (Hons.), Bangabandhu Sheikh Mujibur Rahman Science and Technology University, Gopalganj"
+    ],
+    "specialization": "Human rights, family law, constitutional law, intellectual property (IP) law, and Criminal law"
+  },
+  {
+    "name": "Ms. Mahmuda Sultana",
+    "designation": "Lecturer",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Md. Sariful Islam",
+    "designation": "Lecturer",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Md. Ohidur Rahman Choudhury",
+    "designation": "",
+    "department": "LJ",
+    "departmentFull": "Department of Law and Justice",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Md. Mushtaq Shahriyar Rafee",
+    "designation": "Assistant Professor and Head (In-charge)",
+    "department": "DS",
+    "departmentFull": "Department of Data Science",
+    "email": "rafee@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. (Engg.) in Computer Science & Engineering, Shahjalal University of Science and Technology (SUST)"
+    ],
+    "specialization": "Speech Processing, Computational Linguistics, Machine Learning, NLP"
+  },
+  {
+    "name": "Archi Arani Basak",
+    "designation": "Lecturer",
+    "department": "DS",
+    "departmentFull": "Department of Data Science",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Muhammad Muzammil",
+    "designation": "Lecturer",
+    "department": "DS",
+    "departmentFull": "Department of Data Science",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Abdul Hoque",
+    "designation": "Professor",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Safwan Uddin Ahmed",
+    "designation": "Assistant Professor & Head",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Md. Rahmot Ullah",
+    "designation": "Assistant Professor",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "rahmot@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. (Hons.) in Electrical and Electronic Engineering, Khulna University of Engineering & Technology (KUET)"
+    ],
+    "specialization": "Renewable Energy, Smart-Grid Technology, Geothermal Energy, Power System Protection"
+  },
+  {
+    "name": "Md. Anwarul Kawchar",
+    "designation": "Assistant Professor",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Nawshad Ahmed Chowdhury",
+    "designation": "Associate Professor (Study Leave)",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "MSc in EECE, Military Institute of Science and Technology (MIST)",
+      "B.Sc. in Electrical and Electronic Engineering, East West University, Dhaka"
+    ],
+    "specialization": "Nanosensor, Nanoelectronics, Biosensors, Renewable Energy"
+  },
+  {
+    "name": "Surajit Sinha",
+    "designation": "Assistant Professor (Study Leave)",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "s.sinha@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc. in Applied Physics Electronics & Communication Engineering, University of Dhaka",
+      "B.Sc. in Applied Physics Electronics & Communication Engineering, University of Dhaka"
+    ],
+    "specialization": "Renewable Energy, Wireless Networks, Antenna Design"
+  },
+  {
+    "name": "Nafisa Ahmed",
+    "designation": "Lecturer (Study Leave)",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "nafisa@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc in Electrical and Electronic Engineering, Bangladesh University of Engineering and Technology (BUET)",
+      "B.Sc in Electrical Electronic and Communication Engineering, Military Institute of Science and Technology (MIST)"
+    ],
+    "specialization": "VLSI, Semiconductor Devices, Photonics, Plasmonics, Photovoltaics"
+  },
+  {
+    "name": "Arpita Mazumder",
+    "designation": "Lecturer",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "mazumder@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Electrical and Electronic Engineering, Chittagong University of Engineering and Technology (CUET)"
+    ],
+    "specialization": "Biomedical Electronics, Nuclear Energy, Renewable Sources"
+  },
+  {
+    "name": "Md. Hasanur Rahman Sohag",
+    "designation": "Lecturer",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "sohag@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Electrical and Electronic Engineering, Metropolitan University, Sylhet"
+    ],
+    "specialization": "Hardware Engineering, PCB Design, IoT, Robotics, 3D Design"
+  },
+  {
+    "name": "Sadman Sakib",
+    "designation": "Lecturer",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "sakib@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Electrical & Electronic Engineering, Islamic University of Technology (IUT)"
+    ],
+    "specialization": "Power Electronics, Renewable Energy, Applied Machine Learning"
+  },
+  {
+    "name": "Mahim Ahmed",
+    "designation": "Lecturer",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "mahim@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Electrical and Electronic Engineering, Shahjalal University of Science and Technology (SUST)"
+    ],
+    "specialization": "Power Electronics, Control Systems, Microprocessors, Smart Grid, Electric Vehicles"
+  },
+  {
+    "name": "Md. Fardin Ahasan Maraz",
+    "designation": "Lecturer",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "maraz@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Electrical and Electronic Engineering, Shahjalal University of Science and Technology (SUST)"
+    ],
+    "specialization": "Photonics, Plasmonics, SPR Sensor, Bio-photonics"
+  },
+  {
+    "name": "Md. Shadman Shakib",
+    "designation": "Lecturer (Senior Grade)",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "shadman@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.Sc. in Electrical and Electronic Engineering, Noakhali Science and Technology University",
+      "B.Sc. in Electrical and Electronic Engineering, Noakhali Science and Technology University"
+    ],
+    "specialization": "Machine Learning, Deep Learning, Computer Vision, Optical Camera Communication, Smart Grid Systems"
+  },
+  {
+    "name": "Ahmed Afif Rafsan",
+    "designation": "Lecturer",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "rafsan@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Electrical and Electronic Engineering, Ahsanullah University of Science and Technology (AUST)"
+    ],
+    "specialization": "Photonics, Sensors, Optics, Biosensors, Metamaterials"
+  },
+  {
+    "name": "Ahmed Istiakur Rahman",
+    "designation": "Lecturer",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "istiakur@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "B.Sc. in Electrical and Electronic Engineering, Islamic University of Technology (IUT)"
+    ],
+    "specialization": "Hybrid Renewable Energy Systems, Mars Rover Technology"
+  },
+  {
+    "name": "Md. Imam Mahdi",
+    "designation": "Lecturer",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "",
+    "phone": "",
+    "qualifications": [
+      "M.Tech in Next Generation Communication and Networks, National Institute of Technology Durgapur, India",
+      "B.E. in Electronics and Communication Engineering, The University of Burdwan, India"
+    ],
+    "specialization": "Satellite Communication, Wireless Communication, IoT, Digital Twin, Machine Learning, AI"
+  },
+  {
+    "name": "Dr. Mohammed Jahirul Islam, PEng",
+    "designation": "Professor (Guest Teacher)",
+    "department": "EEE",
+    "departmentFull": "Department of Electrical & Electronic Engineering",
+    "email": "mjislam@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "PhD in Electrical and Computer Engineering, University of Windsor, Canada",
+      "MASc in Electrical and Computer Engineering, Ryerson University, Canada",
+      "MSc in Electronics and Computer Science, Shahjalal University of Science and Technology (SUST)",
+      "BSc (Hons) in Electronics and Computer Science, Shahjalal University of Science and Technology (SUST)"
+    ],
+    "specialization": "Image Processing, Computer Vision, Pattern Recognition, Document Image Analysis"
+  },
+  {
+    "name": "Professor Suresh Ranjan Basak PhD",
+    "designation": "Professor",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "sbasak@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "PhD from University of Chittagong",
+      "M.A. in English from University of Chittagong",
+      "B.A. (Hons.) in English from Chittagong Govt. College"
+    ],
+    "specialization": "Postcolonial literatures, Postmodern Literature, Diaspora, Eco-critical Literature, Translation Studies, Rabindranath Tagore",
+    "note": "Dean, School of Humanities and Social Sciences"
+  },
+  {
+    "name": "Professor Mohammad Ishrat Ibne Ismail",
+    "designation": "Professor",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Dr. Mohammad Mostak Ahmed",
+    "designation": "Associate Professor",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Anik Biswas",
+    "designation": "Associate Professor",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "anik@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    "specialization": "Literature and films, Translation studies, Cultural studies, Theories in literature",
+    "note": "Head of the Department"
+  },
+  {
+    "name": "Sanjida Chowdhury",
+    "designation": "Assistant Professor",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "sanjida@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    "specialization": "Postcolonial literature, Teaching Techniques, Teaching-learning Strategies"
+  },
+  {
+    "name": "Syed Nakib Sadi",
+    "designation": "Assistant Professor",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "nakib@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in Applied Linguistics and ELT from University of Dhaka",
+      "B.A. (Hons.) in English from University of Dhaka"
+    ],
+    "specialization": "Language teaching, Material design, Curriculum development"
+  },
+  {
+    "name": "Snigdha Das",
+    "designation": "Assistant Professor (Study Leave)",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "sdas@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    "specialization": "Absurd literature, Postmodern facets of human lives"
+  },
+  {
+    "name": "Golam Rabbani",
+    "designation": "Assistant Professor (Study Leave)",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "rabbani@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Metropolitan University, Sylhet",
+      "B.A. (Hons.) in English from Metropolitan University, Sylhet"
+    ],
+    "specialization": "Postcolonial Literature, Contemporary writings"
+  },
+  {
+    "name": "Abdullah Al Mashud",
+    "designation": "Lecturer",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "mashud@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Metropolitan University, Sylhet",
+      "B.A. (Hons.) in English from Metropolitan University, Sylhet"
+    ],
+    "specialization": "Contemporary (World) literature in English"
+  },
+  {
+    "name": "Farhana Khanom Joly",
+    "designation": "Lecturer",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "farhana@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Metropolitan University, Sylhet",
+      "B.A. in English from Metropolitan University, Sylhet"
+    ],
+    "specialization": "American Literature, Postcolonial Literature, South Asian Literature, 20th Century Literature (Poetry), Metaphysical Poetry, Victorian Poetry, Romantic Poetry"
+  },
+  {
+    "name": "Abu Yousuf Musa",
+    "designation": "Lecturer",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Noshin Tabassum",
+    "designation": "Lecturer",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "S K Shahriar",
+    "designation": "Lecturer",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  },
+  {
+    "name": "Tasnuva Tabassum",
+    "designation": "Lecturer (Study Leave)",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "tasnuva@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
+    ],
+    "specialization": "Poetry, Fiction, Comparative Literature"
+  },
+  {
+    "name": "Muhammad Shamsul Islam",
+    "designation": "Lecturer (Study Leave)",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "shamsul@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
+    ],
+    "specialization": "American Literature, Postcolonial Literature, Poetry, Fiction"
+  },
+  {
+    "name": "Md Mohi Uddin",
+    "designation": "Lecturer (Study Leave)",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "mohi@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Shahjalal University of Science & Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science & Technology, Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Sanjida Kalam",
+    "designation": "Lecturer (Study Leave)",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "sanjidakalam@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from University of Liberal Arts",
+      "B.A.(Hons.) in English from Bangladesh Army International University of Science and Technology, Cumilla"
+    ],
+    "specialization": "Postcolonial studies, Feminism, Cultural studies, Media studies, Postcolonial African Politics, American Literature"
+  },
+  {
+    "name": "Tanjim Nishat Farmi",
+    "designation": "Lecturer (Study Leave)",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "tanjim@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Mouni Battacharjee",
+    "designation": "Lecturer (Study Leave)",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "mouni@metrouni.edu.bd",
+    "phone": "",
+    "qualifications": [
+      "M.A. in English from Shahjalal University of Science and Technology, Sylhet",
+      "B.A. (Hons.) in English from Shahjalal University of Science and Technology, Sylhet"
+    ],
+    "specialization": ""
+  },
+  {
+    "name": "Nahida Sarker Nijhum",
+    "designation": "Teaching Assistant",
+    "department": "EN",
+    "departmentFull": "Department of English",
+    "email": "",
+    "phone": "",
+    "qualifications": [],
+    "specialization": ""
+  }
+]

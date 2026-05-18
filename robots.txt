@@ -1,0 +1,12 @@
+# robots.txt — MU ClassCraft · Metropolitan University Faculty Directory
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Block service worker and manifest from indexing (not useful as search results)
+Disallow: /sw.js
+Disallow: /manifest.json
+
+# Sitemap location
+Sitemap: https://mu-faculty-directory.vercel.app/sitemap.xml

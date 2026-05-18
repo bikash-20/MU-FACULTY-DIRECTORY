@@ -1,6 +1,6 @@
 /**
  * ╔══════════════════════════════════════════════════════════╗
- * ║   MU ClassCraft — Service Worker  v1.0.0                ║
+ * ║   MU ClassCraft — Service Worker  v1.1.0                ║
  * ║   Metropolitan University Faculty Directory             ║
  * ║                                                          ║
  * ║   Strategy:                                              ║
@@ -15,7 +15,7 @@
  */
 
 // ── BUMP THIS VERSION EVERY DEPLOY ─────────────────────────────────────────
-const CACHE_VERSION = 'v1.0.0';
+const CACHE_VERSION = 'v1.1.0';
 // ───────────────────────────────────────────────────────────────────────────
 
 const CACHE_STATIC  = `mu-static-${CACHE_VERSION}`;
@@ -26,6 +26,7 @@ const CACHE_IMAGES  = `mu-images-${CACHE_VERSION}`;
 const PRECACHE_URLS = [
   '/',
   '/index.html',
+  '/faculty.json',
   '/manifest.json',
   '/icons/icon-72.png',
   '/icons/icon-96.png',
@@ -116,7 +117,13 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
   if (!request.url.startsWith('http')) return;
 
-  // ── Strategy 1: App Shell (HTML pages) → Network-First ──────────────────
+  // ── Strategy 1: faculty.json → Network-First (always fresh data) ────────
+  if (url.pathname.endsWith('faculty.json')) {
+    event.respondWith(networkFirstWithFallback(request, CACHE_STATIC));
+    return;
+  }
+
+  // ── Strategy 2: App Shell (HTML pages) → Network-First ──────────────────
   if (request.destination === 'document') {
     event.respondWith(networkFirstWithFallback(request, CACHE_STATIC));
     return;
