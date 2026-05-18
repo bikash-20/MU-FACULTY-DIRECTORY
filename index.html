@@ -252,11 +252,12 @@
 
     /* ══ STICKY SEARCH BAR ══════════════════════════════════════ */
     .search-wrap {
-      background: rgba(255,255,255,.93);
+      background: rgba(255,255,255,.97);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(212,228,218,.75);
       padding: 14px 0 0;
+      position: -webkit-sticky;
       position: sticky;
       top: 61px;
       z-index: 99;
@@ -801,6 +802,33 @@
       letter-spacing: .05em; text-transform: uppercase;
     }
 
+    /* ══ MOBILE RESPONSIVE ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      /* Sticky search bar — account for smaller navbar on mobile */
+      .filter-bar { top: 56px !important; }
+
+      /* Tools grid: single column on mobile */
+      .tools-grid { grid-template-columns: 1fr; }
+      .tools-section { padding: 28px 0 8px; }
+
+      /* Add bottom padding so content isn't hidden behind install banner */
+      body { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .faculty-grid-section { padding-bottom: 80px; }
+    }
+
+    @media (max-width: 480px) {
+      /* Ensure filter bar never fades — stronger background on iPhone */
+      .filter-bar {
+        background: rgba(255,255,255,1) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+      }
+      .tool-card { padding: 14px 14px; gap: 12px; }
+      .tool-icon-wrap { width: 40px; height: 40px; }
+      .tool-title { font-size: .84rem; }
+      .tool-desc  { font-size: .7rem; }
+    }
+
     /* ══ FOOTER ═════════════════════════════════════════════════ */
     footer {
       background: var(--mu-dark);
@@ -888,7 +916,7 @@
     <div class="tools-grid">
 
       <!-- Cover Page Generator -->
-      <a href="#" id="cover-page-link" class="tool-card" target="_blank" rel="noopener">
+      <a href="https://bikash-20.github.io/cover-page-generator/" id="cover-page-link" class="tool-card" target="_blank" rel="noopener">
         <div class="tool-icon-wrap" style="background:linear-gradient(135deg,#1a5c38,#2d9e5f)">
           <i class="bi bi-file-earmark-text-fill"></i>
         </div>
@@ -2607,8 +2635,19 @@ if (FACULTY.length === 0) {
 }
 .pwa-toast-btn-later:hover { background: rgba(255,255,255,.2); }
 @media (max-width: 500px) {
-  .pwa-update-toast { top: auto; bottom: 90px; right: 8px; left: 8px; max-width: unset; transform: translateY(120%); }
+  .pwa-update-toast {
+    top: auto;
+    bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+    right: 8px; left: 8px;
+    max-width: unset;
+    transform: translateY(120%);
+    font-size: .82rem;
+  }
   .pwa-update-toast.show { transform: translateY(0); }
+  /* When install banner is also showing, push toast higher */
+  body.banner-visible .pwa-update-toast {
+    bottom: calc(160px + env(safe-area-inset-bottom, 0px));
+  }
 }
 </style>
 
@@ -2675,21 +2714,18 @@ if (FACULTY.length === 0) {
 
   if (!isInStandaloneMode && !localStorage.getItem(DISMISS_KEY)) {
     if (isIOS) {
-      // Show banner after 2s with iOS install instructions
-      setTimeout(() => installBanner.classList.add('show'), 2000);
+      setTimeout(() => { installBanner.classList.add('show'); document.body.classList.add('banner-visible'); }, 2000);
     } else {
-      // Chrome/Edge/Android — wait for browser prompt event
       window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredPrompt = e;
-        setTimeout(() => installBanner.classList.add('show'), 1500);
+        setTimeout(() => { installBanner.classList.add('show'); document.body.classList.add('banner-visible'); }, 1500);
       });
     }
   }
 
   installBtn.addEventListener('click', async () => {
     if (isIOS) {
-      // Show a polished iOS instruction modal
       showIOSInstructions();
       return;
     }
@@ -2700,6 +2736,7 @@ if (FACULTY.length === 0) {
     console.log('[PWA] Install prompt outcome:', outcome);
     if (outcome === 'accepted') {
       installBanner.classList.remove('show');
+      document.body.classList.remove('banner-visible');
       localStorage.setItem(DISMISS_KEY, 'true');
     }
     deferredPrompt = null;
@@ -2707,12 +2744,13 @@ if (FACULTY.length === 0) {
 
   dismissBtn.addEventListener('click', () => {
     installBanner.classList.remove('show');
+    document.body.classList.remove('banner-visible');
     localStorage.setItem(DISMISS_KEY, 'true');
   });
 
-  // Clean up banner once installed
   window.addEventListener('appinstalled', () => {
     installBanner.classList.remove('show');
+    document.body.classList.remove('banner-visible');
     deferredPrompt = null;
     console.log('[PWA] App installed successfully');
   });
