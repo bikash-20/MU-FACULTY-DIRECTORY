@@ -1,172 +1,266 @@
-# 🎓 MU ClassCraft — Faculty Directory PWA
+<div align="center">
 
-> **Metropolitan University** · Progressive Web App · Faculty Directory
+<img src="icons/icon-192.png" alt="MU ClassCraft Logo" width="96" height="96" style="border-radius:20px"/>
 
-A fast, offline-capable Progressive Web App for browsing Metropolitan University faculty by department and designation. Installable on **Android, iPhone, Windows, macOS, and Linux** — no app store required.
+# MU ClassCraft
+### Faculty Directory — Progressive Web App
 
----
+**Metropolitan University, Sylhet · Bangladesh**
 
-## ✨ Features
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-1a5c38?style=for-the-badge&logo=vercel)](https://mu-faculty-directory.vercel.app)
+[![PWA Ready](https://img.shields.io/badge/PWA-Ready-5A0FC8?style=for-the-badge&logo=pwa)](https://web.dev/progressive-web-apps/)
+[![License](https://img.shields.io/badge/License-MIT-c9a84c?style=for-the-badge)](LICENSE)
+[![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F%20for%20MU%20Students-ff6b6b?style=for-the-badge)](https://metropolitan.ac.bd)
 
-- 🔍 **Search & Filter** — Browse faculty by department and designation
-- 📱 **Installable** — Works like a native app on all platforms
-- ⚡ **Instant Load** — App shell cached for near-instant startup
-- 🌐 **Offline Ready** — Full offline access after first visit
-- 🔄 **Auto Updates** — Users see an update toast when new content is deployed; no manual cache clearing needed
-- 🔔 **Push Notifications** — Infrastructure ready for server-side push
-- 🗃️ **IndexedDB Ready** — Background sync hooks wired in the service worker for future database integration
-- 🍎 **iOS Support** — Custom install instructions for Safari users
+</div>
 
 ---
 
-## 📁 Project Structure
+## 🌟 About This Project
+
+**MU ClassCraft** is a community-built, open-source Progressive Web App I developed independently to help students at Metropolitan University instantly find faculty contact details, departments, designations, and qualifications — without navigating clunky university portals.
+
+This is a **real-world, production-deployed application** used by students daily. It is not a classroom assignment or tutorial project. Everything — design, data collection, architecture, PWA implementation — was researched, built, and maintained by me from scratch.
+
+> *I built this because I believe every student deserves fast, easy access to the people who teach them. When I leave for higher studies, I hope this keeps serving the university community.*
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---|---|
+| 🔍 **Smart Search** | Real-time filter by name, department, and designation |
+| 🏛️ **8 Departments** | CSE, SWE, EEE, Data Science, English, Business Admin, Economics, Law & Justice |
+| 👨‍🏫 **138+ Faculty** | Comprehensive profiles with qualifications, specializations & email |
+| 📱 **Installable PWA** | Works like a native app on Android, iPhone, Windows, macOS |
+| ⚡ **Offline-First** | Full offline access after the first visit |
+| 🔄 **Auto Updates** | Users see an update toast — no manual cache clearing needed |
+| 🛠️ **Student Tools** | Built-in Cover Page Generator for lab reports & assignments |
+| 🎨 **Dept. Color Coding** | Each department has a distinct visual identity |
+| 🔔 **Push Ready** | Infrastructure in place for server-side push notifications |
+| 🗃️ **IndexedDB Hooks** | Background sync wired for future database integration |
+| 🍎 **iOS Support** | Custom install guide for Safari users |
+
+---
+
+## 🖥️ Screenshots
+
+<div align="center">
+
+| Hero & Stats | Faculty Cards | Student Tools |
+|:---:|:---:|:---:|
+| *(Home screen with live faculty count)* | *(Colour-coded dept. cards)* | *(Cover page generator link)* |
+
+</div>
+
+---
+
+## 🗂️ Project Structure
 
 ```
-your-repo/
-├── index.html          # Main app shell + UI
-├── sw.js               # Service worker (caching, updates, sync)
-├── manifest.json       # PWA manifest (icons, colors, shortcuts)
+mu-classcraft/
+├── index.html          # App shell — all UI, FACULTY data array, logic
+├── sw.js               # Service worker: caching, updates, background sync
+├── manifest.json       # PWA manifest: icons, theme, shortcuts, display modes
 └── icons/
-    ├── icon-72.png
-    ├── icon-96.png
-    ├── icon-128.png
-    ├── icon-144.png
-    ├── icon-152.png
-    ├── icon-192.png
-    ├── icon-384.png
-    ├── icon-512.png
-    └── icon-square.png   ← maskable icon for Android
+    ├── icon-72.png     ─┐
+    ├── icon-96.png      │
+    ├── icon-128.png     │  All required PWA icon sizes
+    ├── icon-144.png     │  for Android, iOS, Windows
+    ├── icon-152.png     │
+    ├── icon-192.png     │
+    ├── icon-384.png     │
+    ├── icon-512.png    ─┘
+    └── icon-square.png  ← Maskable icon (Android adaptive)
 ```
 
 ---
 
-## 🚀 Deployment (GitHub + Vercel)
+## 🚀 Getting Started
 
-This project is deployed via **Vercel** connected to this GitHub repository. Every push to `main` triggers an automatic deployment.
+### View Locally
 
-### First-time setup
-
-1. Fork or clone this repository
-2. Connect the repo to [Vercel](https://vercel.com) (import project)
-3. No build settings needed — it's a static site
-4. Vercel provides HTTPS automatically, which is required for PWA/Service Workers
-
-### Deploy an update
+No build step. No npm. No framework. Just open the file:
 
 ```bash
-# Edit your files, then:
+git clone https://github.com/your-username/mu-classcraft.git
+cd mu-classcraft
+
+# Option 1 — Python (built-in)
+python -m http.server 8000
+
+# Option 2 — Node.js
+npx serve .
+
+# Then open http://localhost:8000
+```
+
+> ⚠️ Service Workers require `localhost` or `https://` — opening `index.html` directly as a `file://` URL will register the SW but some features may behave differently.
+
+### Deploy Your Own
+
+1. Fork this repository
+2. Connect to [Vercel](https://vercel.com) → Import Project
+3. No build settings needed — it's a pure static site
+4. Vercel provides HTTPS automatically ✅
+
+```bash
+# Push an update
 git add .
-git commit -m "Update faculty data"
+git commit -m "feat: add new faculty data"
 git push
+# ↑ Vercel deploys in ~30 seconds. Users see the update toast automatically.
 ```
-
-Vercel deploys in ~30 seconds. Users already on the site will see the **"New version ready — Refresh"** toast automatically.
 
 ---
 
-## 🔄 How Updates Work
+## ⚙️ Service Worker Architecture
 
-The service worker uses **`skipWaiting` + `clients.claim()`** so updates are instant:
+```
+Page Load
+    │
+    ├─ HTML document    → Network-First  (always fresh when online)
+    │                      └─ Cache fallback if offline
+    │
+    ├─ CDN assets       → Stale-While-Revalidate
+    │  (Bootstrap, Fonts)   └─ Serve cache instantly, update in background
+    │
+    ├─ Images           → Cache-First    (long TTL, bandwidth-efficient)
+    │
+    └─ Local JS/CSS     → Cache-First    (instant from cache)
+```
 
-1. You push a change to GitHub → Vercel deploys
-2. The SW checks for updates every **60 seconds** (and on every page load)
-3. New SW downloads silently in the background
-4. An **update toast** appears top-right: *"New version ready! Refresh"*
-5. User clicks Refresh → page reloads with new content immediately
+**Update flow:**
+```
+You push to GitHub
+    → Vercel deploys (~30s)
+    → SW polls for update (every 60s or on page load)
+    → New SW downloads silently in background
+    → "New version ready — Refresh" toast appears
+    → User clicks Refresh → instant reload with new content
+```
 
-### To force a new cache version
+---
 
-Open `sw.js` and bump the version string at the top:
+## 🗃️ Extending the App
+
+### Add Faculty Data
+
+Faculty data lives in a plain JavaScript array inside `index.html`:
 
 ```js
-// Line 17 in sw.js
-const CACHE_VERSION = 'v1.0.1';  // ← change this on every deploy
+const FACULTY = [
+  {
+    name: "Dr. Example Name",
+    designation: "Associate Professor",
+    department: "CSE",
+    departmentFull: "Department of Computer Science & Engineering",
+    email: "example@metrouni.edu.bd",
+    phone: "",
+    qualifications: ["PhD in CS, Some University"],
+    specialization: "Machine Learning, Computer Vision"
+  },
+  // ...
+];
 ```
 
-This invalidates all old caches and forces every user to download fresh assets.
-
----
-
-## 📲 Install Instructions by Platform
-
-| Platform | Browser | How to Install |
-|----------|---------|----------------|
-| Android | Chrome / Edge | Install banner appears automatically |
-| iPhone / iPad | Safari | Tap **Share ⬆** → "Add to Home Screen" |
-| Windows | Chrome / Edge | Click install icon in address bar |
-| macOS | Chrome | Click install icon in address bar |
-| Linux | Chrome | Click install icon in address bar |
-
-> **Note:** The install banner on iOS shows a step-by-step guide automatically since Safari doesn't support the `beforeinstallprompt` event.
-
----
-
-## ⚙️ Service Worker Caching Strategy
-
-| Resource Type | Strategy | Cache Name |
-|---------------|----------|------------|
-| HTML pages | Network-First → cache fallback | `mu-static-vX` |
-| CDN assets (Bootstrap, fonts) | Stale-While-Revalidate | `mu-dynamic-vX` |
-| Images | Cache-First | `mu-images-vX` |
-| Local JS / CSS | Cache-First | `mu-static-vX` |
-
-Old caches from previous versions are **automatically deleted** on SW activation.
-
----
-
-## 🗃️ IndexedDB Integration (Coming Soon)
-
-Background sync hooks are already wired in `sw.js`. When you're ready to add IndexedDB:
-
-1. Open `sw.js` and find the `sync` event handler
-2. Add your IndexedDB → API sync logic inside `syncPendingData()`
-3. From the main thread, register a sync tag:
+### Bump Cache Version on Deploy
 
 ```js
-// In index.html or your app JS
-const reg = await navigator.serviceWorker.ready;
-await reg.sync.register('mu-data-sync');
+// sw.js — line 17
+const CACHE_VERSION = 'v1.0.1';  // ← increment on every deploy
 ```
 
-The service worker will call your sync function when the user comes back online.
+### Add a New Department
+
+```js
+// In getDeptClass()
+const map = {
+  CSE: 'dept-cse',
+  NEW: 'dept-new',   // ← add here
+  // ...
+};
+
+// Then add CSS for .dept-new .card-accent-strip, .dept-new .card-top, etc.
+```
 
 ---
 
-## 🔔 Push Notifications
+## 📲 Installation Guide
 
-The service worker handles push events and `notificationclick` out of the box. To send a push notification from your server:
-
-```json
-{
-  "title": "MU ClassCraft",
-  "body": "Faculty list has been updated!",
-  "icon": "/icons/icon-192.png",
-  "url": "/index.html"
-}
-```
-
-You'll need a VAPID key pair and a push server (e.g. [web-push](https://github.com/web-push-libs/web-push) for Node.js) to send notifications.
+| Platform | Browser | Method |
+|---|---|---|
+| **Android** | Chrome / Edge | Install banner appears automatically |
+| **iPhone / iPad** | Safari | Tap **Share ⬆** → *Add to Home Screen* |
+| **Windows** | Chrome / Edge | Click ⊕ install icon in address bar |
+| **macOS** | Chrome | Click ⊕ install icon in address bar |
+| **Linux** | Chrome | Click ⊕ install icon in address bar |
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML / CSS / Vanilla JS** — no framework, no build step
-- **Bootstrap 5.3** — UI components and grid
-- **Bootstrap Icons 1.11** — icon set
-- **Google Fonts** — Playfair Display + DM Sans
-- **Service Worker API** — caching and background sync
-- **Web App Manifest** — installability
-- **Vercel** — hosting and CI/CD
+This project intentionally uses **zero dependencies** beyond CDN-delivered UI libraries:
+
+| Layer | Technology | Why |
+|---|---|---|
+| **Structure** | HTML5 / CSS3 / Vanilla JS | No build step, maximum portability |
+| **UI Components** | Bootstrap 5.3 | Responsive grid + accessible components |
+| **Icons** | Bootstrap Icons 1.11 | Consistent icon set |
+| **Typography** | Google Fonts (Playfair Display + DM Sans) | Elegant pairing |
+| **PWA** | Service Worker API + Web App Manifest | Native-like install & offline |
+| **Hosting** | Vercel | Free, HTTPS, auto-deploy from GitHub |
 
 ---
 
-## 📞 Contact
+## 🗺️ Roadmap
 
-**Metropolitan University**  
-Sylhet, Bangladesh  
+- [x] Faculty directory with search & filter
+- [x] PWA — installable + offline
+- [x] Auto-update via service worker
+- [x] Cover Page Generator (Student Tools)
+- [ ] Class routine viewer (per department & semester)
+- [ ] Department notice board
+- [ ] Academic calendar
+- [ ] Dark mode
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome — especially faculty data corrections and additions.
+
+1. Fork the repository
+2. Create a branch: `git checkout -b fix/faculty-data`
+3. Commit your changes: `git commit -m "fix: update CSE faculty list"`
+4. Push and open a Pull Request
+
+For data corrections or additions, please open an **Issue** with the correct information.
+
+---
+
+## 👤 Author
+
+**Bikash Talukder** *(or your name)*
+Student, Metropolitan University Sylhet
+
+> *This project was built independently, outside of any coursework, as a free resource for fellow students. If it helped you, consider giving it a ⭐ — it means a lot.*
+
+---
+
+## 📄 License
+
+This project is open-source under the [MIT License](LICENSE).
+The faculty data is publicly available information sourced from the Metropolitan University official website.
+
+---
+
+<div align="center">
+
+**Metropolitan University, Sylhet, Bangladesh**
 [metropolitan.ac.bd](https://metropolitan.ac.bd)
 
----
+*Built with ❤️ for the students of Metropolitan University*
 
-*Built with ❤️ for Metropolitan University*
+</div>
