@@ -1101,6 +1101,211 @@ document.addEventListener('faculty-ready', function () {
 
   // ── State ───────────────────────────────────────────────────────
   let activeSearch = '', activeDept = '', activeDesig = '';
+  let searchTimer  = null;
+
+  // ── Dept class map ──────────────────────────────────────────────
+  function getDeptClass(dept) {
+    const map = { CSE:'dept-cse', SWE:'dept-swe', EEE:'dept-eee', DS:'dept-ds', EN:'dept-en', BA:'dept-ba', ECO:'dept-eco', LJ:'dept-lj' };
+    return map[dept] || 'dept-other';
+  }
+
+  // ── Animated counter ────────────────────────────────────────────
+  function animateCount(el, target, duration) {
+    const start = performance.now();
+    const update = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target);
+      if (p < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  // ── Skeleton loader ─────────────────────────────────────────────
+  function showSkeletons(n) {
+    cardsContainer.innerHTML = Array.from({length: n}, () => `
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="skeleton-card">
+          <div class="skel-header"></div>
+          <div class="skel-body">
+            <div class="skel-line skel-lg"></div>
+            <div class="skel-line skel-sm"></div>
+            <div class="skel-line skel-xs"></div>
+            <div class="skel-line"></div>
+          </div>
+        </div>
+      </div>`).join('');
+  }
+
+  // ── Hero stats ──────────────────────────────────────────────────
+  const depts = [...new Set(FACULTY.map(f => f.department))];
+  animateCount(totalCount, FACULTY.length, 1200);
+  animateCount(deptCount,  depts.length,   900);
+
+  // ── Populate filter dropdowns ────────────────────────────────────
+  depts.sort().forEach(d => {
+    const f = FACULTY.find(x => x.department === d);
+    const opt = new Option(f ? f.departmentFull : d, d);
+    deptFilter.appendChild(opt);
+  });
+  [...new Set(FACULTY.map(f => f.designation).filter(Boolean))].sort()
+    .forEach(d => desigFilter.appendChild(new Option(d, d)));
+
+  // ── Initials avatar ─────────────────────────────────────────────
+  function initials(name) {
+    return name.split(' ').filter(Boolean).slice(0,2).map(w => w[0].toUpperCase()).join('');
+  }
+
+  // ── Build a card ────────────────────────────────────────────────
+  function buildCard(f, idx) {
+    const dc = getDeptClass(f.department);
+    const ini = initials(f.name);
+    const qualHtml = (f.qualifications||[]).map(q => `<span class="qual-tag">${q}</span>`).join('');
+    const emailHtml = f.email
+      ? `<div class="info-block">
+           <div class="info-label">Email</div>
+           <div class="info-row"><i class="bi bi-envelope-fill"></i><a href="mailto:${f.email}">${f.email}</a></div>
+         </div>` : '';
+    const specHtml = f.specialization
+      ? `<div class="info-block">
+           <div class="info-label">Specialization</div>
+           <div class="info-row"><i class="bi bi-lightbulb"></i><span>${f.specialization}</span></div>
+         </div>` : '';
+    const qualBlock = qualHtml
+      ? `<div class="info-block">
+           <div class="info-label">Qualifications</div>
+           <div class="qual-wrap">${qualHtml}</div>
+         </div>` : '';
+    const noteHtml = f.note ? `<span class="card-note">${f.note}</span>` : '';
+
+    const col = document.createElement('div');
+    col.className = 'col-12 col-md-6 col-lg-4';
+    // stagger delay capped at 500ms
+    col.style.cssText = `opacity:0; transform:translateY(22px); transition: opacity .38s ease ${Math.min(idx*45,500)}ms, transform .38s ease ${Math.min(idx*45,500)}ms`;
+    col.innerHTML = `
+      <div class="teacher-card ${dc}">
+        <div class="card-accent-strip"></div>
+        <div class="card-top">
+          <div class="avatar">${ini}</div>
+          <div class="card-header-info">
+            ${noteHtml}
+            <p class="card-name">${f.name}</p>
+            <p class="card-designation">${f.designation||''}</p>
+            <div class="dept-name-row">
+              <i class="bi bi-building"></i>
+              <span class="dept-full-name">${f.departmentFull||f.department}</span>
+            </div>
+            <span class="dept-badge">${f.department}</span>
+          </div>
+        </div>
+        <div class="card-body-mu">
+          ${specHtml}${qualBlock}${emailHtml}
+        </div>
+        <div class="card-footer-mu">
+          <div class="card-actions">
+            <button class="btn-action btn-profile"><i class="bi bi-person-badge"></i> Profile</button>
+            ${f.email  ? `<a class="btn-action btn-email-action" href="mailto:${f.email}"><i class="bi bi-envelope"></i> Email</a>` : ''}
+            ${f.phone  ? `<a class="btn-action btn-phone-action" href="tel:${f.phone}"><i class="bi bi-telephone"></i> Call</a>` : ''}
+          </div>
+        </div>
+      </div>`;
+    return col;
+  }
+
+  // ── Render with stagger ──────────────────────────────────────────
+  function render(instant) {
+    const q = activeSearch.toLowerCase();
+    const filtered = FACULTY.filter(f => {
+      const matchSearch = !q ||
+        f.name.toLowerCase().includes(q) ||
+        (f.department||'').toLowerCase().includes(q) ||
+        (f.departmentFull||'').toLowerCase().includes(q) ||
+        (f.designation||'').toLowerCase().includes(q) ||
+        (f.specialization||'').toLowerCase().includes(q);
+      const matchDept  = !activeDept  || f.department === activeDept;
+      const matchDesig = !activeDesig || f.designation === activeDesig;
+      return matchSearch && matchDept && matchDesig;
+    });
+
+    const count = filtered.length;
+    gridLabel.textContent   = `${count} shown`;
+    resultCount.textContent = `${count} result${count!==1?'s':''} found`;
+    noResult.style.display  = count === 0 ? 'block' : 'none';
+
+    if (!instant) showSkeletons(Math.min(count, 6));
+
+    requestAnimationFrame(() => {
+      cardsContainer.innerHTML = '';
+      const frag = document.createDocumentFragment();
+      filtered.forEach((f, i) => frag.appendChild(buildCard(f, instant ? 0 : i)));
+      cardsContainer.appendChild(frag);
+      // trigger stagger
+      requestAnimationFrame(() => {
+        cardsContainer.querySelectorAll('.col-12').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        });
+      });
+    });
+
+    updateChips();
+  }
+
+  // ── Chips ────────────────────────────────────────────────────────
+  function updateChips() {
+    chipsRow.innerHTML = '';
+    const chips = [];
+    if (activeDept)   chips.push({ label: activeDept,           clear: () => { activeDept='';   deptFilter.value='';  render(true); } });
+    if (activeDesig)  chips.push({ label: activeDesig,          clear: () => { activeDesig='';  desigFilter.value=''; render(true); } });
+    if (activeSearch) chips.push({ label: `"${activeSearch}"`,  clear: () => { activeSearch=''; searchInput.value=''; render(true); } });
+
+    chips.forEach(c => {
+      const span = document.createElement('span');
+      span.className = 'chip';
+      span.innerHTML = `<i class="bi bi-building"></i>${c.label}<button class="chip-x">×</button>`;
+      span.querySelector('.chip-x').onclick = c.clear;
+      chipsRow.appendChild(span);
+    });
+    if (chips.length) {
+      const ca = document.createElement('button');
+      ca.className = 'chip chip-clear'; ca.textContent = 'Clear all';
+      ca.onclick = () => {
+        activeSearch=''; activeDept=''; activeDesig='';
+        searchInput.value=''; deptFilter.value=''; desigFilter.value='';
+        render(true);
+      };
+      chipsRow.appendChild(ca);
+    }
+    chipsRow.classList.toggle('hidden', chips.length === 0);
+  }
+
+  // ── Events ───────────────────────────────────────────────────────
+  searchInput.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { activeSearch = searchInput.value.trim(); render(true); }, 220);
+  });
+  deptFilter.addEventListener('change',  () => { activeDept  = deptFilter.value;  render(false); });
+  desigFilter.addEventListener('change', () => { activeDesig = desigFilter.value; render(false); });
+
+  // ── Initial render ───────────────────────────────────────────────
+  render(false);
+});
+</script>
+
+  // ── DOM refs ────────────────────────────────────────────────────
+  const cardsContainer = document.getElementById('cards-container');
+  const noResult       = document.getElementById('no-result');
+  const totalCount     = document.getElementById('total-count');
+  const deptCount      = document.getElementById('dept-count');
+  const gridLabel      = document.getElementById('grid-count-label');
+  const resultCount    = document.getElementById('result-count');
+  const searchInput    = document.getElementById('search-input');
+  const deptFilter     = document.getElementById('dept-filter');
+  const desigFilter    = document.getElementById('desig-filter');
+  const chipsRow       = document.getElementById('chips-row');
+
+  // ── State ───────────────────────────────────────────────────────
+  let activeSearch = '', activeDept = '', activeDesig = '';
 
   // ── Dept class map ──────────────────────────────────────────────
   function getDeptClass(dept) {
