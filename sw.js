@@ -15,7 +15,7 @@
  */
 
 // ── BUMP THIS VERSION EVERY DEPLOY ─────────────────────────────────────────
-const CACHE_VERSION = 'v1.1.0';
+const CACHE_VERSION = 'v1.2.0';
 // ───────────────────────────────────────────────────────────────────────────
 
 const CACHE_STATIC  = `mu-static-${CACHE_VERSION}`;
