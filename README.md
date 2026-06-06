@@ -4,6 +4,7 @@
 
 # MU ClassCraft
 ### Faculty Directory — Progressive Web App
+live link: https://mu-faculty-directory.vercel.app/
 
 **Metropolitan University, Sylhet · Bangladesh**
 
