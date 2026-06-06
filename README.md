@@ -242,7 +242,7 @@ For data corrections or additions, please open an **Issue** with the correct inf
 
 ## 👤 Author
 
-**Bikash Talukder** *(or your name)*
+**Bikash Talukder
 Student, Metropolitan University Sylhet
 
 > *This project was built independently, outside of any coursework, as a free resource for fellow students. If it helped you, consider giving it a ⭐ — it means a lot.*
@@ -261,6 +261,6 @@ The faculty data is publicly available information sourced from the Metropolitan
 **Metropolitan University, Sylhet, Bangladesh**
 [metropolitan.ac.bd](https://metropolitan.ac.bd)
 
-*Built with ❤️ for the students of Metropolitan University*
+*Built for the students of Metropolitan University*
 
 </div>
