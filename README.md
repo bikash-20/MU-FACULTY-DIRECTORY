@@ -17,7 +17,7 @@ live link: https://mu-faculty-directory.vercel.app/
 
 ---
 
-## 🌟 About This Project
+## About This Project
 
 **MU ClassCraft** is a community-built, open-source Progressive Web App I developed independently to help students at Metropolitan University instantly find faculty contact details, departments, designations, and qualifications — without navigating clunky university portals.
 
@@ -27,27 +27,27 @@ This is a **real-world, production-deployed application** used by students daily
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 | Feature | Description |
 |---|---|
-| 🔍 **Smart Search** | Real-time filter by name, department, and designation |
-| 🏛️ **8 Departments** | CSE, SWE, EEE, Data Science, English, Business Admin, Economics, Law & Justice |
-| 👨‍🏫 **153+ Faculty** | Comprehensive profiles with qualifications, specializations & email |
-| 📱 **Installable PWA** | Works like a native app on Android, iPhone, Windows, macOS |
-| ⚡ **Offline-First** | Full offline access after the first visit |
-| 🔄 **Auto Updates** | Users see an update toast — no manual cache clearing needed |
-| 🛠️ **Student Tools** | Built-in Cover Page Generator for lab reports & assignments |
-| 🎨 **Dept. Color Coding** | Each department has a distinct visual identity |
-| 🔔 **Push Ready** | Infrastructure in place for server-side push notifications |
-| 🗃️ **IndexedDB Hooks** | Background sync wired for future database integration |
-| 🌐 **Live Scraping** | `npm run scrape` pulls faculty from metrouni.edu.bd — 153 records, regenerated in ~12s |
-| ⚡ **Live Push** | SW broadcasts `FACULTY_UPDATED` on every new dataset — UI re-renders without a reload |
-| 🍎 **iOS Support** | Custom install guide for Safari users |
+|  **Smart Search** | Real-time filter by name, department, and designation |
+|  **8 Departments** | CSE, SWE, EEE, Data Science, English, Business Admin, Economics, Law & Justice |
+|  **153+ Faculty** | Comprehensive profiles with qualifications, specializations & email |
+|  **Installable PWA** | Works like a native app on Android, iPhone, Windows, macOS |
+|  **Offline-First** | Full offline access after the first visit |
+|  **Auto Updates** | Users see an update toast — no manual cache clearing needed |
+|  **Student Tools** | Built-in Cover Page Generator for lab reports & assignments |
+|  **Dept. Color Coding** | Each department has a distinct visual identity |
+|  **Push Ready** | Infrastructure in place for server-side push notifications |
+|  **IndexedDB Hooks** | Background sync wired for future database integration |
+|  **Live Scraping** | `npm run scrape` pulls faculty from metrouni.edu.bd — 153 records, regenerated in ~12s |
+|  **Live Push** | SW broadcasts `FACULTY_UPDATED` on every new dataset — UI re-renders without a reload |
+|  **iOS Support** | Custom install guide for Safari users |
 
 ---
 
-## 🖥️ Screenshots
+## Screenshots
 
 <div align="center">
 
@@ -59,7 +59,7 @@ This is a **real-world, production-deployed application** used by students daily
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 mu-classcraft/
@@ -79,12 +79,12 @@ mu-classcraft/
     ├── icon-192.png     │
     ├── icon-384.png     │
     ├── icon-512.png    ─┘
-    └── icon-square.png  ← Maskable icon (Android adaptive)
+    └── icon-square.png   Maskable icon (Android adaptive)
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### View Locally
 
@@ -103,54 +103,54 @@ npx serve .
 # Then open http://localhost:8000
 ```
 
-> ⚠️ Service Workers require `localhost` or `https://` — opening `index.html` directly as a `file://` URL will register the SW but some features may behave differently.
+>  Service Workers require `localhost` or `https://` — opening `index.html` directly as a `file://` URL will register the SW but some features may behave differently.
 
 ### Deploy Your Own
 
 1. Fork this repository
-2. Connect to [Vercel](https://vercel.com) → Import Project
+2. Connect to [Vercel](https://vercel.com)  Import Project
 3. No build settings needed — it's a pure static site
-4. Vercel provides HTTPS automatically ✅
+4. Vercel provides HTTPS automatically 
 
 ```bash
 # Push an update
 git add .
 git commit -m "feat: add new faculty data"
 git push
-# ↑ Vercel deploys in ~30 seconds. Users see the update toast automatically.
+# Vercel deploys in ~30 seconds. Users see the update toast automatically.
 ```
 
 ---
 
-## ⚙️ Service Worker Architecture
+## Service Worker Architecture
 
 ```
 Page Load
     │
-    ├─ HTML document    → Network-First  (always fresh when online)
+    ├─ HTML document     Network-First  (always fresh when online)
     │                      └─ Cache fallback if offline
     │
-    ├─ CDN assets       → Stale-While-Revalidate
+    ├─ CDN assets        Stale-While-Revalidate
     │  (Bootstrap, Fonts)   └─ Serve cache instantly, update in background
     │
-    ├─ Images           → Cache-First    (long TTL, bandwidth-efficient)
+    ├─ Images            Cache-First    (long TTL, bandwidth-efficient)
     │
-    └─ Local JS/CSS     → Cache-First    (instant from cache)
+    └─ Local JS/CSS      Cache-First    (instant from cache)
 ```
 
 **Update flow:**
 ```
 You push to GitHub
-    → Vercel deploys (~30s)
-    → SW polls for update (every 60s or on page load)
-    → New SW downloads silently in background
-    → "New version ready — Refresh" toast appears
-    → User clicks Refresh → instant reload with new content
+     Vercel deploys (~30s)
+     SW polls for update (every 60s or on page load)
+     New SW downloads silently in background
+     "New version ready — Refresh" toast appears
+     User clicks Refresh  instant reload with new content
 ```
 
 ---
 
-## 🌐 Live Data Pipeline
+## Live Data Pipeline
 
 Faculty data isn't hand-typed — it's pulled live from `metrouni.edu.bd` on demand:
 
@@ -180,7 +180,7 @@ The badge hides itself gracefully if `faculty.json` is missing a `generatedAt` f
 
 ---
 
-## 🗃️ Extending the App
+## Extending the App
 
 ### Add / Refresh Faculty Data
 
@@ -199,7 +199,7 @@ The scraper:
 - Splits multi-line designations (e.g. "Associate Professor / Head, Dept. of CSE")
 - Detects "Dean, …" / "Head, …" / "Coordinator, …" prefixes and routes them to a `note` field
 - **Preserves** the email, phone, qualifications, and specialization you already have on file for each person (matched by `name + department`)
-- Sorts the output by department → designation rank (Professor → Lecturer → TA) → name
+- Sorts the output by department  designation rank (Professor  Lecturer  TA)  name
 - Writes an envelope:
 
 ```json
@@ -217,7 +217,7 @@ If the university adds or removes someone, re-running `npm run scrape` regenerat
 
 ```js
 // sw.js — line 17
-const CACHE_VERSION = 'v1.3.0';  // ← increment on every deploy
+const CACHE_VERSION = 'v1.3.0';  //  increment on every deploy
 ```
 
 ### Add a New Department
@@ -226,7 +226,7 @@ const CACHE_VERSION = 'v1.3.0';  // ← increment on every deploy
 // In getDeptClass()
 const map = {
   CSE: 'dept-cse',
-  NEW: 'dept-new',   // ← add here
+  NEW: 'dept-new',   //  add here
   // ...
 };
 
@@ -235,19 +235,19 @@ const map = {
 
 ---
 
-## 📲 Installation Guide
+## Installation Guide
 
 | Platform | Browser | Method |
 |---|---|---|
 | **Android** | Chrome / Edge | Install banner appears automatically |
-| **iPhone / iPad** | Safari | Tap **Share ⬆** → *Add to Home Screen* |
+| **iPhone / iPad** | Safari | Tap **Share **  *Add to Home Screen* |
 | **Windows** | Chrome / Edge | Click ⊕ install icon in address bar |
 | **macOS** | Chrome | Click ⊕ install icon in address bar |
 | **Linux** | Chrome | Click ⊕ install icon in address bar |
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 This project intentionally uses **zero dependencies** beyond CDN-delivered UI libraries:
 
@@ -263,13 +263,13 @@ This project intentionally uses **zero dependencies** beyond CDN-delivered UI li
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Faculty directory with search & filter
 - [x] PWA — installable + offline
 - [x] Auto-update via service worker
 - [x] Cover Page Generator (Student Tools)
-- [x] Live data pipeline — scrape → JSON → SW broadcast → re-render
+- [x] Live data pipeline — scrape  JSON  SW broadcast  re-render
 - [ ] Per-faculty profile modal with full qualifications + "View on MU site" deep link
 - [ ] Department-level live stats panel (count per dept, last refresh time)
 - [ ] Auto-schedule scrape via GitHub Actions (cron)
@@ -280,7 +280,7 @@ This project intentionally uses **zero dependencies** beyond CDN-delivered UI li
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome — especially faculty data corrections and additions.
 
@@ -293,16 +293,16 @@ For data corrections or additions, please open an **Issue** with the correct inf
 
 ---
 
-## 👤 Author
+## Author
 
 **Bikash Talukder
 Student, Metropolitan University Sylhet
 
-> *This project was built independently, outside of any coursework, as a free resource for fellow students. If it helped you, consider giving it a ⭐ — it means a lot.*
+> *This project was built independently, outside of any coursework, as a free resource for fellow students. If it helped you, consider giving it a  — it means a lot.*
 
 ---
 
-## 📄 License
+## License
 
 This project is open-source under the [MIT License](LICENSE).
 The faculty data is publicly available information sourced from the Metropolitan University official website.
