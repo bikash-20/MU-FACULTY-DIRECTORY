@@ -261,6 +261,50 @@
       margin-top: 4px;
     }
 
+    /* Live-data freshness badge */
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 7px 14px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(201,168,76,.35);
+      border-radius: 999px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .live-badge[hidden] { display: none; }
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #2dd4a4;
+      box-shadow: 0 0 0 0 rgba(45,212,164,.55);
+      animation: livePulse 2.4s ease-in-out infinite;
+    }
+    @keyframes livePulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(45,212,164,.55); }
+      50%     { box-shadow: 0 0 0 7px rgba(45,212,164,0);  }
+    }
+    .live-label {
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #2dd4a4;
+    }
+    .live-meta { opacity: .7; }
+    .live-badge a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed currentColor;
+    }
+    .live-badge a:hover { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .live-dot { animation: none; }
+    }
+
     /* ══ STICKY SEARCH BAR ══════════════════════════════════════ */
     .search-wrap {
       background: rgba(255,255,255,.97);
@@ -900,6 +944,16 @@
           Find your teacher's contact, department, designation,
           and qualifications instantly.
         </p>
+
+        <!-- Live-data freshness badge -->
+        <div class="live-badge" id="live-badge" hidden>
+          <span class="live-dot" aria-hidden="true"></span>
+          <span class="live-label">Live</span>
+          <span class="live-meta">
+            Updated <time id="live-updated" datetime="">just now</time>
+            · <a href="#" id="live-refresh" rel="noopener">refresh</a>
+          </span>
+        </div>
       </div>
 
       <div class="col-lg-5">
@@ -1080,12 +1134,28 @@
 
 <script>
 let FACULTY = [];
+let FACULTY_META = { generatedAt: null, source: null, count: 0 };
 let _facultyReady = false;
 
-fetch('faculty.json')
+/**
+ * faculty.json shape (v1.3+):
+ *   { generatedAt, source, count, faculty: [...] }
+ * Older revisions (v1.2 and prior) shipped a bare array. We accept both
+ * shapes so a downgrade of faculty.json never breaks the page.
+ */
+fetch('faculty.json', { cache: 'no-cache' })
   .then(r => r.json())
   .then(data => {
-    FACULTY = data;
+    if (Array.isArray(data)) {
+      FACULTY = data;
+    } else {
+      FACULTY = Array.isArray(data.faculty) ? data.faculty : [];
+      FACULTY_META = {
+        generatedAt: data.generatedAt || null,
+        source:      data.source      || null,
+        count:       data.count       || FACULTY.length,
+      };
+    }
     _facultyReady = true;
     document.dispatchEvent(new Event('faculty-ready'));
   })
@@ -1244,6 +1314,50 @@ function initApp() {
   // Stats
   animateCount(totalCount, FACULTY.length, 1200);
   animateCount(deptCount, depts.length, 900);
+
+  // ── Live data freshness badge ──────────────────────────────────────
+  const liveBadge   = document.getElementById('live-badge');
+  const liveUpdated = document.getElementById('live-updated');
+  const liveRefresh = document.getElementById('live-refresh');
+  if (liveBadge && FACULTY_META.generatedAt) {
+    const ts = new Date(FACULTY_META.generatedAt);
+    const fmt = () => {
+      const diff = Math.round((Date.now() - ts.getTime()) / 1000);
+      let s;
+      if (diff < 60)         s = `${diff}s ago`;
+      else if (diff < 3600)  s = `${Math.round(diff/60)}m ago`;
+      else if (diff < 86400) s = `${Math.round(diff/3600)}h ago`;
+      else                   s = `${Math.round(diff/86400)}d ago`;
+      return s;
+    };
+    liveUpdated.textContent = fmt();
+    liveUpdated.setAttribute('datetime', ts.toISOString());
+    liveUpdated.setAttribute('title',    ts.toLocaleString());
+    liveBadge.hidden = false;
+    // refresh relative time every 30s
+    setInterval(() => { liveUpdated.textContent = fmt(); }, 30_000);
+    if (liveRefresh) {
+      liveRefresh.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Bypass SW cache for the JSON and re-run render
+        fetch('faculty.json?_=' + Date.now(), { cache: 'no-cache' })
+          .then(r => r.json())
+          .then(data => {
+            if (Array.isArray(data)) FACULTY = data;
+            else if (Array.isArray(data.faculty)) {
+              FACULTY = data.faculty;
+              FACULTY_META = {
+                generatedAt: data.generatedAt || null,
+                source:      data.source      || null,
+                count:       data.count       || FACULTY.length,
+              };
+            }
+            render(true);
+          })
+          .catch(err => console.warn('[MU] refresh failed', err));
+      });
+    }
+  }
 
   // Events — registered once
   searchInput.addEventListener('input', () => {
@@ -1533,14 +1647,36 @@ if (typeof _facultyReady !== 'undefined' && _facultyReady) initApp();
           });
         });
 
-        // Listen for SW_UPDATED message from new SW after it activates
+        // Listen for messages from the service worker
         navigator.serviceWorker.addEventListener('message', (event) => {
-          if (event.data?.type === 'SW_UPDATED') {
+          if (!event.data) return;
+          if (event.data.type === 'SW_UPDATED') {
             console.log('[PWA] SW updated to:', event.data.version);
-            // Only reload if user hasn't been asked (avoids double toast)
           }
-          if (event.data?.type === 'RELOAD') {
+          if (event.data.type === 'RELOAD') {
             window.location.reload();
+          }
+          if (event.data.type === 'FACULTY_UPDATED') {
+            // SW detected a new faculty.json — re-fetch and re-render
+            fetch('faculty.json?_=' + Date.now(), { cache: 'no-cache' })
+              .then(r => r.json())
+              .then(data => {
+                if (Array.isArray(data)) {
+                  FACULTY = data;
+                  FACULTY_META = { generatedAt: null, source: null, count: FACULTY.length };
+                } else if (Array.isArray(data.faculty)) {
+                  FACULTY = data.faculty;
+                  FACULTY_META = {
+                    generatedAt: data.generatedAt || null,
+                    source:      data.source      || null,
+                    count:       data.count       || FACULTY.length,
+                  };
+                }
+                if (typeof initApp === 'function' && document.getElementById('search-input')) {
+                  initApp();
+                }
+              })
+              .catch(err => console.warn('[MU] live update failed', err));
           }
         });
 
