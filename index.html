@@ -1498,11 +1498,12 @@ if (typeof _facultyReady !== 'undefined' && _facultyReady) initApp();
     padding: 10px 18px;
     font-size: .82rem;
   }
-  /* Hide toast completely once dismissed so it can't be re-tapped */
-  .pwa-update-toast:not(.show) {
-    pointer-events: none;
-    visibility: hidden;
-  }
+}
+/* Hide toast completely once dismissed on every viewport */
+.pwa-update-toast:not(.show) {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
 }
 </style>
 
@@ -1723,14 +1724,33 @@ if (typeof _facultyReady !== 'undefined' && _facultyReady) initApp();
   }
 
   /* -- Update Toast Logic ------------------------------------- */
+  const TOAST_DISMISSED_KEY = 'mu-pwa-toast-dismissed';
+
   function hideUpdateToast() {
+    // Remember the dismissal for the rest of the session so the SW
+    // update poll can't re-show the toast immediately after.
+    try { sessionStorage.setItem(TOAST_DISMISSED_KEY, '1'); } catch (_) {}
+
     updateToast.classList.remove('show');
-    // Belt-and-suspenders: kill pointer events + visibility right away so the
-    // user can't re-trigger while the slide-out animation is still running.
     updateToast.style.pointerEvents = 'none';
+    // After the CSS slide-out finishes, fully remove the element from
+    // pointer/visual flow so it cannot be tapped again.
+    const onEnd = () => {
+      updateToast.style.visibility = 'hidden';
+      updateToast.removeEventListener('transitionend', onEnd);
+    };
+    updateToast.addEventListener('transitionend', onEnd);
+    // Safety: if no transitionend fires (some browsers), force-hide after 600ms
+    setTimeout(onEnd, 600);
   }
 
   function showUpdateToast() {
+    // Respect a prior dismissal within the same session.
+    try {
+      if (sessionStorage.getItem(TOAST_DISMISSED_KEY) === '1') return;
+    } catch (_) {}
+
+    updateToast.style.visibility = '';
     updateToast.style.pointerEvents = '';
     setTimeout(() => updateToast.classList.add('show'), 800);
   }
@@ -1745,14 +1765,21 @@ if (typeof _facultyReady !== 'undefined' && _facultyReady) initApp();
     }
   });
 
-  laterBtn.addEventListener('click', (e) => {
+  // Use pointerdown so the dismiss fires even if click is swallowed by
+  // bubbling, by an ancestor transition, or by mobileSafari quirks.
+  function dismissOnTap(e) {
     e.preventDefault();
     e.stopPropagation();
     hideUpdateToast();
+  }
+  laterBtn.addEventListener('pointerdown', dismissOnTap);
+  laterBtn.addEventListener('click',      dismissOnTap);
+  // Catch keyboard activation (Accessibility — Enter/Space on the × button)
+  laterBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') dismissOnTap(e);
   });
 
-  // Allow tapping anywhere outside the toast to dismiss it on mobile,
-  // where the close button may be hard to reach behind the thumb.
+  // Tap outside the toast (anywhere on the page) also dismisses it.
   updateToast.addEventListener('click', (e) => e.stopPropagation());
   document.addEventListener('click', (e) => {
     if (!updateToast.classList.contains('show')) return;
