@@ -1461,23 +1461,47 @@ if (typeof _facultyReady !== 'undefined' && _facultyReady) initApp();
 .pwa-toast-btn-refresh:hover { background: #e8c970; }
 .pwa-toast-btn-later {
   background: rgba(255,255,255,.1); color: #fff; border: none;
-  padding: 8px 10px; border-radius: 7px;
-  font-size: .78rem; cursor: pointer;
+  padding: 0; border-radius: 7px;
+  font-size: 1rem; cursor: pointer;
+  min-width: 36px; min-height: 32px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background .2s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .pwa-toast-btn-later:hover { background: rgba(255,255,255,.2); }
+.pwa-toast-btn-later:active { background: rgba(255,255,255,.3); transform: scale(.95); }
+.pwa-toast-x { display: inline-block; line-height: 1; font-weight: 400; }
 @media (max-width: 500px) {
   .pwa-update-toast {
     top: auto;
     bottom: calc(90px + env(safe-area-inset-bottom, 0px));
     right: 8px; left: 8px;
     max-width: unset;
-    transform: translateY(120%);
+    transform: translateY(150%);
     font-size: .82rem;
+    padding: 12px 14px;
   }
   .pwa-update-toast.show { transform: translateY(0); }
   /* When install banner is also showing, push toast higher */
   body.banner-visible .pwa-update-toast {
     bottom: calc(160px + env(safe-area-inset-bottom, 0px));
+  }
+  /* Larger, easier-to-tap close button on mobile (≥44px Apple HIG / Material) */
+  .pwa-toast-btn-later {
+    min-width: 44px; min-height: 44px;
+    border-radius: 10px;
+    font-size: 1.25rem;
+  }
+  .pwa-toast-btn-refresh {
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: .82rem;
+  }
+  /* Hide toast completely once dismissed so it can't be re-tapped */
+  .pwa-update-toast:not(.show) {
+    pointer-events: none;
+    visibility: hidden;
   }
 }
 </style>
@@ -1509,8 +1533,10 @@ if (typeof _facultyReady !== 'undefined' && _facultyReady) initApp();
     <span>Refresh to get the latest update</span>
   </div>
   <div class="toast-actions">
-    <button class="pwa-toast-btn-refresh" id="pwa-refresh-btn">Refresh</button>
-    <button class="pwa-toast-btn-later"   id="pwa-later-btn"><i class="bi bi-x"></i></button>
+    <button type="button" class="pwa-toast-btn-refresh" id="pwa-refresh-btn">Refresh</button>
+    <button type="button" class="pwa-toast-btn-later"   id="pwa-later-btn" aria-label="Dismiss update notification">
+      <span class="pwa-toast-x" aria-hidden="true">&times;</span>
+    </button>
   </div>
 </div>
 
@@ -1697,12 +1723,20 @@ if (typeof _facultyReady !== 'undefined' && _facultyReady) initApp();
   }
 
   /* -- Update Toast Logic ------------------------------------- */
+  function hideUpdateToast() {
+    updateToast.classList.remove('show');
+    // Belt-and-suspenders: kill pointer events + visibility right away so the
+    // user can't re-trigger while the slide-out animation is still running.
+    updateToast.style.pointerEvents = 'none';
+  }
+
   function showUpdateToast() {
+    updateToast.style.pointerEvents = '';
     setTimeout(() => updateToast.classList.add('show'), 800);
   }
 
   refreshBtn.addEventListener('click', () => {
-    updateToast.classList.remove('show');
+    hideUpdateToast();
     if (waitingSW) {
       waitingSW.postMessage({ type: 'SKIP_WAITING' });
       // controllerchange event will trigger reload
@@ -1711,11 +1745,20 @@ if (typeof _facultyReady !== 'undefined' && _facultyReady) initApp();
     }
   });
 
-  laterBtn.addEventListener('click', () => {
-    updateToast.classList.remove('show');
+  laterBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hideUpdateToast();
   });
 
-})();
+  // Allow tapping anywhere outside the toast to dismiss it on mobile,
+  // where the close button may be hard to reach behind the thumb.
+  updateToast.addEventListener('click', (e) => e.stopPropagation());
+  document.addEventListener('click', (e) => {
+    if (!updateToast.classList.contains('show')) return;
+    if (updateToast.contains(e.target)) return;
+    hideUpdateToast();
+  });
 </script>
 </body>
 </html>
