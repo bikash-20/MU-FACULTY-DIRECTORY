@@ -1,13 +1,16 @@
 /**
  * ╔══════════════════════════════════════════════════════════╗
- * ║   MU ClassCraft — Service Worker  v1.1.0                ║
+ * ║   MU ClassCraft — Service Worker  v1.3.0                ║
  * ║   Metropolitan University Faculty Directory             ║
  * ║                                                          ║
  * ║   Strategy:                                              ║
- * ║   • App Shell  → Cache-First (instant load)             ║
- * ║   • Pages      → Network-First with cache fallback      ║
- * ║   • Assets     → Stale-While-Revalidate                 ║
- * ║   • Updates    → skipWaiting for instant deployment     ║
+ * ║   • App Shell    → Cache-First (instant load)           ║
+ * ║   • Pages        → Network-First with cache fallback    ║
+ * ║   • Assets       → Stale-While-Revalidate               ║
+ * ║   • faculty.json → Network-First + client broadcast    ║
+ * ║                   whenever the payload changes so the    ║
+ * ║                   page can re-render with the new data.  ║
+ * ║   • Updates      → skipWaiting for instant deployment   ║
  * ║                                                          ║
  * ║   IndexedDB sync hooks are ready — add your logic       ║
  * ║   inside the 'sync' event handler below.                ║
@@ -15,8 +18,13 @@
  */
 
 // ── BUMP THIS VERSION EVERY DEPLOY ─────────────────────────────────────────
-const CACHE_VERSION = 'v1.2.0';
+const CACHE_VERSION = 'v1.3.0';
 // ───────────────────────────────────────────────────────────────────────────
+
+// Bump this whenever the faculty.json schema changes in a way that requires
+// the client to refetch and rebuild state. The SW will refuse to serve a
+// stale cached copy to clients on this version.
+const FACULTY_SCHEMA = 'envelope-1.3';
 
 const CACHE_STATIC  = `mu-static-${CACHE_VERSION}`;
 const CACHE_DYNAMIC = `mu-dynamic-${CACHE_VERSION}`;
@@ -118,8 +126,11 @@ self.addEventListener('fetch', (event) => {
   if (!request.url.startsWith('http')) return;
 
   // ── Strategy 1: faculty.json → Network-First (always fresh data) ────────
+  // We cache the latest copy and broadcast a `FACULTY_UPDATED` message so any
+  // open tab can swap in the new payload without waiting for the user to
+  // pull-to-refresh.
   if (url.pathname.endsWith('faculty.json')) {
-    event.respondWith(networkFirstWithFallback(request, CACHE_STATIC));
+    event.respondWith(networkFirstFaculty(request, CACHE_STATIC));
     return;
   }
 
@@ -174,6 +185,46 @@ async function networkFirstWithFallback(request, cacheName) {
     return new Response('Offline — please check your connection.', {
       status: 503,
       headers: { 'Content-Type': 'text/plain' }
+    });
+  }
+}
+
+/**
+ * Network-First for faculty.json that also broadcasts an update message
+ * whenever the network response differs from the cached one. The page
+ * listens for that message and re-renders with the new data.
+ */
+async function networkFirstFaculty(request, cacheName) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(request);
+  try {
+    const networkResponse = await fetch(request);
+    if (networkResponse && networkResponse.status === 200) {
+      // Compare generatedAt / count to know whether anything changed
+      const fresh = networkResponse.clone();
+      let changed = true;
+      try {
+        const freshJson   = await fresh.json();
+        const cachedJson  = cached ? await cached.clone().json() : null;
+        const freshSig    = (freshJson && freshJson.generatedAt) || JSON.stringify(freshJson).length;
+        const cachedSig   = (cachedJson && cachedJson.generatedAt) || (cachedJson ? JSON.stringify(cachedJson).length : null);
+        changed = freshSig !== cachedSig;
+      } catch { /* ignore — treat as changed */ }
+
+      // Only put non-opaque 200s in the cache
+      cache.put(request, networkResponse.clone());
+      if (changed) {
+        const allClients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+        allClients.forEach((c) => c.postMessage({ type: 'FACULTY_UPDATED', at: Date.now() }));
+      }
+      return networkResponse;
+    }
+    throw new Error('Bad network response');
+  } catch {
+    if (cached) return cached;
+    return new Response(JSON.stringify({ faculty: [] }), {
+      status: 503,
+      headers: { 'Content-Type': 'application/json' }
     });
   }
 }
